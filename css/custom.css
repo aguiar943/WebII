@@ -22,13 +22,56 @@ table.center {
 
 .banner-h{
 
-    height: 10vh !important;
-    width: 100% !important;
+    height: 6vh !important;
+    
 
 }
 
 .menu-h{
 
-    height: 5vh !important;
+    height: 5.2vh !important;
+    
 
 }
+
+
+.search{
+    height: 100% !important;
+}
+
+.search-mg{
+    
+    margin-top: 0.1vh !important;
+    margin-bottom: 0.3vh !important;
+
+    border-bottom-left-radius: 6px !important;
+    border-top-left-radius: 6px !important;
+
+    color: #a3a0a0;
+    font-size: small;
+    outline: none !important;
+
+
+}
+
+
+.lupa-mg{
+
+    margin-top: 0.1vh !important;
+    margin-bottom: 0.4vh !important;
+
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+
+}
+
+ .conta, .conta a{
+
+    text-decoration: none !important;
+}
+
+.conta, .conta a:visited{
+
+    color: black !important;
+}
+
