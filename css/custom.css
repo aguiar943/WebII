@@ -1,5 +1,5 @@
 table, th, td {
-    border: 1px solid black;
+    
 }
 table.center {
     margin-left: auto;
@@ -22,43 +22,38 @@ table.center {
 
 .banner-h{
 
-    height: 6vh !important;
-    
+    height: 6vh;
 
 }
 
 .menu-h{
 
-    height: 5.2vh !important;
+    height: 5.2vh ;
     
-
 }
 
-
 .search{
-    height: 100% !important;
+    height: 100% ;
 }
 
 .search-mg{
     
-    margin-top: 0.1vh !important;
-    margin-bottom: 0.3vh !important;
+    margin-top: 0.1vh;
+    margin-bottom: 0.3vh;
 
-    border-bottom-left-radius: 6px !important;
-    border-top-left-radius: 6px !important;
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
 
     color: #a3a0a0;
     font-size: small;
     outline: none !important;
 
-
 }
-
 
 .lupa-mg{
 
-    margin-top: 0.1vh !important;
-    margin-bottom: 0.4vh !important;
+    margin-top: 0.1vh;
+    margin-bottom: 0.4vh;
 
     border-bottom-left-radius: 0px !important;
     border-top-left-radius: 0px !important;
@@ -67,11 +62,103 @@ table.center {
 
  .conta, .conta a{
 
-    text-decoration: none !important;
+    text-decoration: none ;
 }
 
 .conta, .conta a:visited{
 
-    color: black !important;
+    color: black;
 }
+
+
+.submenu ul{ /* lista ( ul ) do submenu vai para a direita */
+
+    margin-left: 18.4vh;
+    
+}
+
+
+.menu ul, .submenu ul{
+
+    list-style: none;
+    float: left ;
+    padding-left: 0 ;
+   
+
+}
+
+.menu li, .submenu li{ 
+
+    position: relative;
+    width: 20% ;
+    height: 230% ;
+    
+}
+
+.menu li ul{
+
+    display: none;
+    position: absolute ;
+    list-style: none ;    
+    
+}
+
+.submenu ul li{
+
+    display: none;
+
+    /* position... none */
+    list-style: none ; 
+
+    /* Os itens da lista ( li ) do submenu ficam um abaixo do outro alinhados pela esquerda */
+    float: left;
+
+    margin-left: 3vh !important;
+
+    /* itens da lista ( li ) do submenu vão para a direita */
+    right: 3vh;
+   
+
+    /* itens da lista ( li ) do submenu vão mais para cima */
+
+
+    /* background-color: red; */
+  
+}
+
+.menu li:hover ul{
+
+    display: block !important;
+    z-index: 1 ;
+    
+    background-color: rgb(241, 241, 241);
+    
+
+}
+
+.submenu:hover ul li{
+
+    display: inline !important;
+    z-index: 2 ;
+    background-color: rgb(241, 241, 241);
+    
+   
+}
+
+.submenu:hover ul, .products-list{
+
+    border: 1px solid rgb(216, 216, 216) !important;
+    
+}
+
+.area-top{
+
+    background-color: rgb(245, 245, 245);
+    
+}
+
+.area-menu{
+    background-color: rgb(240, 240, 240);
+}
+
 
