@@ -78,10 +78,20 @@
 							<input type="text" class="form-control" id="idMarcaProduto" placeholder="Marca">
 						</div>
 						<div class="form-group col-md-2">
-							<input type="text" class="form-control" id="idMarcaProduto" placeholder="NCM">
+							<input type="text" class="form-control" id="idNCMProduto" placeholder="NCM">
 						</div>
 					</div>
-				</div>	
+				</div>
+				<div class="form-floating mb-3">
+					<div class="form-group col-md-7">
+						<select class="form-control" id="idFornecedoreProduto">
+							<option></option>
+						  </select>
+					</div>
+				</div>
+				
+				
+
 				<hr class="my-4">
 				<small class="text-muted"></small>
 				<button class="w-100 btn btn btn-success" type="submit">Cadastrar</button><br><br>
