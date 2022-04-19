@@ -151,13 +151,13 @@
 
                                         <li class = "submenu w-100  d-flex align-items-center  rounded" > <!-- border border-dark -->
                                             
-                                            <div class = "w-75" > Informática </div> <!-- level 2 -->
+                                            <div class = "w-75" ><a href="model/cadastro_produtos.php">Produtos</div> <!-- level 2 -->
                                             
                                             <i class="fa-solid fa-angle-right ms-2"></i>
                                                 
                                             <ul class = "w-100 mt-5 " > <!-- level 3 -->
 
-                                                <li class = "me-1 w-100 rounded" > Monitores </li> <!-- border border-dark -->
+                                                <li class = "me-1 w-100 rounded" ><a href="model/novo_produto.php">Inclui</div></li> <!-- border border-dark -->
 
                                                 <li class = "w-100 rounded" > Placa de Vídeo </li>
 
@@ -219,30 +219,30 @@
 
                                 <li class = "w-25 rounded" >
 
-<div class = "mt-1" >  
-    
-    Fornecedores
+                                <div class = "mt-1" >  
+                                    
+                                    Fornecedores
 
-    <i class="fa-solid fa-angle-down"></i>
+                                    <i class="fa-solid fa-angle-down"></i>
 
-</div>
+                                </div>
 
-<ul class = "mt-2 me-1 w-100 products-list" > 
+                                <ul class = "mt-2 me-1 w-100 products-list" > 
 
-    <li class = "submenu w-100  d-flex align-items-center  rounded" > <!-- border border-dark -->
-        
-        <div class = "w-75" ><a href="model/cadastro_fornecedores.php"> Cadastro </a> </div> <!-- level 2 -->
-        
- 
-    </li>
+                                    <li class = "submenu w-100  d-flex align-items-center  rounded" > <!-- border border-dark -->
+                                        
+                                        <div class = "w-75" ><a href="model/cadastro_fornecedores.php"> Cadastro </a> </div> <!-- level 2 -->
+                                        
+                                
+                                    </li>
 
-    <li class = "submenu w-100 h-25 d-flex align-items-center text-center rounded " > 
-        
-        <div class = "w-75" ><a href="model/novo_fornecedor.php">Inclusão</div> <!-- level 2 -->
-        
-    </li>
+                                    <li class = "submenu w-100 h-25 d-flex align-items-center text-center rounded " > 
+                                        
+                                        <div class = "w-75" ><a href="model/novo_fornecedor.php">Inclusão</div> <!-- level 2 -->
+                                        
+                                    </li>
 
-</li>
+                                </li>
                             </ul>	
 
                         </div>
