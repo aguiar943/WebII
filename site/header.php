@@ -238,7 +238,7 @@
 
                                         <li class = "submenu w-100 h-25 d-flex align-items-center text-center rounded " > 
                                             
-                                            <div class = "w-75" ><a href="model/novo_produto.php">Inclusão</div> <!-- level 2 -->
+                                            <div class = "w-75" ><a href="model/novo_produto.php">Inclusão</a></div> <!-- level 2 -->
                                             
                                         </li>
                                 </li>
@@ -264,7 +264,7 @@
 
                                         <li class = "submenu w-100 h-25 d-flex align-items-center text-center rounded " > 
                                             
-                                            <div class = "w-75" ><a href="model/novo_fornecedor.php">Inclusão</div> <!-- level 2 -->
+                                            <div class = "w-75" ><a href="model/novo_fornecedor.php">Inclusão</a></div> <!-- level 2 -->
                                             
                                         </li>
 
