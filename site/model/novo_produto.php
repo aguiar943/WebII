@@ -20,15 +20,26 @@
   </header>
   <div class="" role="document">
 	<div class="modal-content rounded-5 shadow">
-		<form class="p-4 p-md-5 border rounded-3 bg-light">
-			<div class="modal-header p-6 pb-4 border-bottom-0">
+		<form class="p-4 p-md-5 border rounded- bg-light">
+			<div class="modal-header p-6 pb-3 border-bottom-0">
 					<h4 class="fw-bold mb-0">CADASTRO - PRODUTOS</h4>
+				</div>
+				<div class="form-floating mb-3">
+					<div class="row">
+						<div class="text-center">
+							<img src="../imagens/logosemfundo.png" width="300" height="70" class="rounded" alt="...">
+						  </div>
+					</div>
 				</div>
 				<div class="form-floating mb-3">
 					<div class="row">
 						<div class="form-group col-md-3">
 							<input type="text" class="form-control" id="idBarrasProduto" placeholder="Código Barras">
 						</div>
+						<div class="form-group col-md-3">
+							<input type="text" class="form-control" id="idReferenciaProduto" placeholder="Código Referencia">
+						</div>
+						
 					</div>
 				</div>
 
@@ -41,29 +52,33 @@
 				</div>
 				<div class="form-floating mb-3">
 					<div class="row">
-						<div class="col">
-							<input type="text" class="form-control" id="idEnderecoFornecedor" placeholder="Endereco">
+						<div class="form-group col-md-2">
+							<input type="text" class="form-control" id="idCustoProduto" placeholder="Preço Custo">
 						</div>
 						<div class="form-group col-md-2">
-							<input type="text" class="form-control" id="idNFornecedor" placeholder="N°">
+							<input type="text" class="form-control" id="idVendaProduto" placeholder="Preço Venda">
 						</div>
-						<div class="form-group col-md-4">
-							<input type="text" class="form-control" id="idComplementoFornecedor" placeholder="Complemento">
+						<div class="form-group col-md-1">
+							<select class="form-control" id="idUnidadeProduto">
+								<option></option>
+								<option>UN</option>
+								<option>PC</option>
+								<option>MT</option>
+								<option>KG</option>	
+							  </select>
+						</div>
+						<div class="form-group col-md-2">
+							<input type="text" class="form-control" id="idEstoqueProduto" placeholder="Estoque">
 						</div>
 					</div>
 				</div>
-
 				<div class="form-floating mb-3">
 					<div class="row">
-						<div class="col">
-							<input type="text" class="form-control" id="idCidadeFornecedor" placeholder="Cidade">
-						</div>
-						<div class="form-group col-md-2">
-							<input type="text" class="form-control" id="idUFFornecedor" placeholder="UF">
+						<div class="form-group col-md-7">
+							<input type="text" class="form-control" id="idMarcaProduto" placeholder="Marca">
 						</div>
 					</div>
-				</div>
-				
+				</div>	
 				<hr class="my-4">
 				<small class="text-muted"></small>
 				<button class="w-100 btn btn btn-success" type="submit">Cadastrar</button><br><br>
