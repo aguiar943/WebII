@@ -13,6 +13,7 @@
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
         <meta name="generator" content="Hugo 0.88.1">
+        <link rel="icon" href="imagens/simbolo.png" />
         <title>Checkout example · Bootstrap v5.1</title>
 
         <link href="../css/custom.css" rel="stylesheet" >     
@@ -49,7 +50,7 @@
 
                         <div class = "col-xl-12" > 
 
-                            <img src = "../imagens/logo.png" class = " w-100 h-100 mb-4 rounded" >
+                            <img src = "imagens/logosemfundo.png" class = " w-100 h-100 mb-4 rounded" >
                             
                         </div>
 
@@ -94,7 +95,7 @@
 
                             <a href="#" class="d-flex align-items-center conta">
 
-                                <span class="d-flex align-items-center ms-2 mt-1 mb-2 text-dark" style="font-size:1.4vh;">Minha Conta</span>
+                                <span class="d-flex align-items-center ms-2 mt-1 mb-2 text-dark" style="font-size:1.4vh;"><a href="model/login.php">Minha Conta</a></span>
 
                             </a>
 
