@@ -74,8 +74,11 @@
 				</div>
 				<div class="form-floating mb-3">
 					<div class="row">
-						<div class="form-group col-md-7">
+						<div class="form-group col-md-5">
 							<input type="text" class="form-control" id="idMarcaProduto" placeholder="Marca">
+						</div>
+						<div class="form-group col-md-2">
+							<input type="text" class="form-control" id="idMarcaProduto" placeholder="NCM">
 						</div>
 					</div>
 				</div>	
