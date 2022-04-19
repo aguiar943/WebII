@@ -217,12 +217,32 @@
 
                                 </li>
 
-                                <li class = "w-25 rounded" > 
+                                <li class = "w-25 rounded" >
 
-                                    <div class = "mt-1" >  Cadastro </div>
+<div class = "mt-1" >  
+    
+    Fornecedores
 
-                                </li>
+    <i class="fa-solid fa-angle-down"></i>
 
+</div>
+
+<ul class = "mt-2 me-1 w-100 products-list" > 
+
+    <li class = "submenu w-100  d-flex align-items-center  rounded" > <!-- border border-dark -->
+        
+        <div class = "w-75" ><a href="model/cadastro_fornecedores.php"> Cadastro </a> </div> <!-- level 2 -->
+        
+ 
+    </li>
+
+    <li class = "submenu w-100 h-25 d-flex align-items-center text-center rounded " > 
+        
+        <div class = "w-75" ><a href="model/novo_fornecedor.php">Inclusão</div> <!-- level 2 -->
+        
+    </li>
+
+</li>
                             </ul>	
 
                         </div>
