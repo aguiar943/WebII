@@ -50,7 +50,7 @@
 
                         <div class = "col-xl-12" > 
 
-                            <img src = "imagens/logosemfundo.png" class = " w-100 h-100 mb-4 rounded" >
+                        <img src="imagens/logosemfundo.png" width="300" height="70"></img>
                             
                         </div>
 
