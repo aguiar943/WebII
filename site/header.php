@@ -16,14 +16,14 @@
         <link rel="icon" href="imagens/simbolo.png" />
         <title>Checkout example · Bootstrap v5.1</title>
 
-        <link href="../css/custom.css" rel="stylesheet" >     
-        <link href="../css/form-validation.css" rel="stylesheet" >
+        <link href="css/custom.css" rel="stylesheet" >     
+        <link href="css/form-validation.css" rel="stylesheet" >
 
         <link href="https://getbootstrap.com/docs/5.1/examples/checkout/" rel="canonical">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
 
-        <script src="../js/bootstrap.min.js"></script>
-        <link href="../css/bootstrap.min.css" rel="stylesheet" >
+        <script src="js/bootstrap.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" >
         
     </head>
 
@@ -65,7 +65,7 @@
 
                             <button type="button" class="btn btn-danger lupa-mg">
 
-                                <img src="../imagens/lupa.png" class="h-50 align-top mt-1" > <!-- search align-top -->
+                                <img src="imagens/lupa.png" class="h-50 align-top mt-1" > <!-- search align-top -->
 
                             </button>
                                 
@@ -79,7 +79,7 @@
 
                             <a href="#" class="d-flex align-items-center conta mt-2 ">
 
-                                <img src="../imagens/carrinho.png" class="align-middle  h-100 mb-3 mt-2" >
+                                <img src="imagens/carrinho.png" class="align-middle  h-100 mb-3 mt-2" >
                             
                             </a>
                             
@@ -91,7 +91,7 @@
 
                         <div class = "d-flex justify-content-start h-100 search-mg" >
 
-                            <img src="../imagens/user.png" class="align-middle ms-2 mb-2 mt-1" >
+                            <img src="imagens/user.png" class="align-middle ms-2 mb-2 mt-1" >
 
                             <a href="#" class="d-flex align-items-center conta">
 
