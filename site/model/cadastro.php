@@ -56,12 +56,14 @@
 						<div class="col">
 							<input type="text" class="form-control" id="idSenhaUsuario" placeholder="Senha">
 						</div>
-						
+						<div class="col">
+							<input type="text" class="form-control" id="idSenhaUsuario" placeholder="Cartão de Crédito">
+						</div>
 					</div>
 				</div>
 				<hr class="my-4">
 				<small class="text-muted"></small>
-				<button class="w-100 btn btn btn-success" type="submit">Cadastrar</button><br><br>
+				<a href="model/novo_endereco.php" button class="w-100 btn btn btn-success">Proximo</a></button><br><br>
 			</form>
 		</div>
 	</div>
