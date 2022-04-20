@@ -53,7 +53,7 @@
 				</div>				
 				<hr class="my-4">
 				<small class="text-muted"></small>
-				<a href="model/novo_endereco.php" button class="w-100 btn btn btn-success">Proximo</a></button><br><br>
+				<a href="novo_endereco.php" button class="w-100 btn btn btn-success">Proximo</a></button><br><br>
 			</form>
 		</div>
 	</div>
