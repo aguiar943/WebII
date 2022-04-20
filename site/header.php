@@ -53,7 +53,7 @@
 
                         <div class = "col-xl-12" > 
 
-                        <img src="imagens/logosemfundo.png" class = "img-thumbnail w-100 h-100" ></img>
+                        <img src="imagens/logosemfundo.png" class = "img-thumbnail w-200 h-100" ></img>
                             
                         </div>
 
