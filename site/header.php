@@ -52,8 +52,27 @@
                     <div class = "col-xl-2  d-flex justify-content-center mt-1 mb-1"> <!-- border border-dark -->
 
                         <div class = "col-xl-12" > 
+				
+				<!--
+					::: Comentário e Observação feita pelo Maurício :::
 
-                        <img src="imagens/logosemfundo.png" class = "img-thumbnail w-200 h-100" ></img>
+					Esté é o Icone na versão antiga. O máximo de W ( largura do bootstrap é W-100% )
+					W-200 ou 200% de largura só é possível alcançar por meio do arquivo CSS através
+					do uso de classes ou IDs de HTML
+
+					<img src="imagens/logosemfundo.png" class = "img-thumbnail w-200 h-100" ></img>
+
+				-->
+
+				<!-- 
+					Abaixo é o icone atualizado para W-100% que é o tamanho máximo no Bootstrap sem ser por CSS.
+					O Icone abaixo possui uma resolução menor, pois o logo sem fundo de antes não ficava responsivo
+					quando o zoom da página era aumentado ou diminuido, então ele foi diminuido para se ajustar
+					com a responsividade.
+
+				-->    
+				
+				<img src = "imagens/logo.png" class = " w-100 h-100 mb-4 rounded" >
                             
                         </div>
 
@@ -68,7 +87,21 @@
 
                             <button type="button" class="btn btn-danger lupa-mg">
 							
-								<i class="fa-solid fa-magnifying-glass h-50 align-top mt-1"></i>
+				    <!-- 
+
+					A lupa do menu de busca estava como icone mas não estava responsiva
+
+					<i class="fa-solid fa-magnifying-glass h-50 align-top mt-1"></i> 
+
+				    -- >
+
+				    <!-- 
+
+					 O icone foi mudado para imagem para que possa ficar responsivo quando o usuário aumentar ou diminuir o zoom
+
+ 				    -->
+				    
+				    <img src="imagens/lupa.png" class="h-50 align-top mt-1" >
 
                             </button>
                                 
@@ -81,9 +114,18 @@
                         <div class = "d-flex justify-content-start h-100 search-mg" >
 
                             <a href="#" class="d-flex align-items-center conta mt-2 ">
-							
-								<i class="fa-solid fa-cart-shopping align-middle  h-100 mb-3 mt-2"></i>
-                            
+						
+				    <!-- 
+
+					Icone de carrinho alterado para imagem para garantir a responsividade
+					quando for adicionado zoom ou reduzido o zoom na página
+
+					<i class="fa-solid fa-cart-shopping align-middle  h-100 mb-3 mt-2"></i>
+
+				    -->
+				    
+				    <img src="imagens/carrinho.png" class="align-middle  h-100 mb-3 mt-2" >
+								                        
                             </a>
                             
                         </div>
@@ -93,8 +135,19 @@
                     <div class = "col-xl-2 mt-1 mb-1"> <!-- border border-dark -->
 
                         <div class = "d-flex justify-content-start h-100 search-mg" >
+				
+				<!-- 
+
+					Icone do usuário alterado para imagem para garantir a responsividade
+					quando for adicionado zoom ou reduzido o zoom na página
+
+					<i class="fa-solid fa-user align-middle ms-2 mb-2 mt-1"></i>
+
+			    	-->
+				
+				<img src="imagens/user.png" class="align-middle ms-2 mb-2 mt-1" >
 							
-							<i class="fa-solid fa-user align-middle ms-2 mb-2 mt-1"></i>
+							
 
                             <a href="#" class="d-flex align-items-center conta">
 
