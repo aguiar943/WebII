@@ -156,6 +156,83 @@
                             </a>
 
                         </div>
+			    
+			<div class = "col-xl-3 mt-1 mb-1 d-flex"> <!-- border border-dark -->
+
+                        	<div class = "d-flex me-5 h-100 w-100 search-mg menu mt-1  " > <!-- ... -->
+                         
+				    <ul class="d-flex w-100 h-75 me-5" >
+
+						<li class = "w-100 rounded d-flex " >
+
+						    <div class = "d-flex justify-content-start" >
+
+							<!-- 
+
+								Icone do usuário alterado para imagem para garantir a responsividade
+								quando for adicionado zoom ou reduzido o zoom na página
+
+								<i class="fa-solid fa-user align-middle ms-2 mb-2 mt-1"></i>
+
+							-->
+
+							<a href="#" class="d-flex conta me-5">
+
+							    <div class="d-flex  mb-3 ms-3 text-dark h-50 w-100 justify-content-start" style="font-size:1.4vh; z-index: 2 ;">Minha Conta</div>
+
+							    <ul class = "mt-5 me-1 products-list " > 
+
+								<li class = "submenu-conta w-100  d-flex align-items-center rounded mt-5" > <!-- border border-dark -->
+
+								    <div class = "w-75 mt-2 mb-2 ms-3 text-dark d-flex align-items-start" > Bem vindo </div>
+
+								</li>
+
+								<li class = "submenu-conta w-100 d-flex align-items-center justify-content-center rounded " > <!-- border border-dark -->
+
+								    <div class = "mb-2 ms-1 me-1" > 
+
+									<button type="button" class="btn btn-sm btn-danger lupa-mg h-50 w-100">
+
+									    <div class="h-50 align-top mt-1 " > Cadastro </div>
+
+									</button>
+
+								    </div>
+
+								    <div class = "mb-2 me-1 me-1" >
+
+									<button type="button" class="btn btn-sm btn-danger lupa-mg h-50 w-100">
+
+									    <div class="h-50 align-top mt-1" > Login </div>
+
+									</button>
+
+								    </div>
+
+								</li>
+
+								<li class = "submenu-conta w-100  d-flex align-items-center  rounded" > <!-- border border-dark -->
+
+								    <div class = "w-75 mt-2 mb-2 text-dark" > Meus Pedidos </div>
+
+								</li>
+
+							    </ul>
+
+							</a>
+
+							<!-- <i class="fa-solid fa-angle-down"></i> -->
+
+						    </div>                                   
+
+						</li>
+
+                            		</ul>
+
+				</div>
+
+                    	</div>
 
                     </div>
 
