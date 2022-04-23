@@ -63,6 +63,7 @@ table.center {
  .conta, .conta a{
 
     text-decoration: none ;
+    align-items: center !important;
 }
 
 .conta, .conta a:visited{
@@ -77,8 +78,13 @@ table.center {
     
 }
 
+.submenu-conta ul{ /* lista ( ul ) do submenu vai para a direita */
 
-.menu ul, .submenu ul{
+    margin-left: 8.4vh;
+    
+}
+
+.menu ul, .submenu ul, .submenu-conta ul{
 
     list-style: none;
     float: left ;
@@ -87,7 +93,7 @@ table.center {
 
 }
 
-.menu li, .submenu li{ 
+.menu li, .submenu li, .submenu-conta li{ 
 
     position: relative;
     width: 20% ;
@@ -103,7 +109,7 @@ table.center {
     
 }
 
-.submenu ul li{
+.submenu ul li, .submenu-conta ul li{
 
     display: none;
 
@@ -136,7 +142,7 @@ table.center {
 
 }
 
-.submenu:hover ul li{
+.submenu:hover ul li, .submenu-conta:hover ul li{
 
     display: inline !important;
     z-index: 2 ;
@@ -145,9 +151,10 @@ table.center {
    
 }
 
-.submenu:hover ul, .products-list{
+.submenu:hover ul, .submenu-conta:hover ul, .products-list{
 
     border: 1px solid rgb(216, 216, 216) !important;
+    
     
 }
 
@@ -159,6 +166,13 @@ table.center {
 
 .area-menu{
     background-color: rgb(240, 240, 240);
+}
+
+.user-icon{
+
+    height: 100% !important;
+    width: 3vh !important;
+
 }
 
 
