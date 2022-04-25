@@ -266,12 +266,6 @@
 
                                 <li class = "w-25 rounded" >
 
-                                    <div class = "mt-1" > Sobre </div>
-
-                                </li>
-
-                                <li class = "w-25 rounded" >
-
                                     <div class = "mt-1" >  
                                         
                                         Produtos 
@@ -290,7 +284,7 @@
                                                 
                                             <ul class = "w-100 mt-5 " > <!-- level 3 -->
 											
-												<li class = "w-100 rounded" > Adicionar Novo </li> <!-- border border-dark -->
+						<li class = "w-100 rounded" > Adicionar Novo </li> <!-- border border-dark -->
 
                                                 <li class = "w-100 rounded" > Monitor </li> <!-- border border-dark -->
 
@@ -310,7 +304,7 @@
                                             
                                             <ul class = "w-100 mt-5 " > <!-- level 3 -->
 											
-												<li class = "w-100 rounded" > Adicionar Novo </li> <!-- border border-dark -->
+						<li class = "w-100 rounded" > Adicionar Novo </li> <!-- border border-dark -->
 
                                                 <li class = "me-1 w-100 rounded" > Geladeiras </li> <!-- border border-dark  -->
 
@@ -332,7 +326,7 @@
                                             
                                             <ul class = "w-100 mt-5  " > <!-- level 3 -->
 											
-												<li class = "w-100 rounded" > Adicionar novo </li>
+						<li class = "w-100 rounded" > Adicionar novo </li>
 
                                                 <li class = "me-1 w-100 rounded" > Camisetas </li> <!-- border border-dark  -->
 
@@ -356,13 +350,18 @@
 
                                 </li>
 								
-								<li class = "w-25 rounded" >
+				<li class = "w-25 rounded" >
 
                                     <div class = "mt-1" > Cadastro </div>
 
+                                </li
+				<li class = "w-25 rounded" >
+
+                                    <div class = "mt-1" > Sobre </div>
+
                                 </li>
 								
-								<!--
+				<!--
 
                                 <li class = "w-25 rounded" >
 
@@ -415,7 +414,9 @@
                                             
                                         </li>
 
-                                </li> -->   
+                                </li> 
+
+				-->   
 
                             </ul>	
 
