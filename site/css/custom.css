@@ -175,4 +175,69 @@ table.center {
 
 }
 
+/* ESTILIZAÇÃO DA PÁGINA DE DETALHES DO PRODUTO */
+
+#detalhes_produto{
+
+    height: 57.5vh;
+    
+}
+
+#produto-info-h{
+
+    height: 4vh;
+    justify-content: start;
+    border-bottom: 1px solid rgb(216, 216, 216) ;
+    align-items: center;
+    display: flex;
+    font-size: 1.6vh;
+    
+}
+
+.mini-fotos-area{
+
+    height: 13% !important; 
+    width: 25%;
+    font-size: 2vh;
+
+}
+
+
+#foto_main{
+
+    width: 23%;
+
+}
+
+#aumentar, #diminuir{
+
+    border-radius: 10vh;
+    background-color: rgb(230, 230, 230);
+}
+
+#btn-compra, #btn-add{
+
+    background-color: rgb(226, 140, 41);
+    border-radius: 10vh;
+}
+
+
+.btn-sz{
+
+    font-size: 1.6vh;
+    height: 6vh;
+    color: white;
+
+}
+
+#fotos-rodape{
+
+    width: 42vh;
+    height: 10vh;
+    background-color: rgb(230, 230, 230);
+    margin-left: 32vh;
+    align-items: center;
+    color: black !important;
+}
+
 
