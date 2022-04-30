@@ -240,4 +240,75 @@ table.center {
     color: black !important;
 }
 
+/* Estilização das categorias */
+
+#fotos-categorias{
+    
+    background-color: #dadada;
+}
+
+#menu-categorias{
+    width: 15%;
+    height: 40%;
+}
+
+.center-flx{
+
+    font-size: 1.5vh;
+    justify-content: center !important;
+    align-items: center;
+    display: flex;
+    border-radius: 0.5vh;
+
+}
+
+#categoria{
+
+    width: 18vh !important;
+    margin-top: 4vh;
+    background-color: #dddddd;
+
+}
+
+.foto-h{
+    height: 23vh;
+}
+
+.bg-cat{
+    background-color: #b1b1b1;
+}
+
+#categoria ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100% !important;
+    
+}
+
+#menu-fotos{
+
+    width: 80%;
+    margin-top: 4vh;
+    background-color: #c9c3c3;
+
+}
+
+#geral-bot{
+    width: 111vh;
+    background-color: #cabfbf;
+    
+}
+
+#categoria{
+    width: 17%;
+}
+
+#geral-categorias{
+
+    width: 113vh;
+    background-color: #c2c2c2;
+
+}
+
 
