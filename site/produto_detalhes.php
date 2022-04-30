@@ -215,106 +215,128 @@
 
 </div>
 
-<!--
+<div id = "fotos-categorias" class = "row mt-2 w-75 me-5 ms-3" >
 
-<div id = "fotos_categorias" class = "row" >
+        <div id = "geral-categorias" class = "col-xl-8 ms-4 h-100 border border-dark " > <!-- bg-primary -->
 
-    <div id = "menu_categorias" class = "col-xl-3 border border-dark" >
+            <div id = "geral-bot" class = "row h-100 border border-dark d-flex justify-content-center "> <!-- bg-danger -->
 
-        <div id = "categoria1" class = "row" >
+                <div id = "categoria" class = "col-xl-1 mb-2 mt-3 ms-2"> <!-- bg-warning -->
 
-            <div id = "" class = "col-xl-2 border border-dark" >
+                    <div class="w-100 me-5 border border-dark rounded p-1 bg-cat" > <!-- bg-sucess -->
+
+                        <div class = "center-flx border border-dark justify-content-start " > 
+
+                            <b class = "ms-3" > INFORMÁTICA </b> 
+
+                        </div>
+
+                        <div class = "center-flx border border-dark" >
+
+                            Placas de Vídeo
+
+                        </div>
+
+                        <div class = "center-flx border border-dark">
+
+                            Monitores
+
+                        </div>
+
+                        <div class = "center-flx border border-dark " >
+
+                            Teclados
+
+                        </div>
+
+                        <div class = "center-flx border border-dark justify-content-start" >
+
+                            <b class = "ms-3" > VESTUÁRIO </b> 
+
+                        </div>
+
+                        <div class = "center-flx border border-dark">
+
+                            Camisetas
+
+                        </div>
+
+                        <div class = "center-flx border border-dark" >
+
+                            Camisas
+
+                        </div>
+
+                        <div class = "center-flx border border-dark" >
+
+                            Calças
+
+                        </div>
+
+                        <div class = "center-flx border border-dark">
+
+                            Bermudas
+
+                        </div>
+
+                        <div class = "center-flx border border-dark" >
+
+                            Sapatos
+
+                        </div>
+
+                        <div class = "center-flx border border-dark" >
+
+                            Sapatênis
+
+                        </div>
+
+                        <div class = "center-flx border border-dark">
+
+                            Meias
+
+                        </div>                        
+
+                    </div>
+
+                </div>
+    
+                <div id = "menu-fotos" class = "col-xl-10 border border-dark mt-3 " ><!-- bg-secondary -->
+            
+                    <div id = "foto" class = "row ms-1 me-1 h-100 mt-3">
+
+                        <div id = "" class = "col-xl-12 mb-2 border border-dark center-flx foto-h" >
+
+                            Foto 1
+
+                        </div>
+
+                        <div id = "" class = "col-xl-12 mb-2 border border-dark center-flx foto-h" >
+
+                            Foto 1
+
+                        </div>
+
+                        <div id = "" class = "col-xl-12 mb-2 border border-dark center-flx foto-h" >
+
+                            Foto 1
+
+                        </div>
+
+                        <div id = "" class = "col-xl-12 mb-4 border border-dark center-flx foto-h" >
+
+                            Foto 1
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
-
-        </div>
-
-        <div id = "subcategoria1a" class = "row" >
-
-            <div id = "" class = "col-xl-2 border border-dark" >
-
-            </div>
-
-        </div>
-
-        <div id = "subcategoria2a" class = "row" >
-
-            <div id = "" class = "col-xl-2 border border-dark" >
-
-            </div>
-
-        </div>
-
-        <div id = "subcategoria3a" class = "row" >
-
-            <div id = "" class = "col-xl-2 border border-dark" >
-
-            </div>
-
-        </div>
-
-        <div id = "categoria2" class = "row" >
-
-            <div id = "" class = "col-xl-2 border border-dark" >
-
-            </div>
-
-        </div>
-
-        <div id = "subcategoria1b" class = "row" >
-
-            <div id = "" class = "col-xl-2 border border-dark" >
-
-            </div>
-
-        </div>
-
-        <div id = "subcategoria2b" class = "row" >
-
-            <div id = "" class = "col-xl-2 border border-dark" >
-
-            </div>
-
-        </div>
-
-        <div id = "subcategoria3b" class = "row" >
-
-            <div id = "" class = "col-xl-2 border border-dark" >
-
-            </div>
-
+        
         </div>
 
     </div>
-
-    <div id = "menu_categorias" class = "col-xl-8 border border-dark" >
-
-        <div id = "foto1" class = "row" >
-
-            <div id = "" class = "col-xl-5 border border-dark" >
-
-            </div>
-            
-        </div>
-
-        <div id = "foto1" class = "row" >
-
-            <div id = "" class = "col-xl-5 border border-dark" >
-
-            </div>
-            
-        </div>
-
-        <div id = "foto1" class = "row" >
-
-            <div id = "" class = "col-xl-5 border border-dark" >
-
-            </div>
-            
-        </div>
-
-    </div>
-
-</div>-->
 
 <?php include 'footer.php.'; ?>
