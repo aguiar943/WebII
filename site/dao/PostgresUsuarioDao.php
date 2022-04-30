@@ -5,21 +5,26 @@ include_once('PostgresDao.php');
 
 class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
 
-    private $table_name = 'usuario';
+    private $table_name = 'ca_usuario';
     
     public function insere($usuario) {
 
         $query = "INSERT INTO " . $this->table_name . 
-        " (login, senha, nome) VALUES" .
-        " (:login, :senha, :nome)";
+        " (us_cpf, us_email, us_nome, us_rg, us_celular, us_telefone, us_senha, us_cartao) VALUES" .
+        " (:us_cpf, :us_email, :us_nome, :us_rg, :us_celular, :us_telefone, :us_senha, :us_cartao) ";
 
         $stmt = $this->conn->prepare($query);
 
         // bind values 
-        $stmt->bindValue(":login", $usuario->getLogin());
-        $stmt->bindValue(":senha", md5($usuario->getSenha()));
-        $stmt->bindValue(":nome", $usuario->getNome());
-
+        $stmt->bindValue(":us_cpf", $usuario->getCPF());
+        $stmt->bindValue(":us_email", $usuario->getEmail());
+        $stmt->bindValue(":us_nome", $usuario->getNome());
+        $stmt->bindValue(":us_rg", $usuario->getRG());
+        $stmt->bindValue(":us_celular", $usuario->getCelular());
+        $stmt->bindValue(":us_telefone", $usuario->getTelefone());
+        $stmt->bindValue(":us_senha", md5($usuario->getCPF().$usuario->getSenha()));
+        $stmt->bindValue(":us_cartao", $usuario->getCartao());
+        
         if($stmt->execute()){
             return true;
         }else{
@@ -52,17 +57,20 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
     public function altera(&$usuario) {
 
         $query = "UPDATE " . $this->table_name . 
-        " SET login = :login, senha = :senha, nome = :nome" .
-        " WHERE id = :id";
-
+        " SET US_EMAIL = :US_EMAIL, US_NOME = :US_NOME, US_RG = :US_RG, US_CELULAR = :US_CELULAR, US_TELEFONE = :US_TELEFONE, US_SENHA =:US_SENHA, US_CARTAO =:US_CARTAO" .
+        " WHERE US_CPF = :US_CPF";
+        
         $stmt = $this->conn->prepare($query);
 
         // bind parameters
-        $stmt->bindValue(":login", $usuario->getLogin());
-        $stmt->bindValue(":senha", md5($usuario->getSenha()));
-        $stmt->bindValue(":nome", $usuario->getNome());
-        $stmt->bindValue(':id', $usuario->getId());
-
+        $stmt->bindValue(":US_CPF", $usuario->getCPF());
+        $stmt->bindValue(":US_EMAIL", $usuario->getEmail());
+        $stmt->bindValue(":US_NOME", $usuario->getNome());
+        $stmt->bindValue(":US_RG", $usuario->getRG());
+        $stmt->bindValue(":US_CELULAR", $usuario->getCelular());
+        $stmt->bindValue(":US_TELEFONE", $usuario->getTelefone());
+        $stmt->bindValue(":US_SENHA", md5($usuario->getSenha()));
+        $stmt->bindValue(":US_CARTAO", $usuario->getCartao());
         // execute the query
         if($stmt->execute()){
             return true;
@@ -76,11 +84,11 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         $usuario = null;
 
         $query = "SELECT
-                    id, login, nome, senha
+                    US_CPF, US_NOME, US_SENHA
                 FROM
                     " . $this->table_name . "
                 WHERE
-                    id = ?
+                    US_CPF = ?
                 LIMIT
                     1 OFFSET 0";
      
@@ -90,7 +98,7 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
      
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if($row) {
-            $usuario = new Usuario($row['id'],$row['login'], $row['senha'], $row['nome']);
+            $usuario = new Usuario($row['US_CPF'], $row['US_SENHA'], $row['US_NOME']);
         } 
      
         return $usuario;

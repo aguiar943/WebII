@@ -1,17 +1,31 @@
 Banco de dados : compreai
 -----------------------------------------------------------
 CREATE TABLE CA_PRODUTOS(
-			CA_IDL SERIAL,
-			CA_CODEBAR VARCHAR(13),
-			CA_DESCRICAO VARCHAR(100),
-			CA_REFERENCIA VARCHAR(13),
-			CA_UNIDADE VARCHAR(2),
-			CA_MARCA VARCHAR(50),
-			CA_NCM VARCHAR(8));
+			ca_idl serial,
+			ca_codebar varchar(13),
+			ca_descricao varchar(100),
+			ca_referencia varchar(13),
+			ca_unidade varchar(2),
+			ca_marca varchar(50),
+			ca_ncm varchar(8));
 -----------------------------------------------------------
 CREATE TABLE CA_ESTOQUE(
-			ES_IDL SERIAL,
-			ES_IDL_PROD INTEGER,
-			ES_ESTOQUE INTEGER,
-			ES_PRECOCOMPRA NUMERIC(15,3),
-			ES_PRECOVENDA NUMERIC(15,3));
+			es_idl serial,
+			es_idl_prod integer,
+			es_estoque integer,
+			es_precocompra numeric(15,3),
+			es_precovenda numeric(15,3));
+
+-----------------------------------------------------------
+CREATE TABLE CA_USUARIO (
+				us_idl serial ,
+				us_cpf varchar(11) ,
+				us_email varchar(50) ,
+				us_nome varchar(100) ,
+				us_rg varchar(12) ,
+				us_celular varchar(11) ,
+				us_telefone varchar(11) ,
+				us_senha varchar(255) ,
+				us_cartao varchar(16));
+
+-----------------------------------------------------------

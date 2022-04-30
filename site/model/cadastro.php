@@ -5,7 +5,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="icon" href="../imagens/simbolo.png" />
 		<title>
-			Fornecedor - inclusão
+			Usuário - inclusão
 		</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
@@ -20,14 +20,14 @@
   </header>
   <div class="" role="document">
 	<div class="modal-content rounded-5 shadow">
-		<form class="p-4 p-md-5 border rounded-3 bg-light">
+		<form  class="p-4 p-md-5 border rounded-3 bg-light" action="insere_usuario.php" method="get">
 			<div class="modal-header p-6 pb-4 border-bottom-0">
 					<h4 class="fw-bold mb-0">CADASTRO USUÁRIO</h4>
 				</div>
 				<div class="form-floating mb-3">
 					<div class="row">
 						<div class="col">
-							<input type="text" class="form-control" id="idNomeUsuario" placeholder="Nome completo">
+						<input type="text" class="form-control" name="nome" placeholder="Nome completo">
 						</div>
 					</div>
 				</div>
@@ -35,35 +35,36 @@
 				<div class="form-floating mb-3">
 					<div class="row">
 						<div class="form-group col-md-3">
-							<input type="text" class="form-control" id="idCPFUsuario" placeholder="CPF">
+							<input type="text" class="form-control" name="cpf" placeholder="CPF">
 						</div>
 						<div class="form-group col-md-3">
-							<input type="text" class="form-control" id="idRGUsuario" placeholder="RG">
+							<input type="text" class="form-control" name="rg" placeholder="RG">
 						</div>
 						<div class="form-group col-md-3">
-							<input type="text" class="form-control" id="idCelularUsuario" placeholder="Celular">
+							<input type="text" class="form-control" name="celular" placeholder="Celular">
 						</div>
 						<div class="form-group col-md-3">
-							<input type="text" class="form-control" id="idTelefoneUsuario" placeholder="Telefone2">
+							<input type="text" class="form-control" name="telefone" placeholder="Telefone2">
 						</div>
 					</div>
 				</div>
 				<div class="form-floating mb-3">
 					<div class="row">
 						<div class="col">
-							<input type="text" class="form-control" id="idEmailUsuario" placeholder="Email">
+							<input type="text" class="form-control" name="emailcliente" placeholder="Email">
 						</div>
 						<div class="col">
-							<input type="text" class="form-control" id="idSenhaUsuario" placeholder="Senha">
+							<input type="text" class="form-control" name="senha" placeholder="Senha">
 						</div>
 						<div class="col">
-							<input type="text" class="form-control" id="idSenhaUsuario" placeholder="Cartão de Crédito">
+							<input type="text" class="form-control" name="cartao" placeholder="Cartão de Crédito">
 						</div>
 					</div>
 				</div>
 				<hr class="my-4">
 				<small class="text-muted"></small>
-				<a href="novo_endereco.php" button class="w-100 btn btn btn-success">Proximo</a></button><br><br>
+				<!-- <a href="novo_endereco.php" button class="w-100 btn btn btn-success">Proximo</a></button><br><br> -->
+				<button type="submit" class="w-100 btn btn btn-success">Gravar</a></button><br><br>
 			</form>
 		</div>
 	</div>
