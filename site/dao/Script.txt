@@ -1,0 +1,17 @@
+Banco de dados : compreai
+-----------------------------------------------------------
+CREATE TABLE CA_PRODUTOS(
+			CA_IDL SERIAL,
+			CA_CODEBAR VARCHAR(13),
+			CA_DESCRICAO VARCHAR(100),
+			CA_REFERENCIA VARCHAR(13),
+			CA_UNIDADE VARCHAR(2),
+			CA_MARCA VARCHAR(50),
+			CA_NCM VARCHAR(8));
+-----------------------------------------------------------
+CREATE TABLE CA_ESTOQUE(
+			ES_IDL SERIAL,
+			ES_IDL_PROD INTEGER,
+			ES_ESTOQUE INTEGER,
+			ES_PRECOCOMPRA NUMERIC(15,3),
+			ES_PRECOVENDA NUMERIC(15,3));
