@@ -12,7 +12,7 @@
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
 
-        <p>&copy; 2022–2022 Web II &middot; <a href="home.php">Compre Aí</a> &middot;</p>
+        <p>&copy; 2022–2022 Web II &middot; <a href="index.php">Compre Aí</a> &middot;</p>
 
         <ul class="list-inline">
 
