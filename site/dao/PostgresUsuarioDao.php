@@ -22,7 +22,7 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         $stmt->bindValue(":us_rg", $usuario->getRG());
         $stmt->bindValue(":us_celular", $usuario->getCelular());
         $stmt->bindValue(":us_telefone", $usuario->getTelefone());
-        $stmt->bindValue(":us_senha", md5($usuario->getCPF().$usuario->getSenha()));
+        $stmt->bindValue(":us_senha", md5($usuario->getSenha()));
         $stmt->bindValue(":us_cartao", $usuario->getCartao());
         
         if($stmt->execute()){
@@ -109,7 +109,7 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         $usuario = null;
 
         $query = "SELECT
-                    id, login, nome, senha
+                    login, nome, senha
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -124,6 +124,31 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         if($row) {
             $usuario = new Usuario($row['id'],$row['login'], $row['senha'], $row['nome']);
+        } 
+     
+        return $usuario;
+    }
+
+    public function buscaPorCPF($login) {
+
+        $usuario = null;
+
+        $query = "SELECT
+                    us_cpf, us_email, us_nome, us_rg, us_celular, us_telefone, us_senha, us_cartao
+                FROM
+                    " . $this->table_name . "
+                WHERE
+                    us_cpf = ?
+                LIMIT
+                    1 OFFSET 0";
+     
+        $stmt = $this->conn->prepare( $query );
+        $stmt->bindValue(1, $login);
+        $stmt->execute();
+     
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if($row) {
+            $usuario = new Usuario($row['us_cpf'],$row['us_email'], $row['us_nome'], $row['us_rg'], $row['us_celular'], $row['us_telefone'], $row['us_senha'], $row['us_cartao']);
         } 
      
         return $usuario;

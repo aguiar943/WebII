@@ -7,6 +7,7 @@ interface UsuarioDao {
     public function altera(&$usuario);
     public function buscaPorId($id);
     public function buscaPorLogin($login);
+    public function buscaPorCPF($login);
     public function buscaTodos();
 }
 ?>

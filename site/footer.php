@@ -12,7 +12,7 @@
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
 
-        <p class="mb-1">&copy; 2017–2022 Compre Ai</p>
+        <p>&copy; 2022–2022 Web II &middot; <a href="home.php">Compre Aí</a> &middot;</p>
 
         <ul class="list-inline">
 
@@ -37,3 +37,4 @@
     </body>
 
 </html>
+<?php ob_end_flush(); ?>

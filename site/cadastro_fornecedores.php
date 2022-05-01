@@ -3,7 +3,7 @@
 	<head>
 	<meta name="viewport" content="width=devicewidth, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<link rel="icon" href="../imagens/simbolo.png" />
+		<link rel="icon" href="imagens/simbolo.png" />
 		<title>
 			Fornecedor - cadastro
 		</title>
@@ -14,7 +14,7 @@
   <header>
     <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
       <a href="home.php" class="d-flex align-items-center text-dark text-decoration-none">
-        <img src="../imagens/logosemfundo.png" width="300" height="70"></img>
+        <img src="imagens/logosemfundo.png" width="300" height="70"></img>
       </a>
 
      <!-- <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
