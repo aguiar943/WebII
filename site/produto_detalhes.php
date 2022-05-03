@@ -1,4 +1,8 @@
-<?php include 'header.php.'; ?>
+<?php
+
+include_once "fachada.php";
+
+?>
 
 <div id = "detalhes_produto" class = "row d-flex justify-content-center border border-dark " >
 
@@ -206,16 +210,11 @@
                 
             </div>
 
-        </div>
-        
+        </div>             
 
     </div>
 
-
-
-</div>
-
-<div id = "fotos-categorias" class = "row mt-2 w-75 me-5 ms-3" >
+    <div id = "fotos-categorias" class = "row mt-2 w-75 me-5 ms-3" >
 
         <div id = "geral-categorias" class = "col-xl-8 ms-4 h-100 border border-dark " > <!-- bg-primary -->
 
@@ -339,4 +338,10 @@
 
     </div>
 
-<?php include 'footer.php.'; ?>
+    <?php include 'footer.php'; ?>
+
+</div>
+
+
+
+
