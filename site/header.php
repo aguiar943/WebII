@@ -35,7 +35,8 @@
                 <div class="col-xl-8 d-flex justify-content-center banner-h">
                     <div class = "col-xl-2  d-flex justify-content-center mt-1 mb-1">
                         <div class = "col-xl-12" > 
-                            <img src = "imagens/logo.png" class = " w-100 h-100 mb-4 rounded" >
+							<a href="index.php" class="d-flex align-items-center text-dark text-decoration-none"> 
+								<img src = "imagens/logo.png" class = " w-100 h-100 mb-4 rounded" ></s>
                         </div>
                     </div>
                         <div class = "col-xl-7 mt-1 mb-1"> <!-- border border-dark -->
