@@ -40,7 +40,7 @@ if($usuario) {
 }
 
 if($problemas==TRUE) {
-    header("Location: index.php"); 
+    echo "<script type='text/javascript'>location.href = 'index.php';</script>";
     exit; 
 }
 ?>
