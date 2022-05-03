@@ -106,3 +106,24 @@ alter table IMAGENS
 add constraint pk_imagem
 primary key(id);
 
+/****** USUARIO *****/
+
+CREATE TABLE USUARIOS(
+
+    id serial not null,
+	
+	nome varchar(75) not null,
+	email varchar(70) not null,
+    senha varchar(15) not null,
+    cpf INT not null,
+    
+    telefone1 INT,
+    telefone2 INT,
+    rg INT,
+    cartao INT
+    
+);
+
+alter table USUARIOS
+add constraint pk_usuario
+primary key(id);
