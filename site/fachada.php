@@ -12,7 +12,7 @@ include 'dao/CoresDao.php';
 include 'dao/SubcategoriasDao.php';
 include 'dao/MarcasDao.php';
 include 'dao/ProdutosDao.php';
-/* include 'dao/Auth.php'; */
+include 'dao/Auth.php';
 
 include_once('dao/DaoFactory.php');
 include_once('dao/PostgresDaoFactory.php');
