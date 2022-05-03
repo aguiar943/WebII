@@ -33,5 +33,37 @@ class PostgresDaofactory extends DaoFactory {
         return new PostgresUsuarioDao($this->getConnection());
 
     }
+    
+    public function getSubCategoriaDao() {
+
+        /*
+         *
+         * PostgresSubcategoriaDao, herda o construtor de PostgresDao. Este construtor recebe uma
+         * variável de conexão de banco.
+         * 
+         */
+
+        return new PostgresSubcategoriaDao($this->getConnection());
+
+    }
+
+    public function getMarcaDao() {
+
+        return new PostgresMarcaDao($this->getConnection());
+
+    }
+
+    public function getCorDao(){
+
+        return new PostgresCorDao($this->getConnection());
+
+    }
+
+    public function getProdutoDao(){
+
+        return new PostgresProdutoDao($this->getConnection());
+
+    }
+    
 }
 ?>
