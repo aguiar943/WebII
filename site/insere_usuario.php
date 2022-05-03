@@ -1,5 +1,5 @@
 <?php
-include_once "fachada.php";
+include_once "index.php";
 
 $us_cpf      = @$_GET["cpf"];
 $us_email    = @$_GET["emailcliente"];
