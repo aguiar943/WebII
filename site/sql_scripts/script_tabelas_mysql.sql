@@ -65,3 +65,20 @@ CREATE TABLE REL_PRODUTO_COR(
     id_cor INT not null
 
 );
+
+
+CREATE TABLE USUARIOS(
+
+    id INT PRIMARY KEY AUTO_INCREMENT not null,
+	
+	nome varchar(75) not null,
+	email varchar(70) not null,
+    senha varchar(15) not null,
+    cpf INT not null,
+    
+    telefone1 INT,
+    telefone2 INT,
+    rg INT,
+    cartao INT
+    
+);
