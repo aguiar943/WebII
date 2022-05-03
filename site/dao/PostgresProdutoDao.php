@@ -1,6 +1,5 @@
 <?php
 
-include_once('VeiculosDao.php');
 include_once('PostgresDao.php');
 include_once('ProdutosDao.php');
 
