@@ -5,7 +5,7 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="icon" href="imagens/simbolo.png" />
 		<title>
-			Fornecedor - cadastro
+			Produtos - cadastro
 		</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
@@ -28,7 +28,7 @@
 		<div class="modal-content rounded-5 shadow">
 			<form class="p-4 p-md-5 border rounded-3 bg-light">
 				<div class="modal-header p-6 pb-4 border-bottom-0">
-					<h2 class="fw-bold mb-0">Cadastro fornecedores</h2>
+					<h2 class="fw-bold mb-0">Cadastro Produtos</h2>
 				</div>
 				
 			</form>
