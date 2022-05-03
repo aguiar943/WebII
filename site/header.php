@@ -99,7 +99,7 @@
 									<li class = "w-25 rounded" >
 
 										<div class = "mt-1" >  
-
+									
 										Produtos 
 
 											<i class="fa-solid fa-angle-down"></i>
@@ -182,10 +182,23 @@
 
 									</li>
 
-										<li class = "w-25 rounded" >
-
-											<div class = "mt-1" > Cadastro </div>
-
+										<li class = "w-50 rounded" >
+											  <?php
+										if(isset($_SESSION["nome_usuario"])) {											
+											echo '<a href="cadastro_produtos.php">Produtos </a>';
+											echo '<br><a href="novo_produto.php">inclui produto </a>';
+										} 
+										
+										?>
+										</li>
+											<li class = "w-50 rounded" >
+											  <?php
+										if(isset($_SESSION["nome_usuario"])) {											
+											echo '<a href="cadastro_fornecedores.php">Fornecedores </a>';
+											echo '<br><a href="novo_fornecedor.php">inclui fornecedor </a>';
+										} 
+										
+										?>
 										</li>
 										<li class = "w-25 rounded" >
 
