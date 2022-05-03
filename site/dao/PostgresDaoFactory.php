@@ -3,6 +3,10 @@
 include_once('DaoFactory.php');
 include_once('PostgresUsuarioDao.php');
 
+include_once('PostgresMarcaDao.php');
+include_once('PostgresCorDao.php');
+include_once('PostgresProdutoDao.php');
+
 class PostgresDaofactory extends DaoFactory {
 
     // specify your own database credentials
