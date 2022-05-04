@@ -29,18 +29,15 @@ if($usuarios) {
 			echo "<td>{$usuario->getCPF()}</td>";
 			echo "<td>{$usuario->getNome()}</td>";
 			echo "<td>";
-				// botão para mostrar um usuário
 				echo "<a href='mostra_usuario.php?cpf={$usuario->getCPF()}' class='btn btn-primary left-margin'>";
-					echo "<span class='glyphicon glyphicon-list'></span> Mostra";
+				echo "<span class='glyphicon glyphicon-list'></span> Visualizar ";
 				echo "</a>";
-				// botão para alterar um usuário
 				echo "<a href='modifica_usuario.php?cpf={$usuario->getCPF()}' class='btn btn-info left-margin'>";
-				echo "<span class='glyphicon glyphicon-edit'></span> Altera";
+				echo "<span class='glyphicon glyphicon-edit'></span> Alterar";
 				echo "</a>";
-				// botão para remover um usuário
 				echo "<a href='remove_usuario.php?cpf={$usuario->getCPF()}' class='btn btn-danger left-margin'";
 				echo "onclick=\"return confirm('Confirma exclusão de usuário?')\">";
-				echo "<span class='glyphicon glyphicon-remove'></span> Exclui";
+				echo "<span class='glyphicon glyphicon-remove'></span> Excluir";
 				echo "</a>";
 			echo "</td>";
 		echo "</tr>";
@@ -48,7 +45,7 @@ if($usuarios) {
 	echo "</table>";
 }
  
-echo "<a href='cadastro.php' class='btn btn-primary left-margin'>";
+echo "<a href='cadastro.php' class='btn btn btn-success left-margin'>";
 echo "Novo";
 echo "</a>";
 

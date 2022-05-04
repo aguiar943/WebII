@@ -29,11 +29,3 @@ CREATE TABLE CA_USUARIO (
 				us_cartao varchar(16));
 
 -----------------------------------------------------------
-CREATE TABLE CA_FORNECEDOR(
-    fo_idl integer NOT NULL,
-    fo_social character varying(100),
-    fo_fantasia character varying(100),
-    fo_cnpj character varying(14),
-    fo_ie character varying(11),
-    fo_telefone character varying(11),
-    fo_email character varying(50))

@@ -50,9 +50,6 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         return false;
     }
 
-    public function remove($usuario) {
-        return removePorId($usuario->getId());
-    }
 
     public function altera(&$usuario) {
 
@@ -79,56 +76,6 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         return false;
     }
 
-    public function buscaPorId($id) {
-        
-        $usuario = null;
-
-        $query = "SELECT
-                    US_CPF, US_NOME, US_SENHA
-                FROM
-                    " . $this->table_name . "
-                WHERE
-                    US_CPF = ?
-                LIMIT
-                    1 OFFSET 0";
-     
-        $stmt = $this->conn->prepare( $query );
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
-     
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($row) {
-            $usuario = new Usuario($row['US_CPF'], $row['US_SENHA'], $row['US_NOME']);
-        } 
-     
-        return $usuario;
-    }
-
-    public function buscaPorLogin($login) {
-
-        $usuario = null;
-
-        $query = "SELECT
-                    login, nome, senha
-                FROM
-                    " . $this->table_name . "
-                WHERE
-                    login = ?
-                LIMIT
-                    1 OFFSET 0";
-     
-        $stmt = $this->conn->prepare( $query );
-        $stmt->bindValue(1, $login);
-        $stmt->execute();
-     
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        if($row) {
-            $usuario = new Usuario($row['id'],$row['login'], $row['senha'], $row['nome']);
-        } 
-     
-        return $usuario;
-    }
-
     public function buscaPorCPF($login) {
 
         $usuario = null;
@@ -153,22 +100,6 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
      
         return $usuario;
     }
-
-    /*
-    public function buscaTodos() {
-
-        $query = "SELECT
-                    id, login, senha, nome
-                FROM
-                    " . $this->table_name . 
-                    " ORDER BY id ASC";
-     
-        $stmt = $this->conn->prepare( $query );
-        $stmt->execute();
-     
-        return $stmt;
-    }
-    */
 
     public function buscaTodos() {    
       

@@ -1,14 +1,14 @@
 <?php
 include_once "index.php";
 
-$us_social      = @$_GET["social"];
-// $us_fantasia    = @$_GET["fantasia"];
-// $us_cnpj     = @$_GET["cnpj"];
-// $us_ie       = @$_GET["ie"];
-// $us_telefone  = @$_GET["telefone"];
-// $us_email    = @$_GET["email"];
+$fo_social      = @$_GET["social"];
+$fo_fantasia    = @$_GET["fantasia"];
+$fo_cnpj        = @$_GET["cnpj"];
+$fo_ie          = @$_GET["ie"];
+$fo_telefone    = @$_GET["telefone"];
+$fo_email       = @$_GET["email"];
 
-$fornecedor = new Fornecedor($us_social);
+$fornecedor = new Fornecedor($fo_social, $fo_fantasia, $fo_cnpj, $fo_ie, $fo_telefone, $fo_email);
 
 $dao = $factory->getFornecedorDao();
 $dao->insere($fornecedor);

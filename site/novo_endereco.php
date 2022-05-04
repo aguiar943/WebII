@@ -1,3 +1,21 @@
+<?php
+
+$us_cpf      = @$_GET["cpf"];
+$us_email    = @$_GET["emailcliente"];
+$us_nome     = @$_GET["nome"];
+$us_rg       = @$_GET["rg"];
+$us_celular  = @$_GET["celular"];
+$us_telefone = @$_GET["telefone"];
+$us_senha    = @$_GET["senha"];
+$us_cartao   = @$_GET["cartao"];
+$us_social      = @$_GET["social"];
+// $us_fantasia    = @$_GET["fantasia"];
+// $us_cnpj     = @$_GET["cnpj"];
+// $us_ie       = @$_GET["ie"];
+// $us_telefone  = @$_GET["telefone"];
+// $us_email    = @$_GET["email"];
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>

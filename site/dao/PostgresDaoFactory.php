@@ -2,10 +2,10 @@
 
 include_once('DaoFactory.php');
 include_once('PostgresUsuarioDao.php');
-
 include_once('PostgresMarcaDao.php');
 include_once('PostgresCorDao.php');
 include_once('PostgresProdutoDao.php');
+include_once('PostgresFornecedorDao.php');
 
 class PostgresDaofactory extends DaoFactory {
 
@@ -38,12 +38,6 @@ class PostgresDaofactory extends DaoFactory {
         return new PostgresUsuarioDao($this->getConnection());
 
     }
-
-    public function getFornecedorDao() {
-
-        return new PostgresFornecedorDao($this->getConnection());
-
-    }
     
     public function getSubCategoriaDao() {
 
@@ -73,6 +67,12 @@ class PostgresDaofactory extends DaoFactory {
     public function getProdutoDao(){
 
         return new PostgresProdutoDao($this->getConnection());
+
+    }
+
+    public function getFornecedorDao() {
+
+        return new PostgresFornecedorDao($this->getConnection());
 
     }
     
