@@ -29,3 +29,12 @@ CREATE TABLE CA_USUARIO (
 				us_cartao varchar(16));
 
 -----------------------------------------------------------
+CREATE TABLE CA_ENDERECO(
+					EN_IDL SERIAL,
+					EN_IDL_CLIENTE INTEGER,
+					EN_CF VARCHAR(1),
+					EN_ENDERECO VARCHAR(200),
+					EN_NUMERO INTEGER,
+					EN_COMPLEMENTO VARCHAR(100),
+					EN_CIDADE VARCHAR(100),
+					EN_UF VARCHAR(2));
