@@ -15,7 +15,7 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
 
         $stmt = $this->conn->prepare($query);
 
-        // bind values 
+        // bind values
         $stmt->bindValue(":us_cpf", $usuario->getCPF());
         $stmt->bindValue(":us_email", $usuario->getEmail());
         $stmt->bindValue(":us_nome", $usuario->getNome());
@@ -33,14 +33,14 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
 
     }
 
-    public function removePorId($id) {
+    public function removePorCPF($us_cpf) {
         $query = "DELETE FROM " . $this->table_name . 
-        " WHERE id = :id";
+        " WHERE us_cpf = :us_cpf";
 
         $stmt = $this->conn->prepare($query);
 
         // bind parameters
-        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':us_cpf', $us_cpf);
 
         // execute the query
         if($stmt->execute()){
@@ -170,25 +170,25 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
     }
     */
 
-    public function buscaTodos() {
-
+    public function buscaTodos() {    
+      
         $usuarios = array();
 
         $query = "SELECT
-                    id, login, senha, nome
+                      us_cpf, us_email, us_nome, us_rg, us_celular, us_telefone, us_senha, us_cartao
                 FROM
                     " . $this->table_name . 
-                    " ORDER BY id ASC";
+                    " ORDER BY us_idl ASC";
      
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             extract($row);
-            $usuarios[] = new Usuario($id,$login,$senha,$nome);
-        }
-        
+            $usuarios[] = new Usuario($us_cpf, $us_email, $us_nome, $us_rg, $us_celular, $us_telefone,$us_senha, $us_cartao);
+        } 
         return $usuarios;
+      
     }
 }
 ?>

@@ -1,6 +1,5 @@
 <?php
 class Usuario {
-    
     private $us_cpf;     
     private $us_email;   
     private $us_nome;  
@@ -11,7 +10,8 @@ class Usuario {
     private $us_cartao;
 
     public function __construct($us_cpf, $us_email, $us_nome, $us_rg, $us_celular, $us_telefone,$us_senha, $us_cartao)
-    {        
+    {   
+         
         $this->us_cpf=$us_cpf;     
         $this->us_email=$us_email;   
         $this->us_nome=$us_nome;     

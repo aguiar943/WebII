@@ -179,26 +179,33 @@
 											</li>
 
 										</ul>
-
 									</li>
-
-										<li class = "w-50 rounded" >
 											  <?php
 										if(isset($_SESSION["nome_usuario"])) {											
-											echo '<a href="cadastro_produtos.php">Produtos </a>';
-											echo '<br><a href="novo_produto.php">inclui produto </a>';
-										} 
+											echo'<li class = "w-25 rounded" >';
+											echo'<div class = "mt-1" > <a href="cadastro_produtos.php">Produtos </a> </div>';
+											echo '</li>';
+											echo'<li class = "w-25 rounded" >';
+											echo'<div class = "mt-1" > <a href="cadastro_fornecedores.php">Fornecedores </a> </div>';
+											echo '</li>';
+											echo'<li class = "w-25 rounded" >';
+											echo'<div class = "mt-1" > <a href="cadastro_usuarios.php">Usuarios </a> </div>';
+											echo '</li>';							
+											
+										} else{
+											echo'<li class = "w-25 rounded" >';
+											echo'<div class = "mt-1" >Produtos</div>';
+											echo '</li>';
+											echo'<li class = "w-25 rounded" >';
+											echo'<div class = "mt-1" >Fornecedor</div>';
+											echo '</li>';
+											echo'<li class = "w-25 rounded" >';
+											echo'<div class = "mt-1" >Usuarios</div>';
+											echo '</li>';						
+										}	
 										
 										?>
-										</li>
-											<li class = "w-50 rounded" >
-											  <?php
-										if(isset($_SESSION["nome_usuario"])) {											
-											echo '<a href="cadastro_fornecedores.php">Fornecedores </a>';
-											echo '<br><a href="novo_fornecedor.php">inclui fornecedor </a>';
-										} 
 										
-										?>
 										</li>
 										<li class = "w-25 rounded" >
 

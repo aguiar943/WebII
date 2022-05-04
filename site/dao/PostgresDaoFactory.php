@@ -38,6 +38,12 @@ class PostgresDaofactory extends DaoFactory {
         return new PostgresUsuarioDao($this->getConnection());
 
     }
+
+    public function getFornecedorDao() {
+
+        return new PostgresFornecedorDao($this->getConnection());
+
+    }
     
     public function getSubCategoriaDao() {
 

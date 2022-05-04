@@ -1,9 +1,9 @@
 <?php
-interface UsuarioDao {
+interface FornecedoresDao {
 
-    public function insere($usuario);
+    public function insere($fornecedor);
     public function remove($usuario);
-    public function removePorCPF($us_cpf);
+    public function removePorId($id);
     public function altera(&$usuario);
     public function buscaPorId($id);
     public function buscaPorLogin($login);
