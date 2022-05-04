@@ -132,20 +132,18 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 
     }
 
-    public function remove($veiculo) {
+    public function RemoveProdutoPoBarras($cd_barras) {
         $query = "DELETE FROM " . $this->table_name . 
-        " WHERE id = :id";
+        " WHERE cd_barras = :cd_barras";
 
         $stmt = $this->conn->prepare($query);
-
         // bind parameters
-        $stmt->bindParam(':id', $veiculo->getId());
+        $stmt->bindParam(':cd_barras', $cd_barras);
 
         // execute the query
         if($stmt->execute()){
             return true;
         }    
-
         return false;
     }
 
@@ -226,18 +224,23 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
         return $veiculo;
     }
 
-    public function buscaTodos() {
-
+    public function buscaTodosProdutos() {
+        $produtos = array();
         $query = "SELECT
-                    id, marca, nome, motor, ano, cor
+                      descricao, modelo, preco_custo, preco_venda, cd_barras, cd_referencia, unidade, ncm, id_marca, id_subcategoria
                 FROM
                     " . $this->table_name . 
                     " ORDER BY id ASC";
      
         $stmt = $this->conn->prepare( $query );
         $stmt->execute();
-     
-        return $stmt;
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            extract($row);
+            $produtos[] = new Produto($descricao, $modelo, $preco_custo, $preco_venda, $cd_barras, $cd_referencia, $unidade, $ncm);
+        } 
+        return $produtos;
+      
     }
 }
 ?>

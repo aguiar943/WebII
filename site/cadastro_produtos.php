@@ -1,36 +1,56 @@
-<!DOCTYPE html>
-<html>
-	<head>
-	<meta name="viewport" content="width=devicewidth, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<link rel="icon" href="imagens/simbolo.png" />
-		<title>
-			Produtos - cadastro
-		</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-</head>
+<?php 
+require "fachada.php"; 
+?>
 <body class="bg-light">
 <div class="container py-3">
-  <header>
-    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-       <a href="index.php" class="d-flex align-items-center text-dark text-decoration-none">
-        <img src="imagens/logosemfundo.png" width="300" height="70"></img>
-      </a>
-
-     <!-- <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-        <a class="me-3 py-2 text-dark text-decoration-none" href="index.html">Home</a>
-		<a class="me-3 py-2 text-dark text-decoration-none" href="plano.html">Planos</a>
-        <a class="me-3 py-2 text-dark text-decoration-none" href="login.html">Login</a>
-      </nav> -->
-    </div>
-  </header>
   <div class="" role="document">
 		<div class="modal-content rounded-5 shadow">
 			<form class="p-4 p-md-5 border rounded-3 bg-light">
 				<div class="modal-header p-6 pb-4 border-bottom-0">
 					<h2 class="fw-bold mb-0">Cadastro Produtos</h2>
 				</div>
-				
+				<?php
+
+echo "<section>";
+$dao = $factory->getProdutoDao();
+$produtos = $dao->buscaTodosProdutos();
+if($produtos) {
+ 
+	echo "<table class='table table-hover table-responsive table-bordered'>";
+	echo "<tr>";
+		echo "<th>Barras</th>";
+		echo "<th>Descrição</th>";
+		echo "<th>Preço de venda</th>";
+	echo "</tr>";
+
+	foreach ($produtos as $produto) {
+		echo "<tr>";
+			echo "<td>{$produto->getCdBarras()}</td>";
+			echo "<td>{$produto->getDescricao()}</td>";
+			echo "<td>{$produto->getPrecoVenda()}</td>";
+			echo "<td>";
+				echo "<a href='mostra_usuario.php?cd_barras={$produto->getCdBarras()}' class='btn btn-primary left-margin'>";
+				echo "<span class='glyphicon glyphicon-list'></span> Visualizar ";
+				echo "</a>";
+				echo "<a href='modifica_usuario.php?cd_barras={$produto->getCdBarras()}' class='btn btn-info left-margin'>";
+				echo "<span class='glyphicon glyphicon-edit'></span> Alterar";
+				echo "</a>";
+				echo "<a href='remove_produto.php?cd_barras={$produto->getCdBarras()}' class='btn btn-danger left-margin'";
+				echo "onclick=\"return confirm('Confirma exclusão do produto?')\">";
+				echo "<span class='glyphicon glyphicon-remove'></span> Excluir";
+				echo "</a>";
+			echo "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
+}
+ 
+echo "<a href='novo_produto.php' class='btn btn btn-success left-margin'>";
+echo "Novo";
+echo "</a>";
+
+echo "</section>";
+?>	
 			</form>
 		</div>
 	</div>

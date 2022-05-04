@@ -50,7 +50,6 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         return false;
     }
 
-
     public function altera(&$usuario) {
 
         $query = "UPDATE " . $this->table_name . 
