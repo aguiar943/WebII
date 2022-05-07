@@ -11,6 +11,8 @@ class Produto {
     private $cd_referencia;
     private $unidade;
     private $ncm;
+    private $subcategoria;
+    private $marca;
     
     public function __construct( $descricao, $modelo, $preco_custo, $preco_venda, $cd_barras, $cd_referencia, $unidade, $ncm)
     {
@@ -52,6 +54,22 @@ class Produto {
 
     public function getNcm() { return $this->ncm; }
     public function setNcm($ncm) {$this->ncm = $ncm;}
+    
+    public function getMarca(){
+        return $this->marca;
+    }
+
+    public function getSubcategoria(){
+        return $this->subcategoria;
+    }   
+
+    public function setMarca($marca){
+        $this->marca = $marca;
+    }
+
+    public function setSubcategoria($subcategoria){
+        $this->subcategoria = $subcategoria;
+    }
 
 }
 ?>
