@@ -13,31 +13,40 @@ require "fachada.php";
 
 echo "<section>";
 $dao = $factory->getProdutoDao();
-$produtos = $dao->buscaTodosProdutos();
+$produtos = $dao->buscaTodos();
 if($produtos) {
  
 	echo "<table class='table table-hover table-responsive table-bordered'>";
 	echo "<tr>";
 		echo "<th>Barras</th>";
-		echo "<th>Descrição</th>";
+		echo "<th>Nome</th>";
+		echo "<th>Marca</th>";
+		echo "<th>Modelo</th>";
 		echo "<th>Preço de venda</th>";
+		echo "<th>Opções</th>";
 	echo "</tr>";
 
 	foreach ($produtos as $produto) {
+		
+		extract($produto);
+		
 		echo "<tr>";
-			echo "<td>{$produto->getCdBarras()}</td>";
-			echo "<td>{$produto->getDescricao()}</td>";
-			echo "<td>{$produto->getPrecoVenda()}</td>";
+			echo "<td>{$cd_barras}</td>";
+			echo "<td>{$subcategoria}</td>";
+			echo "<td>{$marca}</td>";
+			echo "<td>{$modelo}</td>";
+			echo "<td>{$preco_venda}</td>";
+		
 			echo "<td>";
-				echo "<a href='mostra_usuario.php?cd_barras={$produto->getCdBarras()}' class='btn btn-primary left-margin'>";
-				echo "<span class='glyphicon glyphicon-list'></span> Visualizar ";
+				echo "<a href='mostra_usuario.php?cd_barras={$cd_barras}' class='btn btn-primary left-margin'>";
+					echo "<span class='glyphicon glyphicon-list'></span> Visualizar ";
 				echo "</a>";
-				echo "<a href='modifica_usuario.php?cd_barras={$produto->getCdBarras()}' class='btn btn-info left-margin'>";
-				echo "<span class='glyphicon glyphicon-edit'></span> Alterar";
+				echo "<a href='modifica_usuario.php?cd_barras={$cd_barras}' class='btn btn-info left-margin'>";
+					echo "<span class='glyphicon glyphicon-edit'></span> Alterar";
 				echo "</a>";
-				echo "<a href='remove_produto.php?cd_barras={$produto->getCdBarras()}' class='btn btn-danger left-margin'";
-				echo "onclick=\"return confirm('Confirma exclusão do produto?')\">";
-				echo "<span class='glyphicon glyphicon-remove'></span> Excluir";
+				echo "<a href='remove_produto.php?cd_barras={$cd_barras}' class='btn btn-danger left-margin'";
+					echo "onclick=\"return confirm('Confirma exclusão do produto?')\">";
+					echo "<span class='glyphicon glyphicon-remove'></span> Excluir";
 				echo "</a>";
 			echo "</td>";
 		echo "</tr>";
