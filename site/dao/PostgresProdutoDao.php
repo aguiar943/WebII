@@ -242,5 +242,28 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
         return $produtos;
       
     }
+	
+    /* Método para trazer todos os produtos junto com suas subcategorias e marcas atreladas */
+	
+    public function buscaTodos() {
+
+        $query = 
+        "SELECT pro.id, pro.descricao, pro.modelo, pro.preco_custo, pro.preco_venda,
+                pro.cd_barras, pro.cd_referencia, pro.unidade, pro.ncm,
+                sub.nome subcategoria, mar.nome marca
+            FROM " . $this->table_name . " pro 
+            INNER JOIN ca_marcas mar 
+                ON mar.id = pro.id_marca 
+            INNER JOIN ca_subcategorias sub 
+                ON sub.id = pro.id_subcategoria 
+        ORDER BY pro.id ASC";
+     
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+     
+        return $stmt;
+    }
+	
+	
 }
 ?>
