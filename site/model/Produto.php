@@ -13,6 +13,9 @@ class Produto {
     private $ncm;
     private $subcategoria;
     private $marca;
+    private $cores = array();
+    private $imgs_vitrine = array();
+    private $imgs_detalhes = array();
     
     public function __construct( $descricao, $modelo, $preco_custo, $preco_venda, $cd_barras, $cd_referencia, $unidade, $ncm)
     {
@@ -69,6 +72,42 @@ class Produto {
 
     public function setSubcategoria($subcategoria){
         $this->subcategoria = $subcategoria;
+    }
+    
+    public function getCores(){
+
+        return $this->cores;
+
+    }
+
+    public function setCores($cores){
+
+        $this->cores = $cores;
+
+    }
+
+    public function getImgsVitrine(){
+
+        return $this->imgs_vitrine;
+
+    }
+
+    public function setImgsVitrine($imgs_vitrine){
+
+        $this->imgs_vitrine = $imgs_vitrine;
+
+    }
+
+    public function getImgsDetalhes(){
+
+        return $this->imgs_detalhes;
+
+    }
+
+    public function setImgsDetalhes($imgs_detalhes){
+
+        $this->imgs_detalhes = $imgs_detalhes;
+
     }
 
 }
