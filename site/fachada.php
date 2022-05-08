@@ -6,6 +6,7 @@ include 'model/Cor.php';
 include 'model/Subcategoria.php';
 include 'model/Marca.php';
 include 'model/Produto.php';
+include 'model/Imagem.php';
 include 'model/Fornecedor.php';
 include_once('dao/UsuarioDao.php');
 include_once('dao/FornecedorDao.php');
