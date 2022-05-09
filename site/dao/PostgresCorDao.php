@@ -21,6 +21,34 @@ class PostgresCorDao extends PostgresDao implements CoresDao {
      
         return $stmt;
     }
+    
+    public function buscaPorId($id) {
+        
+        $cor = null;
+    
+        $query = "SELECT
+                    id, nome, cd_hex
+                FROM
+                    " . $this->table_name . "
+                WHERE
+                    id = ?
+                LIMIT
+                    1 OFFSET 0";
+     
+        $stmt = $this->conn->prepare( $query );
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+     
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($row) {
+
+            $cor = new Cor($row['id'], $row['nome'], $row['cd_hex']);
+
+        } 
+     
+        return $cor;
+    }
 
 }
 
