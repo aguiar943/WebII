@@ -24,6 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(75) NOT NULL,
+  `email` varchar(70) NOT NULL,
+  `senha` varchar(15) NOT NULL,
+  `cpf` int(11) NOT NULL,
+  `celular1` int(11) DEFAULT NULL,
+  `celular2` int(11) DEFAULT NULL,
+  `rg` int(11) DEFAULT NULL,
+  `cartao` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
 -- Estrutura da tabela `ca_categorias`
 --
 
