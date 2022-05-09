@@ -49,6 +49,16 @@ class Imagem{
         $this->categoria = $categoria;
 
     }
+    
+    public function getPath($produto){
+
+        $img = 'imagens/' . $produto->getSubcategoria() . '/' . $produto->getId();
+        
+        $img = $img . '/' . $this->categoria . '/' . $this->nome;
+
+        return $img;
+
+    }
 
 }
 
