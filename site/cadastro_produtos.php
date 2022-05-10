@@ -55,13 +55,6 @@
                     <td> <?= $preco_venda; ?> </td>
 
                     <td> 
-
-                      <a href='mostra_usuario.php?cd_barras=<?= $cd_barras ?>' class='btn btn-primary left-margin'>
-
-                        <span class='glyphicon glyphicon-list'></span> Visualizar
-
-                      </a>
-
                       <a href='altera_produto.php?produto=<?= $id; ?>' class='btn btn-info left-margin ms-2'>
 
                         <span class='glyphicon glyphicon-edit'></span> Alterar

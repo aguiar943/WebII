@@ -29,9 +29,6 @@ if($usuarios) {
 			echo "<td>{$usuario->getCPF()}</td>";
 			echo "<td>{$usuario->getNome()}</td>";
 			echo "<td>";
-				echo "<a href='mostra_usuario.php?cpf={$usuario->getCPF()}' class='btn btn-primary left-margin'>";
-				echo "<span class='glyphicon glyphicon-list'></span> Visualizar ";
-				echo "</a>";
 				echo "<a href='modifica_usuario.php?cpf={$usuario->getCPF()}' class='btn btn-info left-margin'>";
 				echo "<span class='glyphicon glyphicon-edit'></span> Alterar";
 				echo "</a>";

@@ -21,7 +21,6 @@
   <div class="" role="document">
 	<div class="modal-content rounded-5 shadow">
 		<form  class="p-4 p-md-5 border rounded-3 bg-light" action="insere_usuario.php" method="get">
-		<form  class="p-4 p-md-5 border rounded-3 bg-light">
 			<div class="modal-header p-6 pb-4 border-bottom-0">
 					<h4 class="fw-bold mb-0">CADASTRO USUÁRIO</h4>
 				</div>

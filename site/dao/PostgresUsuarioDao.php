@@ -33,14 +33,25 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
 
     }
 
-    public function removePorCPF($us_cpf) {
-        $query = "DELETE FROM " . $this->table_name . 
-        " WHERE us_cpf = :us_cpf";
+
+    public function altera(&$usuario) {
+
+        $query = 'UPDATE ' . $this->table_name . 
+        ' SET us_email =:us_email, us_nome =:us_nome, us_rg =:us_rg,  us_celular =:us_celular,us_telefone =:us_telefone, ' .
+        ' us_senha =:us_senha, us_cartao =:us_cartao' .   
+        ' WHERE us_cpf = :us_cpf';
 
         $stmt = $this->conn->prepare($query);
 
         // bind parameters
-        $stmt->bindParam(':us_cpf', $us_cpf);
+        $stmt->bindValue(":us_cpf", $usuario->getCPF());
+        $stmt->bindValue(":us_email", $usuario->getEmail());
+        $stmt->bindValue(":us_nome", $usuario->getNome());
+        $stmt->bindValue(":us_rg", $usuario->getRG());
+        $stmt->bindValue(":us_celular", $usuario->getCelular());
+        $stmt->bindValue(":us_telefone", $usuario->getTelefone());
+        $stmt->bindValue(":us_senha", md5($usuario->getSenha()));
+        $stmt->bindValue(":us_cartao", $usuario->getCartao());
 
         // execute the query
         if($stmt->execute()){
@@ -50,23 +61,15 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         return false;
     }
 
-    public function altera(&$usuario) {
+    public function removePorCPF($us_cpf) {
+        $query = "DELETE FROM " . $this->table_name . 
+        " WHERE us_cpf = :us_cpf";
 
-        $query = "UPDATE " . $this->table_name . 
-        " SET US_EMAIL = :US_EMAIL, US_NOME = :US_NOME, US_RG = :US_RG, US_CELULAR = :US_CELULAR, US_TELEFONE = :US_TELEFONE, US_SENHA =:US_SENHA, US_CARTAO =:US_CARTAO" .
-        " WHERE US_CPF = :US_CPF";
-        
         $stmt = $this->conn->prepare($query);
 
         // bind parameters
-        $stmt->bindValue(":US_CPF", $usuario->getCPF());
-        $stmt->bindValue(":US_EMAIL", $usuario->getEmail());
-        $stmt->bindValue(":US_NOME", $usuario->getNome());
-        $stmt->bindValue(":US_RG", $usuario->getRG());
-        $stmt->bindValue(":US_CELULAR", $usuario->getCelular());
-        $stmt->bindValue(":US_TELEFONE", $usuario->getTelefone());
-        $stmt->bindValue(":US_SENHA", md5($usuario->getSenha()));
-        $stmt->bindValue(":US_CARTAO", $usuario->getCartao());
+        $stmt->bindParam(':us_cpf', $us_cpf);
+
         // execute the query
         if($stmt->execute()){
             return true;
