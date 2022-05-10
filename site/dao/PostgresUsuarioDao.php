@@ -123,5 +123,42 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         return $usuarios;
       
     }
+
+    public function PesquisaUsuario($palavra) {
+        
+        $usuarios = array();        
+        try{
+           $query = "SELECT
+                       us_cpf, us_email, us_nome, us_rg, us_celular, us_telefone, us_senha, us_cartao
+                   FROM
+                       " . $this->table_name . "
+                   WHERE
+                   us_cpf like ?  or us_nome like ? ORDER BY us_idl ASC";
+        
+           $stmt = $this->conn->prepare($query);
+           $parametro = "%" . $palavra . "%";
+           $stmt->bindParam(1, $parametro);
+           
+           
+
+            $stmt->execute();
+
+            } catch(Exception $ex){
+
+                echo $ex->getMessage();
+
+            }
+
+           
+           
+           $stmt->execute();
+        
+           while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+               extract($row);
+               $usuarios[] = new Usuario($us_cpf, $us_email, $us_nome, $us_rg, $us_celular, $us_telefone,$us_senha, $us_cartao);
+           }
+       
+           return $usuarios;
+       }
 }
 ?>

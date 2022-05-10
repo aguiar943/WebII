@@ -6,5 +6,6 @@ interface UsuarioDao {
     public function altera(&$usuario);
     public function buscaPorCPF($login);
     public function buscaTodos();
+    public function PesquisaUsuario($palavra);
 }
 ?>

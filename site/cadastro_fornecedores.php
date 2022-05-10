@@ -9,7 +9,43 @@ require "fachada.php";
 				<div class="modal-header p-6 pb-4 border-bottom-0">
 					<h2 class="fw-bold mb-0">Cadastro Fornecedores</h2>
 				</div>
-				<?php
+				<div class="col-lg-13">
+                    <div class="form-group input-group">
+                        <input type="text" class="form-control" id="palavra" placeholder="Pesquisar">
+                        <span class="input-group-btn">
+                            <button class="btn btn-outline-info" id="buscar" type="button">Buscar</button>
+                        </span>
+                    </div>
+                </div>
+				<br>
+
+					<script>
+						function buscar(palavra)
+						{
+							//O método $.ajax(); é o responsável pela requisição
+							$.ajax
+									({
+										//Configurações
+										type: 'POST',//Método que está sendo utilizado.
+										dataType: 'php',//É o tipo de dado que a página vai retornar.
+										url: 'busca_fornecedor.php',//Indica a página que está sendo solicitada.
+										//função que vai ser executada assim que a requisição for enviada
+										beforeSend: function () {
+											$("#dados").html("Carregando...");
+										},
+										data: {palavra: palavra},//Dados para consulta
+										//função que será executada quando a solicitação for finalizada.
+										success: function (msg)
+										{
+											$("#dados").html(msg);
+										}
+									});
+						}
+						$('#buscar').click(function () {
+							buscar($("#palavra").val())
+						});
+					</script>
+<?php
 
 echo "<section>";
 $dao = $factory->getFornecedorDao();

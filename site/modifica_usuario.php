@@ -13,7 +13,7 @@ $usuario = $dao->buscaPorCPF($us_cpf);
 	<div class="modal-content rounded-5 shadow">
 		<form  class="p-4 p-md-5 border rounded-3 bg-light" action="altera_usuario.php" method="get">
 			<div class="modal-header p-6 pb-4 border-bottom-0">
-					<h4 class="fw-bold mb-0">ALTERA USUÁRIO</h4>
+					<h4 class="fw-bold mb-0">Altera usuário</h4>
 				</div>
 				<div class="form-floating mb-3">
 					<div class="row">

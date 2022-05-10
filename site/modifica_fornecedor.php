@@ -11,9 +11,9 @@ $fornecedor = $dao->buscaFornecedorCNPJ($us_cnpj);
  <section>
  <div class="" role="document">
 	<div class="modal-content rounded-5 shadow">
-		<form  class="p-4 p-md-5 border rounded-3 bg-light" action="altera_fornecedor.php" method="get">
+		<form  class="p-4 p-md-5 border rounded-3 bg-light" actiSon="altera_fornecedor.php" method="get">
 			<div class="modal-header p-6 pb-4 border-bottom-0">
-					<h4 class="fw-bold mb-0">ALTERA FORNECEDOR</h4>
+					<h4 class="fw-bold mb-0">Altera fornecedor</h4>
 				</div>
 				<div class="form-floating mb-3">
 					<div class="row">
