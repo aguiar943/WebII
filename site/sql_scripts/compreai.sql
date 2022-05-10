@@ -22,6 +22,27 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
+--
+-- Estrutura da tabela fornecedores
+--
+
+CREATE TABLE public.ca_fornecedor
+(
+    fo_idl integer NOT NULL DEFAULT nextval('ca_fornecedor_fo_idl_seq'::regclass),
+    fo_social character varying(100) COLLATE pg_catalog."default",
+    fo_fantasia character varying(100) COLLATE pg_catalog."default",
+    fo_cnpj character varying(14) COLLATE pg_catalog."default",
+    fo_ie character varying(11) COLLATE pg_catalog."default",
+    fo_telefone character varying(11) COLLATE pg_catalog."default",
+    fo_email character varying(50) COLLATE pg_catalog."default"
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public.ca_fornecedor
+    OWNER to postgres;
+
+-- --------------------------------------------------------
 
 --
 -- Estrutura da tabela usuarios
