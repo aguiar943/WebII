@@ -11,7 +11,7 @@ class PostgresDaofactory extends DaoFactory {
 
     // specify your own database credentials
     private $host = "localhost";
-    private $db_name = "compreai2";
+    private $db_name = "compreai";
     private $port = "5432";
     private $username = "postgres";
     private $password = "masterkey";
