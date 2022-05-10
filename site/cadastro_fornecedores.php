@@ -30,7 +30,7 @@ if($fornecedores) {
 			echo "<td>{$fornecedor->getSocial()}</td>";
 			echo "<td>{$fornecedor->getFantasia()}</td>";
 			echo "<td>";
-				echo "<a href='modifica_usuario.php?cnpj={$fornecedor->getCNPJ()}' class='btn btn-info left-margin'>";
+				echo "<a href='modifica_fornecedor.php?cnpj={$fornecedor->getCNPJ()}' class='btn btn-info left-margin'>";
 				echo "<span class='glyphicon glyphicon-edit'></span> Alterar";
 				echo "</a>";
 				echo "<a href='remove_fornecedor.php?cnpj={$fornecedor->getCNPJ()}' class='btn btn-danger left-margin'";
