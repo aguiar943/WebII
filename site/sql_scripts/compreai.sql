@@ -25,23 +25,37 @@ SET time_zone = "+00:00";
 
 --
 -- Estrutura da tabela `usuarios`
---
 
-CREATE TABLE `usuarios` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(75) NOT NULL,
-  `email` varchar(70) NOT NULL,
-  `senha` varchar(15) NOT NULL,
-  `cpf` int(11) NOT NULL,
-  `celular1` int(11) DEFAULT NULL,
-  `celular2` int(11) DEFAULT NULL,
-  `rg` int(11) DEFAULT NULL,
-  `cartao` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+--
+CREATE TABLE CA_USUARIO (
+				us_idl serial ,
+				us_cpf varchar(11) ,
+				us_email varchar(50) ,
+				us_nome varchar(100) ,
+				us_rg varchar(12) ,
+				us_celular varchar(11) ,
+				us_telefone varchar(11) ,
+				us_senha varchar(255) ,
+				us_cartao varchar(16));
 
 --
 -- Estrutura da tabela `ca_categorias`
 --
+
+--
+CREATE TABLE public.ca_fornecedor
+(
+    fo_idl SERIAL,
+    fo_social character varying(100) COLLATE pg_catalog."default",
+    fo_fantasia character varying(100) COLLATE pg_catalog."default",
+    fo_cnpj character varying(14) COLLATE pg_catalog."default",
+    fo_ie character varying(11) COLLATE pg_catalog."default",
+    fo_telefone character varying(11) COLLATE pg_catalog."default",
+    fo_email character varying(50) COLLATE pg_catalog."default"
+)
+TABLESPACE pg_default;
+ALTER TABLE public.ca_fornecedor
+    OWNER to postgres;
 
 CREATE TABLE `ca_categorias` (
   `id` int(11) NOT NULL,
