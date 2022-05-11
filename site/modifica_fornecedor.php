@@ -1,17 +1,17 @@
 <?php
 require "fachada.php"; 
 
-$us_cnpj      = @$_GET["cnpj"];
+$fo_cnpj      = @$_GET["cnpj"];
 
 $dao = $factory->getFornecedorDao();
-$fornecedor = $dao->buscaFornecedorCNPJ($us_cnpj);
+$fornecedor = $dao->buscaFornecedorCNPJ($fo_cnpj);
 
 // layout do cabeçalho
  ?>
  <section>
  <div class="" role="document">
 	<div class="modal-content rounded-5 shadow">
-		<form  class="p-4 p-md-5 border rounded-3 bg-light" actiSon="altera_fornecedor.php" method="get">
+		<form  class="p-4 p-md-5 border rounded-3 bg-light" action="altera_fornecedor.php" method="get">
 			<div class="modal-header p-6 pb-4 border-bottom-0">
 					<h4 class="fw-bold mb-0">Altera fornecedor</h4>
 				</div>
@@ -46,7 +46,7 @@ $fornecedor = $dao->buscaFornecedorCNPJ($us_cnpj);
 				<small class="text-muted"></small>
 				<button type="submit" class="w-100 btn btn btn-success">Altera</button><br><br>
 				<a class="w-100 btn btn-secondary" href="cadastro_fornecedores.php">Cancela</a>
-				<input type='hidden' name='cpnj' value='<?php echo $fornecedor->getCNPJ();?>'/>
+				<input type='hidden' name='cnpj' value='<?php echo $fornecedor->getCNPJ();?>'/>
 			</form>
 		</div>
 	</div>
