@@ -21,476 +21,323 @@
        
 
  ?>
+ 
+<div class="container py-3">
+  <div class="" role="document">
+	<div class="modal-content rounded-5 shadow">
+		<form class="p-4 p-md-5 border rounded-3 bg-light"   method = "post" enctype="multipart/form-data">
+			<div class="modal-header p-6 pb-4 border-bottom-0">
+					<h4 class="fw-bold mb-0">Altera produto</h4>
+			</div>
+				<div class="form-floating mb-3">
+					<div class="row">
+						<div class="form-group col-md-3">
+                        <input type="number" class="form-control" name = "cd_barras" placeholder="Código Barras" required value = "<?= $produto->getCdBarras(); ?>">
+						</div>
+						<div class="form-group col-md-3">
+                        <input type="number" class="form-control" name = "cd_referencia" placeholder="Código Referencia" required value = "<?= $produto->getCdReferencia(); ?>">
+						</div>
+						
+					</div>
+				</div>
 
-<div id = "detalhes_produto" class = "row d-flex justify-content-center border border-dark h-100" > <!-- bg-secondary -->
+				<div class="form-floating mb-3">
+					<div class="row">
+						<div class="form-group col-md-7">
+                        <input type="text" class="form-control" name = "descricao" placeholder="Descricao" value = "<?= $produto->getDescricao(); ?>">
+						</div>
+					</div>
+				</div>
 
-    <div id = "fotos-categorias" class = "row mt-2 w-75 me-5 ms-3" >
+                <div class="form-floating mb-3">
+					<div class="row">
+						<div class="form-group col-md-2">
+							<select class="form-control" name = "subcategoria" >
+                                <option selected="true" disabled="disabled">Categoria</option>
+                                    <?php 
+                                         if($subcategorias){ 
 
-        <div id = "geral-categorias-conta" class = "col-xl-8 ms-4 h-100 border border-dark " > <!-- bg-primary -->
+                                            while ($row = $subcategorias->fetch(PDO::FETCH_ASSOC)){
 
-            <div id = "geral-bot-conta" class = "row h-100 border border-dark d-flex justify-content-center "> <!-- bg-danger -->
+                                                extract($row);
 
-                <div id = "categoria" class = "col-xl-1 mb-2 mt-3 ms-2"> <!-- bg-warning -->
+                                                if($nome == $produto->getSubcategoria()){
 
-                    <div class="w-100 me-5 border border-dark p-1 bg-cat" > <!-- bg-sucess -->
+                                                    echo "<option selected='true' value = '{$id}' >{$nome}</option>";
 
-                        <div class = "center-flx border border-dark justify-content-start " > 
+                                                } else {
 
-                            <b class = "ms-3" > CADASTROS </b> 
+                                                    echo "<option value = '{$id}' >{$nome}</option>";
 
+                                                }
+
+                                                $arr_categorias[] = new Subcategoria($id, $nome);
+
+                                            }
+                                        }
+                                    ?>
+							</select>
+						</div>
+                        <div class="form-group col-md-2">
+							<select class="form-control" name = "marca" >
+                                <option selected="true" disabled="disabled" >Marca</option>
+                                        <?php 
+                                        if($marcas){ 
+
+                                            while ($row = $marcas->fetch(PDO::FETCH_ASSOC)){
+
+                                                extract($row);
+
+                                                if($nome == $produto->getMarca()){
+
+                                                    echo "<option selected='true' value = '{$id}' >{$nome}</option>";
+
+                                                } else {
+
+                                                    echo "<option value = '{$id}' >{$nome}</option>";
+
+                                                }
+
+                                            }
+                                        }
+                                        ?>
+							</select>
+						</div>
+                        <div class="form-group col-md-2">
+							<select class="form-control" name= "cor">
+                                <option selected="true" disabled="disabled" >Cor</option>
+                                    <?php 
+                                        if($cores){ 
+
+                                            while ($row = $cores->fetch(PDO::FETCH_ASSOC)){
+
+                                                extract($row);
+
+                                                for($i = 0; $i < count ($produto->getCores()); $i++){
+
+                                                    $cor = $produto->getCores()[$i];
+
+                                                    if($nome == $cor){
+
+                                                        $cor_encontrada = true;
+
+                                                        echo "<option selected='true' value = '{$id}' >{$nome}</option>";
+
+                                                        break;
+
+                                                    } 
+
+                                                }
+
+                                                if(!$cor_encontrada){
+
+                                                    echo "<option value = '{$id}' >{$nome}</option>";
+
+                                                } else {
+
+                                                    $cor_encontrada = false;
+
+                                                }
+
+                                            }
+                                        }
+
+                                    ?>
+							</select>
+						</div>
+						<div class="form-group col-md-1">
+							<select class="form-control" name= "cor">
+                                <option class="form-control" name = "unidade"></option>
+                                <?php 
+
+                                    $arr_unidades = array("UN", "PC", "MT", "KG");
+
+                                    for($i = 0; $i < count($arr_unidades); $i++){
+
+                                        if($produto->getUnidade() == $arr_unidades[$i]){
+
+                                            echo "<option selected='true' value = '{$arr_unidades[$i]}' >{$arr_unidades[$i]}</option>";
+
+                                        } else {
+
+                                            echo "<option value = '{$arr_unidades[$i]}' >{$arr_unidades[$i]}</option>";
+
+                                        }
+
+                                    }
+
+                                ?>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-floating mb-3">
+					<div class="row">
+						<div class="form-group col-md-2">
+							<input type="text" class="form-control" name = "preco_custo" placeholder="Preço Custo" required value = "<?= $produto->getPrecoCusto(); ?>">
+						</div>
+						<div class="form-group col-md-2">
+							<input type="text" class="form-control" name = "preco_venda" placeholder="Preço Venda" required value = "<?= $produto->getPrecoVenda(); ?>">
+						</div>
+					</div>
+				</div>
+                <div class="form-floating mb-3">
+                    <div class="row">
+                        <div class="form-group col-md-5">
+                            <input type="text" class="form-control" name = "modelo" placeholder = "Modelo" maxlength="10" value = "<?= $produto->getModelo(); ?>">
                         </div>
-
-                        <div class = "center-flx border border-dark" >
-
-                            Produtos
-
+                        <div class="form-group col-md-2">
+                            <input type="text" class="form-control" name = "ncm" placeholder = "NCM" required value = "<?= $produto->getNcm(); ?>">
                         </div>
-
-                        <div class = "center-flx border border-dark">
-
-                            Fornecedores
-
-                        </div>
-
-                        <div class = "center-flx border border-dark " >
-
-                            Teclados
-
-                        </div>                      
-
                     </div>
-
                 </div>
-    
-                <div id = "menu-fotos-conta" class = "col-xl-10 border border-dark mt-3 ms-2" ><!-- bg-secondary -->
+                <div class="form-floating mb-3">
+                    <div class="form-group col-md-7">
+                        <select class="form-control" id="idFornecedoreProduto" placeholder="Fornecedor">
+                            <option>Fornedor</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-floating mb-3 mt-2 cadastro-conta-h">
 
-                    <!-- Fim Mauricio -->
+<div class="row mt-4">
+
+    <div class="form-group col-md-2">
+
+        <select class="form-control" name = "img_vitrine_cmb[]" size = "3" style = "overflow: hidden;" multiple>
+
+            <option disabled="disabled" >Imagens Vitrine</option>
             
-                    <div id = "foto" class = "row ms-1 me-1 mt-3">
-                        
-                        <!-- Inicio Rodrigo -->
+            <?php
 
-                        <div class="container py-3">
+                for($i = 0; $i < count($produto->getImgsVitrine()); $i++){
 
-                            <div class="" role="document">
+                    $img = $produto->getImgsVitrine()[$i]->getNome();
+                    $img_id = $produto->getImgsVitrine()[$i]->getId();
 
-                                <div class="modal-content rounded-5 shadow">
+                    echo "<option value = '" . $img_id . "' >" . $img . "</option>";
 
-                                    <div class="modal-header p-6 pb-3 border-bottom-0">
+                }
+            
+            ?>
 
-                                        <h4 class="fw-bold mb-0">ALTERAÇÃO - PRODUTOS </h4>
+        </select>
 
-                                    </div>
+    </div>        
 
-                                    <form class="p-4 p-md-2 border rounded bg-light cadastro-conta-x " method = "post" enctype="multipart/form-data" >
+    <div class="form-group col-md-2">
 
-                                        <div class="form-floating cadastro-conta-h mb-4">
+        <div class='upload-wrapper me-3'>
 
-                                            <div class="row">
+            <label for='upload-fotos-produto' class = "">
 
-                                                <div class="form-group col-md-2">
+                Alterar fotos
 
-                                                    <input type="number" class="form-control" name = "cd_barras" 
-                                                        placeholder="Código Barras" value = "<?= $produto->getCdBarras(); ?>"
-                                                        required
-                                                    >
+            </label>
 
-                                                </div>
+            <input id='upload-fotos-produto' class="form-control" type='file' name = "img_produtos[]" multiple/>
 
-                                                <div class="form-group col-md-2">
+        </div>
 
-                                                    <input type="number" class="form-control" name = "cd_referencia"
-                                                        placeholder="Código Referencia" value = "<?= $produto->getCdReferencia(); ?>"
-                                                        required
-                                                    >
+    </div>
 
-                                                </div>
+    <div class="form-group col-md-2">
 
-                                                <div class="form-group col-md-2">
+        <select class="form-control w-100" name = "img_detalhes_cmb[]" size = "3" style = "overflow: hidden;" multiple>
 
-                                                    <select class="form-select" name = "subcategoria" >
+            <option disabled="disabled" >Imagens Detalhe</option>
 
-                                                        <option selected='true' disabled='disabled' >Subcategoria</option>
+            <?php
 
-                                                        <?php 
+                for($i = 0; $i < count($produto->getImgsDetalhes()); $i++){
 
-                                                        if($subcategorias){ 
+                    $img = $produto->getImgsDetalhes()[$i]->getNome();
+                    $img_id = $produto->getImgsDetalhes()[$i]->getId();
 
-                                                            while ($row = $subcategorias->fetch(PDO::FETCH_ASSOC)){
+                    echo "<option value = '" . $img_id . "' >" . $img . "</option>";
 
-                                                                extract($row);
+                }
+            
+            ?>
 
-                                                                if($nome == $produto->getSubcategoria()){
+        </select>
 
-                                                                    echo "<option selected='true' value = '{$id}' >{$nome}</option>";
+    </div>
 
-                                                                } else {
+    <div class="form-group col-md-2">
 
-                                                                    echo "<option value = '{$id}' >{$nome}</option>";
+        <div class='upload-wrapper me-3'>
 
-                                                                }
+            <label for='upload-fotos-detalhes' class = "">
 
-                                                                $arr_categorias[] = new Subcategoria($id, $nome);
+                Alterar fotos
 
-                                                            }
-                                                        }
-                                                            
-                                                        ?>
+            </label>
 
-                                                    </select>
+            <input id='upload-fotos-detalhes' class="form-control" type='file' name = "img_detalhes[]" multiple />
 
-                                                </div>
-
-                                                <div class="form-group col-md-2">
-
-                                                    <select class="form-select" name = "marca" >
-
-                                                        <option selected="true" disabled="disabled" >Marca</option>
-
-                                                        <?php 
-
-                                                        if($marcas){ 
-
-                                                            while ($row = $marcas->fetch(PDO::FETCH_ASSOC)){
-
-                                                                extract($row);
-
-                                                                if($nome == $produto->getMarca()){
-
-                                                                    echo "<option selected='true' value = '{$id}' >{$nome}</option>";
-
-                                                                } else {
-
-                                                                    echo "<option value = '{$id}' >{$nome}</option>";
-
-                                                                }
-
-                                                            }
-                                                        }
-
-                                                        ?>
-
-                                                    </select>
-
-                                                </div>
-                                                
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-floating mb-3 cadastro-conta-h">
-
-                                            <div class="row">
-
-                                                <div class="form-group col-md-8">
-
-                                                    <input type="text" class="form-control" name = "descricao" 
-                                                        placeholder="Descricao" value = "<?= $produto->getDescricao(); ?>"
-                                                        required
-                                                    >
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-floating mt-2 mb-3 cadastro-conta-h">
-
-                                            <div class="row mt-4 ">
-
-                                                <div class="form-group col-md-2">
-
-                                                    <input type="number" class="form-control" name = "preco_custo" 
-                                                        placeholder="Preço Custo" value = "<?= $produto->getPrecoCusto(); ?>"
-                                                        required
-                                                    >
-
-                                                </div>
-
-                                                <div class="form-group col-md-2">
-
-                                                    <input type="number" class="form-control" name = "preco_venda" 
-                                                        placeholder="Preço Venda" value = "<?= $produto->getPrecoVenda(); ?>"
-                                                        required
-                                                    >
-
-                                                </div>
-
-                                                <div class="form-group col-md-2">
-
-                                                    <select class="form-control" name = "unidade">
-
-                                                        <option selected="true" disabled="disabled" >Tipo Unidade</option>
-
-                                                    <?php 
-
-                                                        $arr_unidades = array("UN", "PC", "MT", "KG");
-
-                                                        for($i = 0; $i < count($arr_unidades); $i++){
-
-                                                            if($produto->getUnidade() == $arr_unidades[$i]){
-
-                                                                echo "<option selected='true' value = '{$arr_unidades[$i]}' >{$arr_unidades[$i]}</option>";
-
-                                                            } else {
-
-                                                                echo "<option value = '{$arr_unidades[$i]}' >{$arr_unidades[$i]}</option>";
-
-                                                            }
-
-                                                        }
-
-                                                    ?>
-
-                                                    </select>
-
-                                                </div>
-
-                                                <div class="form-group col-md-2">
-
-                                                    <select class="form-select h-75" name = "cor" multiple>
-
-                                                        <option disabled="disabled" >Selecione a Cor</option>
-
-                                                        <?php
-                                                        
-                                                        $cor_encontrada = false;
-
-                                                        if($cores){ 
-
-                                                            while ($row = $cores->fetch(PDO::FETCH_ASSOC)){
-
-                                                                extract($row);
-
-                                                                for($i = 0; $i < count ($produto->getCores()); $i++){
-
-                                                                    $cor = $produto->getCores()[$i];
-
-                                                                    if($nome == $cor){
-
-                                                                        $cor_encontrada = true;
-
-                                                                        echo "<option selected='true' value = '{$id}' >{$nome}</option>";
-
-                                                                        break;
-
-                                                                    } 
-
-                                                                }
-
-                                                                if(!$cor_encontrada){
-
-                                                                    echo "<option value = '{$id}' >{$nome}</option>";
-
-                                                                } else {
-
-                                                                    $cor_encontrada = false;
-
-                                                                }
-
-                                                            }
-                                                        }
-                                                        
-                                                        ?>
-
-                                                    </select>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-floating mb-3 mt-2  cadastro-conta-h">
-
-                                            <div class="row mt-4">
-
-                                                <div class="form-group col-md-4">
-
-                                                    <input type = "text" class = "form-control" name = "modelo" 
-                                                        placeholder = "Modelo" maxlength="10" value = "<?= $produto->getModelo(); ?>"
-                                                    >
-
-                                                </div>
-
-                                                <div class="form-group col-md-2">
-
-                                                    <input type = "text" class = "form-control" name = "ncm" 
-                                                        placeholder = "NCM" value = "<?= $produto->getNcm(); ?>"
-                                                        required
-                                                    >
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="form-floating mb-3 mt-2 cadastro-conta-h">
-
-                                            <div class="row mt-4">
-
-                                                <div class="form-group col-md-2">
-
-                                                    <select class="form-control" name = "img_vitrine_cmb[]" size = "3" style = "overflow: hidden;" multiple>
-
-                                                        <option disabled="disabled" >Imagens Vitrine</option>
-                                                        
-                                                        <?php
-
-                                                            for($i = 0; $i < count($produto->getImgsVitrine()); $i++){
-
-                                                                $img = $produto->getImgsVitrine()[$i]->getNome();
-                                                                $img_id = $produto->getImgsVitrine()[$i]->getId();
-
-                                                                echo "<option value = '" . $img_id . "' >" . $img . "</option>";
-
-                                                            }
-                                                        
-                                                        ?>
-
-                                                    </select>
-
-                                                </div>        
-
-                                                <div class="form-group col-md-2">
-
-                                                    <div class='upload-wrapper me-3'>
-
-                                                        <label for='upload-fotos-produto' class = "">
-
-                                                            Alterar fotos
-
-                                                        </label>
-
-                                                        <input id='upload-fotos-produto' class="form-control" type='file' name = "img_produtos[]" multiple/>
-
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="form-group col-md-2">
-
-                                                    <select class="form-control w-100" name = "img_detalhes_cmb[]" size = "3" style = "overflow: hidden;" multiple>
-
-                                                        <option disabled="disabled" >Imagens Detalhe</option>
-
-                                                        <?php
-
-                                                            for($i = 0; $i < count($produto->getImgsDetalhes()); $i++){
-
-                                                                $img = $produto->getImgsDetalhes()[$i]->getNome();
-                                                                $img_id = $produto->getImgsDetalhes()[$i]->getId();
-
-                                                                echo "<option value = '" . $img_id . "' >" . $img . "</option>";
-
-                                                            }
-                                                        
-                                                        ?>
-
-                                                    </select>
-
-                                                </div>
-
-                                                <div class="form-group col-md-2">
-
-                                                    <div class='upload-wrapper me-3'>
-
-                                                        <label for='upload-fotos-detalhes' class = "">
-
-                                                            Alterar fotos
-
-                                                        </label>
-
-                                                        <input id='upload-fotos-detalhes' class="form-control" type='file' name = "img_detalhes[]" multiple />
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row">  
-
-                                                <div class="form-group col-md-12 d-flex align-items-center me-5">
-                                                    
-                                                    <div id='nome-foto-produto' class = 'me-4' >
-
-
-                                                    </div>
-
-                                                    <div id='nome-foto-detalhe' class = 'ms-2' >
-                                                        
-                                                
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row ">
-
-                                                <div class="form-group col-md-8">
-
-                                                    <span class="h-100" name = "msg">
-
-                                                        <?php 
-
-                                                            if(isset($_POST['enviar'])){
-
-                                                                echo $dao->altera($produto, $factory);
-
-                                                            }
-                                                        ?>
-
-                                                    </span>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="row ">
-
-                                                <div class="form-group col-md-8">
-
-                                                    <button name = "enviar"  type="submit" class="btn btn btn-sm btn-success h-100 w-100 cadastro-conta-h"> 
-
-                                                        Cadastrar 
-
-                                                    </button>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                        
-                                        <br> <br>
-
-                                    </form>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <hr class="featurette-divider">                                               
-
-                    </div>
-
-                </div>
-
-            </div>
-        
         </div>
 
     </div>
 
 </div>
+
+<div class="row">  
+
+    <div class="form-group col-md-12 d-flex align-items-center me-5">
+        
+        <div id='nome-foto-produto' class = 'me-4' >
+
+
+        </div>
+
+        <div id='nome-foto-detalhe' class = 'ms-2' >
+            
+    
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row ">
+
+    <div class="form-group col-md-8">
+
+        <span class="h-100" name = "msg">
+
+            <?php 
+
+                if(isset($_POST['enviar'])){
+
+                    echo $dao->altera($produto, $factory);
+
+                }
+            ?>
+
+        </span>
+
+    </div>
+
+    </div>
+    </div>  
+                <div class="form-floating mb-3 mt-4">
+                    <div class="form-group col-md-8">
+                        <button name = "enviar"  type="submit" class="btn btn btn-sm btn-success w-100 cadastro-conta-h"> Cadastrar </button>
+                        
+                    </div>
+                    
+                </div>
+                <div class="form-floating mb-3 mt-4">
+                    <div class="form-group col-md-8">
+                    <a class="w-100 btn btn-secondary" href="cadastro_produtos.php">Cancela</a>
+                        
+                    </div>
+                    
+                </div>
+				<hr class="my-4">
+				<small class="text-muted"></small>
+			</form>
+		</div>
+	</div>
 <?php include 'footer.php'; ?>
-
-
-
-
