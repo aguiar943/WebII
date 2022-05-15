@@ -6,6 +6,7 @@ include_once('PostgresMarcaDao.php');
 include_once('PostgresCorDao.php');
 include_once('PostgresProdutoDao.php');
 include_once('PostgresFornecedorDao.php');
+include_once('PostgresSubcategoriaDao.php');
 
 class PostgresDaofactory extends DaoFactory {
 
