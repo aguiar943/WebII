@@ -21,13 +21,13 @@ class Produto {
     {
 
         $this->descricao = $descricao;
-        $this->modelo = $modelo;
-        $this->preco_custo = $preco_custo;
-        $this->preco_venda = $preco_venda;
-        $this->cd_barras = $cd_barras;
-        $this->cd_referencia = $cd_referencia;
+        $this->modelo = trim($modelo);
+        $this->preco_custo = intval($preco_custo);
+        $this->preco_venda = intval($preco_venda);
+        $this->cd_barras = intval($cd_barras);
+        $this->cd_referencia = intval($cd_referencia);
         $this->unidade = $unidade;
-        $this->ncm = $ncm;
+        $this->ncm = intval($ncm);
 
     }
 
