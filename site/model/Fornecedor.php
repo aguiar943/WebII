@@ -6,7 +6,8 @@ class Fornecedor {
     private $fo_cnpj;  
     private $fo_ie; 
     private $fo_telefone;
-    private $fo_email;   
+    private $fo_email;
+    private $fo_provedor;
 
     public function __construct($fo_social, $fo_fantasia, $fo_cnpj, $fo_ie, $fo_telefone, $fo_email)
     {        
@@ -37,5 +38,8 @@ class Fornecedor {
 
     public function getTelefone() { return $this->fo_email; }
     public function setTelefone($fo_email) {$this->fo_email = $fo_email;}
+    
+    public function getProvedor() { return $this->fo_provedor; }
+    public function setProvedor($fo_provedor) {$this->fo_provedor = $fo_provedor;}
 }
 ?>
