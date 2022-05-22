@@ -5,6 +5,7 @@ class Cor {
     private $id;
     private $nome;
     private $hex;
+    private $id_rel_produto;
     
     public function __construct( $id, $nome, $hex)
     {
@@ -21,6 +22,17 @@ class Cor {
 
     public function getNome() { return $this->nome; }
     public function setNome($nome) {$this->nome = $nome;}
+    
+    public function getIdRelProduto(){
+        
+        return $this->id_rel_produto;
+    }
+
+    public function setIdRelProduto($id_rel_produto){
+
+        $this->id_rel_produto = $id_rel_produto;
+
+    }
 
 }
 ?>
