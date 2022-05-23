@@ -61,7 +61,7 @@ class PostgresFornecedorDao extends PostgresDao implements FornecedorDao {
     
         $stmt = $this->conn->prepare($query);
         
-        if(FornecedoresForm::validar($fornecedor, $antigo_fornecedor, $this->buscaPorCNPJ($fornecedor->getCNPJ())) == "ok"){
+        if(FornecedoresForm::validar($fornecedor, $antigo_fornecedor, $this->buscaFornecedorCNPJ($fornecedor->getCNPJ())) == "ok"){
             
             $stmt->bindValue(":fo_social", $fornecedor->getSocial());
             $stmt->bindValue(":fo_fantasia", $fornecedor->getFantasia());
