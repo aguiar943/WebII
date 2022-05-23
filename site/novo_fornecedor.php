@@ -29,7 +29,7 @@
 
                         <div class = "col-12 col-lg-12 col-xl-12 center-flx justify-content-start me-2  border border-dark bg-light" >
 
-                            <a href = "listagem_produtos.php" class = "conta " > Produtos </a>
+                            <a href = "cadastro_produtos.php" class = "conta " > Produtos </a>
 
                         </div>
 
