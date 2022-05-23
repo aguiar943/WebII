@@ -2,6 +2,7 @@
 
 include_once('FornecedorDao.php');
 include_once('PostgresDao.php');
+include_once('validacoes/FornecedoresForm.php');
 
 
 class PostgresFornecedorDao extends PostgresDao implements FornecedorDao {
@@ -10,47 +11,86 @@ class PostgresFornecedorDao extends PostgresDao implements FornecedorDao {
     
     public function insere($fornecedor) {
 
-        $query = "INSERT INTO " . $this->table_name . 
-        " (fo_social, fo_fantasia, fo_cnpj, fo_ie, fo_telefone, fo_email) VALUES" .
-        " (:fo_social, :fo_fantasia, :fo_cnpj, :fo_ie, :fo_telefone, :fo_email) ";
-    
-        $stmt = $this->conn->prepare($query);
+        if(isset($_POST['enviar'])){
+            
+            $query = "INSERT INTO " . $this->table_name . 
+            " (fo_social, fo_fantasia, fo_cnpj, fo_ie, fo_telefone, fo_email, fo_provedor) VALUES" .
+            " (?, ?, ?, ?, ?, ?, ?) ";
 
-        $stmt->bindValue(":fo_social", $fornecedor->getSocial());
-        $stmt->bindValue(":fo_fantasia", $fornecedor->getFantasia());
-        $stmt->bindValue(":fo_cnpj", $fornecedor->getCNPJ());
-        $stmt->bindValue(":fo_ie", $fornecedor->getIE());
-        $stmt->bindValue(":fo_telefone", $fornecedor->getTelefone());
-        $stmt->bindValue(":fo_email", $fornecedor->getEmail());
-       
-        if($stmt->execute()){
-            return true;
-        }else{
-            return false;
+            $stmt = $this->conn->prepare($query);
+            
+            $values = array(
+
+                $fornecedor->getSocial(), 
+                $fornecedor->getFantasia(),
+                $fornecedor->getCNPJ(),
+                $fornecedor->getIE(),
+                $fornecedor->getTelefone(),
+                $fornecedor->getEmail(),
+                $fornecedor->getProvedor()
+
+            ); 
+            
+            $msg = FornecedoresForm::validar($fornecedor,  $fornecedor, $this->buscaPorCNPJ($fornecedor->getCNPJ()));
+            
+            if($msg == "ok"  && $stmt->execute($values)){
+
+                return "Fornecedor cadastrado com sucesso";
+
+            }else{
+
+                return FornecedoresForm::validar($fornecedor, $fornecedor, $this->buscaPorCNPJ($fornecedor->getCNPJ()));
+
+            }
+            
         }
     }
 
     public function alteraFornecedor($fornecedor) {
+        
+        $msg = "";
+        $cnpj = $fornecedor->getCNPJ();
+        
+        $antigo_fornecedor = $fornecedor;
+        $fornecedor = FornecedoresForm::getProdutoForm();
 
         $query = 'UPDATE ' . $this->table_name . 
-        ' SET fo_social =:fo_social, fo_fantasia =:fo_fantasia, fo_ie =:fo_ie, ' . 
-        ' fo_telefone =:fo_telefone, fo_email =:fo_email' .
-        ' WHERE fo_cnpj = :fo_cnpj';
+        ' SET fo_social =:fo_social, fo_fantasia =:fo_fantasia, fo_cnpj = :fo_cnpj, fo_ie =:fo_ie, ' . 
+        ' fo_telefone =:fo_telefone, fo_email =:fo_email, fo_provedor = :fo_provedor' .
+        ' WHERE fo_cnpj = :fo_cnpj2';
     
         $stmt = $this->conn->prepare($query);
-
-        $stmt->bindValue(":fo_social", $fornecedor->getSocial());
-        $stmt->bindValue(":fo_fantasia", $fornecedor->getFantasia());
-        $stmt->bindValue(":fo_cnpj", $fornecedor->getCNPJ());
-        $stmt->bindValue(":fo_ie", $fornecedor->getIE());
-        $stmt->bindValue(":fo_telefone", $fornecedor->getTelefone());
-        $stmt->bindValue(":fo_email", $fornecedor->getEmail());
         
-        if($stmt->execute()){
-            return true;
-        }else{
-            return false;
+        if(FornecedoresForm::validar($fornecedor, $antigo_fornecedor, $this->buscaPorCNPJ($fornecedor->getCNPJ())) == "ok"){
+            
+            $stmt->bindValue(":fo_social", $fornecedor->getSocial());
+            $stmt->bindValue(":fo_fantasia", $fornecedor->getFantasia());
+            $stmt->bindValue(":fo_cnpj", $fornecedor->getCNPJ());
+            $stmt->bindValue(":fo_ie", $fornecedor->getIE());
+            $stmt->bindValue(":fo_telefone", $fornecedor->getTelefone());
+            $stmt->bindValue(":fo_email", $fornecedor->getEmail());
+            $stmt->bindValue(':fo_provedor', $fornecedor->getProvedor());
+            $stmt->bindValue(':fo_cnpj2', $cnpj);
+            
+             try{
+
+                $stmt->execute();
+                $msg = "Fornecedor alterado com sucesso !";
+
+            } catch(PDOException $ex) {
+
+                $msg = "Ocorreu um erro ao tentar alterar o fornecedor ! Exceção: " . $ex->getMessage();
+
+            }
+            
+        } else {
+
+            $msg = FornecedoresForm::validar($fornecedor, $antigo_fornecedor, $this->buscaPorCNPJ($fornecedor->getCNPJ()));
+
         }
+        
+        return $msg;
+        
     }
 
     public function RemoveFornecedorPorCNPJ($fo_cnpj) {
@@ -66,6 +106,19 @@ class PostgresFornecedorDao extends PostgresDao implements FornecedorDao {
             return true;
         }    
         return false;
+    }
+    
+    public function buscaTodos() {
+
+        $query=
+        "SELECT fo_idl, fo_social, fo_fantasia, fo_cnpj, fo_ie, fo_telefone, fo_email
+            FROM " . $this->table_name . "
+        ORDER BY fo_social ASC";
+     
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+     
+        return $stmt;
     }
    
     public function buscaTodosFornecedores() {
@@ -91,7 +144,7 @@ class PostgresFornecedorDao extends PostgresDao implements FornecedorDao {
         $fornecedor = null;
 
         $query = "SELECT
-                    fo_social, fo_fantasia, fo_cnpj, fo_ie, fo_telefone, fo_email
+                    fo_social, fo_fantasia, fo_cnpj, fo_ie, fo_telefone, fo_email, fo_provedor
                 FROM
                     " . $this->table_name . "
                 WHERE
@@ -107,6 +160,8 @@ class PostgresFornecedorDao extends PostgresDao implements FornecedorDao {
         if($row) {
             $fornecedor = new Fornecedor($row['fo_social'],$row['fo_fantasia'], $row['fo_cnpj'], $row['fo_ie'], $row['fo_telefone'], $row['fo_email']);
         } 
+        
+        $fornecedor->setProvedor($row['fo_provedor']);
      
         return $fornecedor;
     }
