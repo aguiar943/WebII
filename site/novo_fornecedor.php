@@ -35,7 +35,7 @@
 
                         <div class = "col-12 col-lg-12 col-xl-12 center-flx justify-content-start border border-dark bg-light">
 
-                            <a href = "listagem_fornecedor.php" class = "conta" > Fornecedores </a>
+                            <a href = "cadastro_fornecedores.php" class = "conta" > Fornecedores </a>
 
                         </div>
 
