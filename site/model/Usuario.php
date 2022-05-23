@@ -8,6 +8,7 @@ class Usuario {
     private $us_telefone;   
     private $us_senha;
     private $us_cartao;
+    private $fo_provedor;
 
     public function __construct($us_cpf, $us_email, $us_nome, $us_rg, $us_celular, $us_telefone,$us_senha, $us_cartao)
     {   
@@ -46,5 +47,8 @@ class Usuario {
 
     public function getCartao() { return $this->us_cartao; }
     public function setCartao($us_cartao) {$this->us_cartao = $us_cartao;}
+    
+    public function getProvedor() { return $this->fo_provedor; }
+    public function setProvedor($fo_provedor) {$this->fo_provedor = $fo_provedor;}
 }
 ?>
