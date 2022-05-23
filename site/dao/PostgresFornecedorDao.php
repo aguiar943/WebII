@@ -31,7 +31,7 @@ class PostgresFornecedorDao extends PostgresDao implements FornecedorDao {
 
             ); 
             
-            $msg = FornecedoresForm::validar($fornecedor,  $fornecedor, $this->buscaPorCNPJ($fornecedor->getCNPJ()));
+            $msg = FornecedoresForm::validar($fornecedor,  $fornecedor, $this->buscaFornecedorCNPJ($fornecedor->getCNPJ()));
             
             if($msg == "ok"  && $stmt->execute($values)){
 
@@ -39,7 +39,7 @@ class PostgresFornecedorDao extends PostgresDao implements FornecedorDao {
 
             }else{
 
-                return FornecedoresForm::validar($fornecedor, $fornecedor, $this->buscaPorCNPJ($fornecedor->getCNPJ()));
+                return FornecedoresForm::validar($fornecedor, $fornecedor, $this->buscaFornecedorCNPJ($fornecedor->getCNPJ()));
 
             }
             
