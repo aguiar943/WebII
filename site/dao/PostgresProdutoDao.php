@@ -6,123 +6,101 @@ include_once('ProdutosDao.php');
 class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 
     private $table_name = 'CA_PRODUTOS';
+    private $qtd_fotos = 0;
+    private $qtd_fotos_detalhes = 0;
+    private $msg = "";
+    private $inserido = false;
 
-    public function insere($produto, $factory/* $daoSubcategoria,  $daoMarca */) {
-
-        $msg = "";
-
-        $qtd_fotos = 0;
-        $qtd_fotos_detalhes = 0;
-
-        $daoSubcategoria = $factory->getSubcategoriaDao();
-        $daoMarca = $factory->getMarcaDao();
-	$daoCor = $factory->getCorDao();
+    public function insere($produto, $factory) {
 	    
 	$id = 0;
 
         if(isset($_POST['enviar']) && (isset($_FILES['img_produtos']) || isset($_FILES['img_detalhes']))){
-
-            $subcategoria = $daoSubcategoria->buscaPorId(
-		    
-		    intval($_POST['subcategoria'])
-		    
-	    );
-            
-	    $marca = $daoMarca->buscaPorId(
-		    
-		    intval($_POST['marca'])
-		    
-	    );
 		
-	    $cor = $daoCor->buscaPorId(
-                
-                intval($_POST['cor'])
-            
-            );
+	    $produto = ProdutosForm::getProdutoForm($factory);
 
             $qtd_fotos = count($_FILES['img_produtos']['name']) ;
             $qtd_fotos_detalhes = count($_FILES['img_detalhes']['name']) ;
+		
+	    $this->qtd_fotos = (count(array_filter($_FILES['img_produtos']['name']))) ;
 
-            if(strlen($_POST['cd_barras']) != 13  || strlen($_POST['ncm']) != 8 || strlen($_POST['cd_referencia']) != 13){
+            $this->qtd_fotos_detalhes = (count(array_filter($_FILES['img_detalhes']['name']))) ;
+		
+	    $query_produto = "INSERT INTO " . $this->table_name . 
+	    	" (descricao, modelo, preco_custo, preco_venda, cd_barras, cd_referencia, unidade, ncm, id_marca, id_subcategoria) VALUES" .
+	    	" (:descricao, :modelo, :preco_custo, :preco_venda, :cd_barras, :cd_referencia, :unidade, :ncm, :marca, :subcategoria)";
 
-                $msg = $msg . "Erro: O código de barras é composto por 13 números e o NCM por 8 números" . $msg;
-    
-            } else if(strlen($_POST['modelo']) < 4){
+            $stmt = $this->conn->prepare($query_produto);
+		
+	    if(ProdutosForm::validar($produto, $this->qtd_fotos, $this->qtd_fotos_detalhes) == "ok"){
 
-                $msg = $msg . "Erro: O campo Modelo foi preenchido incorretamente" . $msg;
+            	$stmt->bindValue(":descricao", $produto->getDescricao());
+            	$stmt->bindValue(":modelo", $produto->getModelo());
+            	$stmt->bindValue(":preco_custo", $produto->getPrecoCusto());
+            	$stmt->bindValue(":preco_venda", $produto->getPrecoVenda());
+            	$stmt->bindValue(":cd_barras", $produto->getCdBarras());
+            	$stmt->bindValue(":cd_referencia", $produto->getCdReferencia());
+            	$stmt->bindValue(":unidade", $produto->getUnidade()) ;
+            	$stmt->bindValue(":ncm", $produto->getNcm());
+            	$stmt->bindValue(":marca", $produto->getMarca()->getId());
+                $stmt->bindValue(":subcategoria", $produto->getSubcategoria()->getId());
+		    
+		$stmt->execute();
+            
+            	try{
+                	$id = $this->conn->lastInsertId();
 
-            } else if($_POST['preco_custo'] == 0 || $_POST['preco_venda'] == 0){
+               		$this->inserirFotos(
+                    
+                		$this->qtd_fotos, "Vitrine", $id, 
+                		$produto->getSubcategoria()->getNome(),
+               			$_FILES['img_produtos']['name']
+               		);
+                    
+               		$this->inserirFotos(
+                    
+              			$this->qtd_fotos_detalhes, "Detalhes", $id, 
+               			$produto->getSubcategoria()->getNome(),
+               			$_FILES['img_detalhes']['name']
+                    	);
 
-                $msg = $msg . "Erro: O preço mínimo é R$ 1,00" . $msg;
-                
-            }
+                    	$this->msg = "Produto cadastrado com sucesso!";
+                    	$this->inserido = true;
+
+            	}catch(Exception $ex){
+
+                	$this->msg = "Erro ao gravar imagens! -> " . $ex->getMessage();
+
+            	}
+
+            } else {
+		    
+	       	$this->msg = ProdutosForm::validar($produto, $this->qtd_fotos, $this->qtd_fotos_detalhes);
+		    
+	    }
+
+        }
+	    
+	if($this->inserido){
+
+            $this->msg = $this->msg . $this->adicionarCores($id, 0, $produto->getCores());
 
         }
 
-        if(isset($_POST['enviar']) && $msg == ""){
+        return $msg;
 
-            $produto = new Produto(
-                $_POST['descricao'], $_POST['modelo'], 
-                intval($_POST['preco_custo']), intval($_POST['preco_venda']), 
-                intval($_POST['cd_barras']), intval($_POST['cd_referencia']),
-                $_POST['unidade'], intval($_POST['ncm'])
-    
-            );
+    }
+	
+    public function adicionarCores($id_produto, $index_cores, $cores){
 
-            $query_produto = "INSERT INTO " . $this->table_name . 
-            " (descricao, modelo, preco_custo, preco_venda, cd_barras, cd_referencia, unidade, ncm, id_marca, id_subcategoria) VALUES" .
-            " (:descricao, :modelo, :preco_custo, :preco_venda, :cd_barras, :cd_referencia, :unidade, :ncm, :marca, :subcategoria)";
+        for($i = $index_cores; $i < count($cores); $i++){
 
-            $stmt = $this->conn->prepare($query_produto);
-
-            $stmt->bindValue(":descricao", $produto->getDescricao());
-            $stmt->bindValue(":modelo", $produto->getModelo());
-            $stmt->bindValue(":preco_custo", $produto->getPrecoCusto());
-            $stmt->bindValue(":preco_venda", $produto->getPrecoVenda());
-            $stmt->bindValue(":cd_barras", $produto->getCdBarras());
-            $stmt->bindValue(":cd_referencia", $produto->getCdReferencia());
-            $stmt->bindValue(":unidade", $produto->getUnidade()) ;
-            $stmt->bindValue(":ncm", $produto->getNcm());
-            $stmt->bindValue(":marca", $marca->getId());
-            $stmt->bindValue(":subcategoria", $subcategoria->getId());
-            
-            try{
-
-                if($stmt->execute()){
-				
-                    $id = $this->conn->lastInsertId();
-
-                    $this->inserirFotos(
-                    
-                        $qtd_fotos, "Vitrine", $id, 
-                        $subcategoria->getNome(),
-                        $_FILES['img_produtos']['name']
-                    
-                    );
-                    
-                    $this->inserirFotos(
-                    
-                        $qtd_fotos_detalhes, "Detalhes", $id, 
-                        $subcategoria->getNome(),
-                        $_FILES['img_detalhes']['name']
-                    );
-
-                    $msg = "Produto cadastrado com sucesso!";
-				
-                }
-
-            }catch(Exception $ex){
-
-                echo $ex->getMessage();
-
-            }
-		
-	    $query_cor = "INSERT INTO rel_produto_cor (id_produto, id_cor) VALUES (:id_produto, :id_cor)";
+            $query_cor = "INSERT INTO rel_produto_cor (id_produto, id_cor) VALUES (:id_produto, :id_cor)";
 
             $stmt = $this->conn->prepare($query_cor);
 
-            $stmt->bindValue(":id_produto", $id);
-            $stmt->bindValue(":id_cor", $cor->getId());
+            $stmt->bindValue(":id_produto", $id_produto);
+            $stmt->bindValue(":id_cor", $cores[$i]);
 
             try{
 
@@ -130,18 +108,15 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 
             } catch(Exception $ex){
 
-                echo $ex->getMessage();
+                return $ex->getMessage();
 
             }
 
         }
 
-        return $msg;
-
     }
 
     public function inserirFotos($qtd_fotos, $categoria_foto, $id, $categoria, $fotos){
-        $erro = "";
 
         if( $qtd_fotos > 0) {
 
@@ -184,29 +159,19 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 
     public function altera($produto, $factory) {
 
-        $msg = "";
+        $msg = "Ocorreu um erro ao tentar alterar o produto !";
+	    
+	$cores_escolhidas = array();
+	$cores_escolhidas = $_POST['cor'];
+	    
+	$id = $produto->getId();
+        $cores = $produto->getCores();
+        $imgs_vitrine = $produto->getImgsVitrine();
+        $imgs_detalhes = $produto->getImgsDetalhes();
 
-        $daoSubcategoria = $factory->getSubcategoriaDao();
-        $daoMarca = $factory->getMarcaDao();
-        $daoCor = $factory->getCorDao();
-
-        $subcategoria = $daoSubcategoria->buscaPorId(
-
-            intval($_POST['subcategoria'])
-
-        );
-
-        $marca = $daoMarca->buscaPorId(
-
-            intval($_POST['marca'])
-
-        );
-
-        $cor = $daoCor->buscaPorId(
-
-            intval($_POST['cor'])
-       
-        );
+        $produto = ProdutosForm::getProdutoForm($factory);
+	    
+	$index_cor_cmb = 0;
 
         $query_produto = "UPDATE " . $this->table_name . 
         " SET descricao = :descricao, modelo = :modelo, preco_custo = :preco_custo," .
@@ -216,41 +181,80 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 
         $stmt = $this->conn->prepare($query_produto);
 
-        $stmt->bindValue(":descricao", $_POST['descricao'] );
-        $stmt->bindValue(":modelo", $_POST['descricao'] );
-        $stmt->bindValue(":preco_custo", $_POST['preco_custo'] );
-        $stmt->bindValue(":preco_venda", $_POST['preco_venda'] );
-        $stmt->bindValue(":cd_barras", $_POST['preco_venda'] );
-        $stmt->bindValue(':cd_referencia', $_POST['cd_referencia'] );
-        $stmt->bindValue(':unidade', $_POST['unidade']  );
-        $stmt->bindValue(':ncm', $_POST['ncm'] );
-        $stmt->bindValue(':id_marca', $marca->getId() );
-        $stmt->bindValue(':id_subcategoria', $subcategoria->getId());
-        $stmt->bindValue(':id', $produto->getId() );
+	 if(ProdutosForm::validar($produto, 1, 1) == "ok"){
+		 
+		$stmt->bindValue(":descricao", $produto->getDescricao() );
+		$stmt->bindValue(":modelo", $produto->getModelo() );
+		$stmt->bindValue(":preco_custo", $produto->getPrecoCusto() );
+		$stmt->bindValue(":preco_venda", $produto->getPrecoVenda() );
+		$stmt->bindValue(":cd_barras", $produto->getCdBarras() );
+		$stmt->bindValue(':cd_referencia', $produto->getCdReferencia() );
+		$stmt->bindValue(':unidade', $produto->getUnidade()  );
+		$stmt->bindValue(':ncm', $produto->getNcm() );
+		$stmt->bindValue(':id_marca', $produto->getMarca()->getId() );
+		$stmt->bindValue(':id_subcategoria', $produto->getSubcategoria()->getId() );
+		$stmt->bindValue(':id', $id );
 
-        if($stmt->execute()){
+		$stmt = $this->conn->prepare($query_produto);
 
-            $msg = "Produto alterado com sucesso !";
+		try{
+			$stmt->execute()
 
-        } else {
+			$msg = "Produto alterado com sucesso !";
 
-            $msg = "Ocorreu um erro ao tentar alterar o produto !";
+		} catch() {
+
+		    $msg = $msg . "Exceção: " . $ex->getMessage();
+
+		}
+		 
+    	} else {
+
+            $msg = ProdutosForm::validar($produto, 1, 1);
+            $error_cor = true;
 
         }
+	    
+	for($i = 0; $i < count($cores); $i++) {
+			
+		$id_rel = $cores[$i]->getIdRelProduto() ;
 
-        $path_vitrine = "imagens/" . $subcategoria->getNome() . "/" . $produto->getId() . "/Vitrine/";
-        $path_detalhe = "imagens/" . $subcategoria->getNome() . "/" . $produto->getId() . "/Detalhes/";
+		$query_cor_produto = "UPDATE rel_produto_cor SET " .
+			"id_produto = :id_produto, id_cor = :id_cor " . 
+		" WHERE id =:id";
+
+		$stmt_cor = $this->conn->prepare($query_cor_produto);
+
+		$stmt_cor->bindValue(":id_produto", $id);
+		$stmt_cor->bindValue(":id_cor", $cores_escolhidas[$index_cor_cmb]);
+		$stmt_cor->bindValue(":id", $id_rel);
+			
+		if(!$error_cor && !$stmt_cor->execute()) {
+
+			$error_cor = true;
+			$msg = " Erro relacionado a cor do produto !\n";
+
+		}
+			
+	   	$index_cor_cmb++;
+			
+	   }
+	    
+	   $this->adicionarCores($id, count($cores), $produto->getCores());
+
+           $path_vitrine = "imagens/" . $produto->getSubcategoria()->getNome() . "/" . $id . "/Vitrine/";
+           $path_detalhe = "imagens/" . $produto->getSubcategoria()->getNome() . "/" . $id . "/Detalhes/";
 
 
         $msg =  $msg . $this->alteraFoto(
 
-            $produto->getImgsVitrine(), $path_vitrine
+            $imgs_vitrine, $path_vitrine
 
         );
 
         $msg =  $msg . $this->alteraFoto(
 
-            $produto->getImgsDetalhes(), $path_detalhe
+            $imgs_detalhes, $path_detalhe
 
         );
 
@@ -358,7 +362,7 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
         /* Select para exibir a relação das cores que o produto possui */
 
         $query_cor = 
-        "SELECT rel_cor.id, ccor.nome cor, ccor.cd_hex hex 
+        "SELECT rel_cor.id id_rel, ccor.id, ccor.nome cor, ccor.cd_hex hex 
             FROM rel_produto_cor rel_cor 
             INNER JOIN ca_cores ccor 
                 ON ccor.id = rel_cor.id_cor 
@@ -371,6 +375,9 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
         if($stmt2){
 
             while ($row2 = $stmt2->fetch(PDO::FETCH_ASSOC)){
+		    
+		$cor = new Cor($row2['id'], $row2['cor'], $row2['hex']);
+		$cor->setIdRelProduto($row2['id_rel']);
 
                 $cores[] = $row2['cor'];
 
