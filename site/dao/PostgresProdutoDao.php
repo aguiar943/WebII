@@ -197,24 +197,19 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 		$stmt->bindValue(':id', $id );
 
 		$stmt = $this->conn->prepare($query_produto);
+        
+        try{
 
-		try{
-			$stmt->execute()
+            $stmt->execute();
+            $msg = "Produto alterado com sucesso !";
 
-			$msg = "Produto alterado com sucesso !";
+        } catch(Exception $ex){
 
-		} catch() {
-
-		    $msg = $msg . "Exceção: " . $ex->getMessage();
-
-		}
-		 
-    	} else {
-
-            $msg = ProdutosForm::validar($produto, 1, 1);
-            $error_cor = true;
+            return $ex->getMessage();
+            $msg = $msg . "Exceção: " . $ex->getMessage();
 
         }
+    }
 	    
 	for($i = 0; $i < count($cores); $i++) {
 			

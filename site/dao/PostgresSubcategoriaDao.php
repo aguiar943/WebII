@@ -1,6 +1,6 @@
 <?php
 
-include_once('SubcategoriasDao.php');
+// include_once('SubcategoriasDao.php');
 include_once('PostgresDao.php');
 
 class PostgresSubcategoriaDao extends PostgresDao implements SubCategoriasDao {
