@@ -1,102 +1,127 @@
-<?php 
-// Métodos de acesso ao banco de dados 
-require "fachada.php"; 
-?>
+<?php
 
-<body class="bg-light">
-<div class="container py-3">
-  <div class="" role="document">
-		<div class="modal-content rounded-5 shadow">
-			<form class="p-4 p-md-5 border rounded-3 bg-light">
-				<div class="modal-header p-6 pb-4 border-bottom-0">
-					<h2 class="fw-bold mb-0">Cadastro Usuários</h2>
-				</div>
-				<div class="row">
-                <div class="col-lg-13">
-                    <div class="form-group input-group">
-                        <input type="text" class="form-control" id="palavra" placeholder="Pesquisar">
-                        <span class="input-group-btn">
-                            <button class="btn btn-outline-info" id="buscar" type="button">Buscar</button>
-                        </span>
-                    </div>
-                </div>
-				
+    include 'fachada.php'; 
+
+    $dao = $factory->getUsuarioDao();
+
+ ?>
+
+<div id = "detalhes_produto" class = "row d-flex justify-content-center " > <!-- bg-secondary -->
+
+            <div id = "geral-bot-conta" class = "row h-100  justify-content-start "> <!-- bg-danger -->
+
+                <div id = "categoria" class = "col-sm-12 col-lg-1 col-xl-1 mb-2 mt-3  ms-3 bg-light"> <!-- bg-warning -->
+                
             </div>
-			<div id="dados">Aqui será inserindo o resultado da consulta...</div>
-			<br>
-			<script>
-						function buscar(palavra)
-						{
-							//O método $.ajax(); é o responsável pela requisição
-							$.ajax
-									({
-										//Configurações
-										type: 'POST',//Método que está sendo utilizado.
-										dataType: 'php',//É o tipo de dado que a página vai retornar.
-										url: 'busca_usuario.php',//Indica a página que está sendo solicitada.
-										//função que vai ser executada assim que a requisição for enviada
-										beforeSend: function () {
-											$("#dados").html("Carregando...");
-										},
-										data: {palavra: palavra},//Dados para consulta
-										//função que será executada quando a solicitação for finalizada.
-										success: function (msg)
-										{
-											$("#dados").html(msg);
-										}
-									});
-						}
-						$('#buscar').click(function () {
-							buscar($("#palavra").val())
-						});
-					</script>
-				<?php
+    
+                <div id = "menu-fotos-conta" class = "col-xl-10  mt-3 ms-3 me-3" ><!-- bg-secondary -->
 
-echo "<section>";
-$dao = $factory->getUsuarioDao();
-$usuarios = $dao->buscaTodos();
-if($usuarios) {
- 
-	echo "<table class='table table-hover table-responsive table-bordered'>";
-	echo "<tr>";
-		echo "<th>CPF</th>";
-		echo "<th>Nome</th>";
-	echo "</tr>";
+                    <!-- Fim Mauricio -->
+            
+                    <div id = "foto" class = "row  mt-1 ">
 
-	foreach ($usuarios as $usuario) {
+                        <!-- Inicio Rodrigo -->
 
-		echo "<tr>";
-			echo "<td>{$usuario->getCPF()}</td>";
-			echo "<td>{$usuario->getNome()}</td>";
-			echo "<td>";
-				echo "<a href='modifica_usuario.php?cpf={$usuario->getCPF()}' class='btn btn-info left-margin'>";
-				echo "<span class='glyphicon glyphicon-edit'></span> Alterar";
-				echo "</a>";
-				echo "<a href='remove_usuario.php?cpf={$usuario->getCPF()}' class='btn btn-danger left-margin'";
-				echo "onclick=\"return confirm('Confirma exclusão de usuário?')\">";
-				echo "<span class='glyphicon glyphicon-remove'></span> Excluir";
-				echo "</a>";
-			echo "</td>";
-		echo "</tr>";
-	}
-	echo "</table>";
-}
- 
-echo "<a href='cadastro.php' class='btn btn btn-success left-margin'>";
-echo "Novo";
-echo "</a>";
+                        <div class="container">
+	
+                            <div class="bg-primary" role="document">
 
-echo "</section>";
-?>	
-			</form>
-		</div>
-	</div>
-<hr class="featurette-divider">
-  <footer class="container">
-    <p>&copy; 2022–2022 Web II &middot; <a href="index.php">Compre Aí</a> &middot;</p>
-  </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>	
-</html>
+                                <div class="modal-content rounded-5 shadow">
+
+                                    <div class="modal-header p-6 pb-1 ">
+                                
+                                        <h4 class="fw-bold mb-0">Produtos </h4>
+                                
+                                    </div>
+                            
+                                    <form class="p-4 p-md-2 border rounded bg-light cadastro-conta-x content-area">
+                                
+                                        <section>
+                                    
+                                            <?php
+
+											$dao = $factory->getUsuarioDao();
+											$usuarios = $dao->buscaTodosNovo();
+
+                                            if($usuarios) { ?>
+
+                                                <div class = "row  ">
+
+                                                    <div class = "col-4 col-md-3 col-lg-2 col-xl-2 d-flex justify-content-start" >CPF</div>
+                                                    <div class = "col-8 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-start "> Nome</div>
+
+                                                    <div class = "col-1 col-md-2 col-lg-1 col-xl-1"></div>
+                                                    <div class = "col-1 col-md-2 col-lg-1 col-xl-1 ms-5"></div>
+                                                    <div class = "col-1 col-md-2 col-lg-1 col-xl-1 ms-4"></div>
+
+                                                </div>
+
+                                                <?php
+
+                                                foreach ($usuarios as $usuario) {
+
+                                                    extract($usuario); ?>
+
+                                                    <div class = "row  ">
+
+                                                        <div class = "col-12 col-md-3 col-lg-2 col-xl-2 "> <?= $us_cpf; ?> </div>
+                                                        <div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-warning" > <?= $us_nome; ?> </div>
+                                    
+                                                        <div class = "col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
+
+                                                            <a href='mostra_produto.php?cpf=<?= $us_cpf ?>' class='btn btn-primary justify-content-center' title="Visualizar">
+
+                                                                <i class="fa-solid fa-eye"></i>
+
+                                                            </a>
+                                                        
+                                                        </div>
+
+                                                        <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
+
+                                                            <a href='modifica_usuario?cpf=<?=$us_cpf; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
+
+                                                                <i class="fa-solid fa-pencil"></i>
+
+                                                            </a>
+
+                                                        </div>
+
+                                                        <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
+
+                                                            <a href='remove_usuario.php?cpf=<?= $us_cpf ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
+                                                                onclick = "return confirm('Confirma exclusão do fornecedor?')" title="Excluir"   
+                                                            >
+
+                                                                <i class="fa-solid fa-trash-can"></i>
+
+                                                            </a>
+
+                                                        </div>
+
+                                                    </div>
+                                                     <?php
+
+                                                } ?>
+                                                <?php
+                                            } ?>
+                                            <a href='cadastro.php' class='btn btn btn-success left-margin mt-3'> Novo </a>
+                                    
+                                        </section>
+
+                                    </form>
+                                
+                                </div>
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+    <?php include 'footer.php'; ?>
+
+</div>

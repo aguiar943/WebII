@@ -2,6 +2,7 @@
 
 include_once('UsuarioDao.php');
 include_once('PostgresDao.php');
+include_once('validacoes/UsuariosForm.php');
 
 class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
 
@@ -123,6 +124,23 @@ class PostgresUsuarioDao extends PostgresDao implements UsuarioDao {
         return $usuarios;
       
     }
+
+    public function buscaTodosNovo() {    
+      
+        $usuarios = array();
+
+        $query = "SELECT
+                      us_cpf, us_email, us_nome, us_rg, us_celular, us_telefone, us_senha, us_cartao
+                FROM
+                    " . $this->table_name . 
+                    " ORDER BY us_idl ASC";
+     
+        $stmt = $this->conn->prepare( $query );
+        $stmt->execute();
+        return $stmt;
+      
+    }
+
 
     public function PesquisaUsuario($palavra) {
         
