@@ -157,18 +157,18 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
     public function altera($produto, $factory) {
 
         $msg = "Ocorreu um erro ao tentar alterar o produto !";
-	$error_cor = true;
-	    
-	$cores_escolhidas = array();
-	    
-	$id = $produto->getId();
-        $cores = $produto->getCores();
-        $imgs_vitrine = $produto->getImgsVitrine();
-        $imgs_detalhes = $produto->getImgsDetalhes();
+		$error_cor = true;
+			
+		$cores_escolhidas = array();
+			
+		$id = $produto->getId();
+			$cores = $produto->getCores();
+			$imgs_vitrine = $produto->getImgsVitrine();
+			$imgs_detalhes = $produto->getImgsDetalhes();
 
-        $produto = ProdutosForm::getProdutoForm($factory);
-	    
-	$index_cor_cmb = 0;
+			$produto = ProdutosForm::getProdutoForm($factory);
+			
+		$index_cor_cmb = 0;
 
         $query_produto = "UPDATE " . $this->table_name . 
         " SET descricao = :descricao, modelo = :modelo, preco_custo = :preco_custo," .
@@ -178,34 +178,34 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 
         $stmt = $this->conn->prepare($query_produto);
 
-	 if(ProdutosForm::validar($produto, 1, 1) == "ok"){
+		if(ProdutosForm::validar($produto, 1, 1) == "ok"){
 		 
-		$stmt->bindValue(":descricao", $produto->getDescricao() );
-		$stmt->bindValue(":modelo", $produto->getModelo() );
-		$stmt->bindValue(":preco_custo", $produto->getPrecoCusto() );
-		$stmt->bindValue(":preco_venda", $produto->getPrecoVenda() );
-		$stmt->bindValue(":cd_barras", $produto->getCdBarras() );
-		$stmt->bindValue(':cd_referencia', $produto->getCdReferencia() );
-		$stmt->bindValue(':unidade', $produto->getUnidade()  );
-		$stmt->bindValue(':ncm', $produto->getNcm() );
-		$stmt->bindValue(':id_marca', $produto->getMarca()->getId() );
-		$stmt->bindValue(':id_subcategoria', $produto->getSubcategoria()->getId() );
-		$stmt->bindValue(':id', $id );
+			$stmt->bindValue(":descricao", $produto->getDescricao() );
+			$stmt->bindValue(":modelo", $produto->getModelo() );
+			$stmt->bindValue(":preco_custo", $produto->getPrecoCusto() );
+			$stmt->bindValue(":preco_venda", $produto->getPrecoVenda() );
+			$stmt->bindValue(":cd_barras", $produto->getCdBarras() );
+			$stmt->bindValue(':cd_referencia', $produto->getCdReferencia() );
+			$stmt->bindValue(':unidade', $produto->getUnidade()  );
+			$stmt->bindValue(':ncm', $produto->getNcm() );
+			$stmt->bindValue(':id_marca', $produto->getMarca()->getId() );
+			$stmt->bindValue(':id_subcategoria', $produto->getSubcategoria()->getId() );
+			$stmt->bindValue(':id', $id );
 
-		$stmt = $this->conn->prepare($query_produto);
-        
-        try{
+			$stmt = $this->conn->prepare($query_produto);
+			
+			try{
 
-            $stmt->execute();
-	    $cores_escolhidas = $_POST['cor'];
-            $msg = "Produto alterado com sucesso !";
+				$stmt->execute();
+			$cores_escolhidas = $_POST['cor'];
+				$msg = "Produto alterado com sucesso !";
 
-        } catch(Exception $ex){
+			} catch(Exception $ex){
 
-            return $ex->getMessage();
-            $msg = $msg . "Exceção: " . $ex->getMessage();
+				return $ex->getMessage();
+				$msg = $msg . "Exceção: " . $ex->getMessage();
 
-        }
+			}
     	/*
          * Rodrigo, seria interessante ativar esse else, pelos menos ativar ele quando estiver perto da data
          * de entrega pois se der algum erro de dado incorreto, como um número informado em um campo que só
@@ -224,65 +224,66 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 
         }*/
 	    
-	for($i = 0; $i < count($cores); $i++) {
-			
-		$id_rel = $cores[$i]->getIdRelProduto() ;
+		for($i = 0; $i < count($cores); $i++) {
+				
+			$id_rel = $cores[$i]->getIdRelProduto() ;
 
-		$query_cor_produto = "UPDATE rel_produto_cor SET " .
-			"id_produto = :id_produto, id_cor = :id_cor " . 
-		" WHERE id =:id";
+			$query_cor_produto = "UPDATE rel_produto_cor SET " .
+				"id_produto = :id_produto, id_cor = :id_cor " . 
+			" WHERE id =:id";
 
-		$stmt_cor = $this->conn->prepare($query_cor_produto);
-			
-		if($error_cor == true && count($cores_escolhidas) > 0) {
-			
-			try{
-					
-				$stmt_cor->bindValue(":id_produto", $id);
-				$stmt_cor->bindValue(":id", $id_rel);
-				$stmt_cor->bindValue(":id_cor", $cores_escolhidas[$index_cor_cmb]);
+			$stmt_cor = $this->conn->prepare($query_cor_produto);
+				
+			if($error_cor == true && count($cores_escolhidas) > 0) {
+				
+				try{
+						
+					$stmt_cor->bindValue(":id_produto", $id);
+					$stmt_cor->bindValue(":id", $id_rel);
+					$stmt_cor->bindValue(":id_cor", $cores_escolhidas[$index_cor_cmb]);
 
-				$stmt_cor->execute();
+					$stmt_cor->execute();
 
-			}catch(PDOException $ex){
+				}catch(PDOException $ex){
 
-				$msg = " Erro ao alterar a cor do produto: " . $ex->getMessage() . "\n"; 
-				$error_cor = false;
+					$msg = " Erro ao alterar a cor do produto: " . $ex->getMessage() . "\n"; 
+					$error_cor = false;
+
+				}
 
 			}
+				
+			$index_cor_cmb++;
+				
+		   }
+			
+		   if($error_cor == true){
+				
+			$this->adicionarCores($id, count($cores), $produto->getCores());
 
+		   }
+			
+		   $this->adicionarCores($id, count($cores), $produto->getCores());
+
+			   $path_vitrine = "imagens/" . $produto->getSubcategoria()->getNome() . "/" . $id . "/Vitrine/";
+			   $path_detalhe = "imagens/" . $produto->getSubcategoria()->getNome() . "/" . $id . "/Detalhes/";
+
+
+			$msg =  $msg . $this->alteraFoto(
+
+				$imgs_vitrine, $path_vitrine
+
+			);
+
+			$msg =  $msg . $this->alteraFoto(
+
+				$imgs_detalhes, $path_detalhe
+
+			);
+
+			return $msg;
 		}
-			
-	   	$index_cor_cmb++;
-			
-	   }
-	    
-	   if($error_cor == true){
-			
-		$this->adicionarCores($id, count($cores), $produto->getCores());
-
-	   }
-	    
-	   $this->adicionarCores($id, count($cores), $produto->getCores());
-
-           $path_vitrine = "imagens/" . $produto->getSubcategoria()->getNome() . "/" . $id . "/Vitrine/";
-           $path_detalhe = "imagens/" . $produto->getSubcategoria()->getNome() . "/" . $id . "/Detalhes/";
-
-
-        $msg =  $msg . $this->alteraFoto(
-
-            $imgs_vitrine, $path_vitrine
-
-        );
-
-        $msg =  $msg . $this->alteraFoto(
-
-            $imgs_detalhes, $path_detalhe
-
-        );
-
-        return $msg;
-    }
+	}
 	
     public function alteraFoto($imagens_prod, $path){
 
