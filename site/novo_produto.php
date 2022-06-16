@@ -17,52 +17,16 @@
 
  ?>
 
-<div id = "detalhes_produto" class = "row d-flex justify-content-center border border-dark" > <!-- bg-secondary -->
-
-    <div id = "fotos-categorias" class = "row mt-2 w-75 me-5 ms-3" >
-
-        <div id = "geral-categorias-conta" class = "col-xl-8 ms-4 h-100 border border-dark " > <!-- bg-primary -->
-
-            <div id = "geral-bot-conta" class = "row h-100 border border-dark justify-content-start "> <!-- bg-danger -->
-
-                <div id = "categoria" class = "col-sm-12 col-lg-1 col-xl-1 mb-2 mt-3  ms-3 bg-light"> <!-- bg-warning -->
-
-                    <div class="row h-25 bg-primary border border-dark" >
-
-
-                        <div class = "col-12 col-sm-12 col-lg-12 col-xl-12 center-flx justify-content-start border border-dark bg-light" > 
-
-                            <b class = "" > GERENCIAR </b> 
-
-                        </div>
-
-                        <div class = "col-12 col-lg-12 col-xl-12 center-flx justify-content-start border border-dark bg-light" >
-
-                            <a href = "cadastro_produtos.php" class = "conta" > Produtos </a>
-
-                        </div>
-
-                        <div class = "col-12 col-lg-12 col-xl-12 center-flx justify-content-start border border-dark bg-light">
-
-                            <a href = "cadastro_fornecedores.php" class = "conta" > Fornecedores </a>
-
-                        </div>
-
-                        <div class = "col-12 col-lg-12 col-xl-12 center-flx justify-content-start border border-dark bg-light" >
-
-                            <a href = "#" class = "conta"> Usuários </a>
-
-                        </div> 
-
-                    </div>
-
-                </div>
+<div id = "detalhes_produto" class = "row d-flex justify-content-center " > <!-- bg-secondary -->
     
-                <div id = "menu-fotos-conta" class = "col-xl-10 border border-dark mt-3 ms-3 me-3" >
+            <div id = "geral-bot-conta" class = "row h-100  justify-content-start "> <!-- bg-danger -->
+
+                <div id = "categoria" class = "col-sm-12 col-lg-1 col-xl-1 mb-2 mt-3  ms-3 bg-light"> <!-- bg-warning --></div>
+                <div id = "menu-fotos-conta" class = "col-xl-10  mt-3 ms-3 me-3" >
             
                     <div id = "foto" class = "row  mt-1 ">
 
-                        <div class="container py-3 ">
+                        <div class="container">
 	
                             <div class="bg-primary" role="document">
 
@@ -78,7 +42,7 @@
                                 
                                         <section>
 
-                                            <div class = "row border border-dark ">
+                                            <div class = "row  ">
 
                                                 <div class = "col-12 col-md-5 col-lg-4 col-xl-3 mt-1"> 
 
@@ -109,7 +73,7 @@
 
                                             </div>
 
-                                            <div class = "row border border-dark ">
+                                            <div class = "row  ">
 
                                                 <div class = "col-12 col-md-5 col-lg-4 col-xl-3 mt-1 text-danger"> 
 
@@ -187,7 +151,7 @@
 
                                             </div>
 
-                                            <div class = "row border border-dark ">
+                                            <div class = "row  ">
 
                                                 <div class = "col-12 col-md-5 col-lg-4 col-xl-3 mt-1"> 
 
@@ -218,7 +182,7 @@
 
                                             </div>
 
-                                            <div class = "row border border-dark ">
+                                            <div class = "row  ">
 
                                                 <div class = "col-12 col-md-5 col-lg-4 col-xl-3 mt-3 text-danger"> 
 
@@ -264,7 +228,7 @@
 
                                             </div>
 
-                                            <div class = "row border border-dark ">
+                                            <div class = "row  ">
                                                 
                                                 <div class = "col-12 col-md-4 col-lg-3 col-xl-2 mt-1 d-flex align-items-center">
                                                     
@@ -293,7 +257,7 @@
                                             
                                             </div>
 
-                                            <div class = "row border border-dark ">
+                                            <div class = "row  ">
 
                                                 <div class = "col-12 col-md-4 col-lg-3 col-xl-2 mt-1 d-flex align-items-center">
 
@@ -322,7 +286,7 @@
                                             
                                             </div>
 
-                                            <div class = "row border border-dark ">
+                                            <div class = "row  ">
 
                                                 <div class = "col-12 col-md-12 col-lg-12 col-xl-12 mt-3 text-danger">
 
@@ -339,7 +303,7 @@
                                             
                                             </div>
 
-                                            <div class = "row border border-dark ">
+                                            <div class = "row  ">
 
                                                 <div class = "col-12 col-md-5 col-lg-4 col-xl-3 text-danger h-100">
 
@@ -361,9 +325,7 @@
                                 
                             </div>
 
-                        </div>
-
-                        <hr class="featurette-divider">                                               
+                        </div>                                         
 
                     </div>
 
@@ -371,8 +333,6 @@
 
             </div>
         
-        </div>
-
-    </div><?php include 'footer.php'; ?>
+    <?php include 'footer.php'; ?>
 
 </div>
