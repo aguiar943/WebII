@@ -20,12 +20,8 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 		
 	    $produto = ProdutosForm::getProdutoForm($factory);
 
-            $qtd_fotos = count($_FILES['img_produtos']['name']) ;
-            $qtd_fotos_detalhes = count($_FILES['img_detalhes']['name']) ;
-		
 	    $this->qtd_fotos = (count(array_filter($_FILES['img_produtos']['name']))) ;
-
-            $this->qtd_fotos_detalhes = (count(array_filter($_FILES['img_detalhes']['name']))) ;
+	    $this->qtd_fotos_detalhes = (count(array_filter($_FILES['img_detalhes']['name']))) ;
 		
 	    $query_produto = "INSERT INTO " . $this->table_name . 
 	    	" (descricao, modelo, preco_custo, preco_venda, cd_barras, cd_referencia, unidade, ncm, id_marca, id_subcategoria) VALUES" .
@@ -161,9 +157,9 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
     public function altera($produto, $factory) {
 
         $msg = "Ocorreu um erro ao tentar alterar o produto !";
+	$error_cor = true;
 	    
 	$cores_escolhidas = array();
-	$cores_escolhidas = $_POST['cor'];
 	    
 	$id = $produto->getId();
         $cores = $produto->getCores();
@@ -201,6 +197,7 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
         try{
 
             $stmt->execute();
+	    $cores_escolhidas = $_POST['cor'];
             $msg = "Produto alterado com sucesso !";
 
         } catch(Exception $ex){
@@ -209,7 +206,23 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
             $msg = $msg . "Exceção: " . $ex->getMessage();
 
         }
-    }
+    	/*
+         * Rodrigo, seria interessante ativar esse else, pelos menos ativar ele quando estiver perto da data
+         * de entrega pois se der algum erro de dado incorreto, como um número informado em um campo que só
+         * aceita letra ou uma letra inserida em um campo que só aceita números, ou campos que esperavam 
+         * ter 13 dígitos e só receberam 7 dígitos, por exemplo, o sistema vai dar uma mensagem de erro específica.
+         * Mandei um ajuste para terminar de tratar a validação da cor de forma que não exibisse exceções ou
+         * avisos de warning que eu encontrei, acredito que esqueci de mandar o ajuste antes por isto ainda
+         * tinha alguma inconsistência parte.
+         * Informei lá na descrição de modificação do git os detalhes do que eu ajustei caso ainda ficar alguma
+         * dúvida. Valeu
+         */
+
+        /*else {
+
+            $msg = ProdutosForm::validar($produto, 1, 1);
+
+        }*/
 	    
 	for($i = 0; $i < count($cores); $i++) {
 			
@@ -220,20 +233,34 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 		" WHERE id =:id";
 
 		$stmt_cor = $this->conn->prepare($query_cor_produto);
-
-		$stmt_cor->bindValue(":id_produto", $id);
-		$stmt_cor->bindValue(":id_cor", $cores_escolhidas[$index_cor_cmb]);
-		$stmt_cor->bindValue(":id", $id_rel);
 			
-		if(!$error_cor && !$stmt_cor->execute()) {
+		if($error_cor == true && count($cores_escolhidas) > 0) {
+			
+			try{
+					
+				$stmt_cor->bindValue(":id_produto", $id);
+				$stmt_cor->bindValue(":id", $id_rel);
+				$stmt_cor->bindValue(":id_cor", $cores_escolhidas[$index_cor_cmb]);
 
-			$error_cor = true;
-			$msg = " Erro relacionado a cor do produto !\n";
+				$stmt_cor->execute();
+
+			}catch(PDOException $ex){
+
+				$msg = " Erro ao alterar a cor do produto: " . $ex->getMessage() . "\n"; 
+				$error_cor = false;
+
+			}
 
 		}
 			
 	   	$index_cor_cmb++;
 			
+	   }
+	    
+	   if($error_cor == true){
+			
+		$this->adicionarCores($id, count($cores), $produto->getCores());
+
 	   }
 	    
 	   $this->adicionarCores($id, count($cores), $produto->getCores());
