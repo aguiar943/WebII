@@ -90,7 +90,7 @@
                                                         <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
 
                                                             <a href='remove_usuario.php?cpf=<?= $us_cpf ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
-                                                                onclick = "return confirm('Confirma exclusão do fornecedor?')" title="Excluir"   
+                                                                onclick = "return confirm('Confirma exclusão do usuário?')" title="Excluir"   
                                                             >
 
                                                                 <i class="fa-solid fa-trash-can"></i>
