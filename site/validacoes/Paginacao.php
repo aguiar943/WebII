@@ -59,6 +59,20 @@
             return false;
 
         }
+        
+        public static function obterQtdPaginas($qtd_itens){
+
+            $qtd_paginas = $qtd_itens / ITENS_POR_PAGINA ;
+
+            if( $qtd_paginas % 2 != 0) {
+
+                $qtd_paginas++;
+
+            }
+
+            return intval($qtd_paginas);
+
+        }
 
     }
 
