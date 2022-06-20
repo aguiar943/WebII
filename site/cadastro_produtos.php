@@ -48,9 +48,6 @@
                                     
                                             <?php
 
-                                            $dao = $factory->getProdutoDao();
-                                            $produtos = $dao->buscaTodos();
-
                                             if($produtos) { ?>
 
                                                 <div class = "row  ">
