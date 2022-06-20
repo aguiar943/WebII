@@ -1,8 +1,16 @@
 <?php
 
     include 'fachada.php'; 
+   
+    $numero_pg = explode("=", $_SERVER['REQUEST_URI'])[1];
 
     $dao = $factory->getProdutoDao();
+
+    $produtos = $dao->buscaTodos();
+	
+     $arr_produtos = array();
+	
+    $count_produtos = 0;
 
  ?>
 
@@ -62,53 +70,121 @@
 
                                                 foreach ($produtos as $produto) {
 
-                                                    extract($produto); ?>
+                                                    extract($produto);
+							
+						    $arr_produtos[] =  new Produto(
 
-                                                    <div class = "row  ">
+                                                        $descricao, $modelo, $preco_custo, $preco_venda, 
+                                                        $cd_barras, $cd_referencia, $unidade, $ncm
 
-                                                        <div class = "col-12 col-md-3 col-lg-2 col-xl-2 "> <?= $cd_barras; ?> </div>
-                                                        <div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-warning" > <?= $subcategoria; ?> </div>
-                                                        <div class = "col-12 col-md-2 col-lg-2 col-xl-2 text-danger"> <?= $marca; ?> </div>
-                                                        <div class = "col-12 col-md-3 col-lg-2 col-xl-2 text-danger"> <?= $modelo; ?> </div>
+                                                    ) ;
+							
+						    if(Paginacao::itemPertencePaginaAtual($numero_pg, $count_produtos)){ ?>
 
-                                                        <div class = "col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
+							    <div class = "row  ">
 
-                                                            <a href='mostra_produto.php?id=<?= $id ?>' class='btn btn-primary justify-content-center' title="Visualizar">
+								<div class = "col-12 col-md-3 col-lg-2 col-xl-2 "> <?= $cd_barras; ?> </div>
+								<div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-warning" > <?= $subcategoria; ?> </div>
+								<div class = "col-12 col-md-2 col-lg-2 col-xl-2 text-danger"> <?= $marca; ?> </div>
+								<div class = "col-12 col-md-3 col-lg-2 col-xl-2 text-danger"> <?= $modelo; ?> </div>
 
-                                                                <i class="fa-solid fa-eye"></i>
+								<div class = "col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
 
-                                                            </a>
-                                                        
-                                                        </div>
+								    <a href='mostra_produto.php?id=<?= $id ?>' class='btn btn-primary justify-content-center' title="Visualizar">
 
-                                                        <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
+									<i class="fa-solid fa-eye"></i>
 
-                                                            <a href='altera_produto.php?produto=<?= $id; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
+								    </a>
 
-                                                                <i class="fa-solid fa-pencil"></i>
+								</div>
 
-                                                            </a>
+								<div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
 
-                                                        </div>
+								    <a href='altera_produto.php?produto=<?= $id; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
 
-                                                        <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
+									<i class="fa-solid fa-pencil"></i>
 
-                                                            <a href='remove_produto.php?cd_barras=<?= $cd_barras ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
-                                                                onclick = "return confirm('Confirma exclusão do produto?')" title="Excluir"   
-                                                            >
+								    </a>
 
-                                                                <i class="fa-solid fa-trash-can"></i>
+								</div>
 
-                                                            </a>
+								<div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
 
-                                                        </div>
+								    <a href='remove_produto.php?cd_barras=<?= $cd_barras ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
+									onclick = "return confirm('Confirma exclusão do produto?')" title="Excluir"   
+								    >
 
+									<i class="fa-solid fa-trash-can"></i>
+
+								    </a>
+
+								</div>
+
+							    </div>
+                                                     	    <?php
+							    
+						    }
+							
+						    $count_produtos++;
+
+                                                }
+						    
+						$prev = ( Paginacao::obterPaginaAnterior(intval($numero_pg - 1 )) );
+                                                $next = (Paginacao::obterProximaPagina($numero_pg, $arr_produtos) + 1);
+						$last_pg = Paginacao::obterQtdPaginas($count_produtos);
+						    
+						?>
+						
+						<div class = "row border border-dark ">
+
+                                                    <div class = "col-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center mt-3">
+
+                                                        <nav aria-label="Page navigation example">
+
+                                                            <ul class="pagination">
+
+                                                                <li class="page-item">
+
+                                                                    <a class="page-link" href="cadastro_produtos.php?=<?= $prev ; ?>" aria-label="Previous" title="Anterior">
+
+                                                                        <span aria-hidden="true">&laquo;</span>
+
+                                                                    </a>
+
+                                                                </li>
+
+                                                                <li class="page-item"><a class="page-link" href="cadastro_produtos.php?=1" title="Primeiro">1</a></li>
+
+                                                                <li class="page-item"><a class="page-link" href="#"> - </a></li>
+
+                                                                <li class="page-item">
+									
+									<a class="page-link" href="cadastro_produtos.php?=<?= $last_pg ;?>">
+										<?= $last_pg; ?>
+									</a>
+									
+								</li>
+
+                                                                <li class="page-item">
+
+                                                                    <a class="page-link" href="cadastro_produtos.php?=<?= $next ; ?>" 
+                                                                        aria-label="Next" title="Próximo" >
+
+                                                                        <span aria-hidden="true">&raquo;</span>
+
+                                                                    </a>
+
+                                                                </li>
+
+                                                            </ul>
+
+                                                        </nav>
+                                                    
                                                     </div>
-                                                     <?php
 
-                                                } ?>
-                                                <?php
+                                                </div> <?php	    
                                             } ?>
+						
                                             <a href='novo_produto.php' class='btn btn btn-success left-margin mt-3'> Novo </a>
                                     
                                         </section>
@@ -126,6 +202,7 @@
                 </div>
 
             </div>
+	
     <?php include 'footer.php'; ?>
 
 </div>
