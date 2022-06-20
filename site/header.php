@@ -182,7 +182,7 @@
 											  <?php
 										if(isset($_SESSION["nome_usuario"])) {											
 											echo'<li class = "w-25 rounded" >';
-											echo'<div class = "mt-1" > <a href="cadastro_produtos.php">Produtos </a> </div>';
+											echo'<div class = "mt-1" > <a href="cadastro_produtos.php?=1">Produtos </a> </div>';
 											echo '</li>';
 											echo'<li class = "w-25 rounded" >';
 											echo'<div class = "mt-1" > <a href="cadastro_fornecedores.php">Fornecedores </a> </div>';
