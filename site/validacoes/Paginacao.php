@@ -1,10 +1,11 @@
 <?php
 
     define("ITENS_POR_PAGINA", "4", true);
+    define("ITENS_POR_PAGINA", "8", true);
 
     class Paginacao{
 
-        public static function obterProximaPagina($proxima_pg, $arr_itens){
+        public static function obterProximaPagina($proxima_pg, $arr_itens, $last_pg){
 
             $qtd_itens = count($arr_itens);
 
@@ -22,7 +23,11 @@
 
                 return intval($qtd_paginas);
 
-            } else {
+            } else if($proxima_pg < $qtd_paginas) {
+
+                return $proxima_pg+1;
+
+            }else {
 
                 return $proxima_pg;
 
@@ -61,16 +66,25 @@
         }
         
         public static function obterQtdPaginas($qtd_itens){
+            
+            $intervalo = ITENS_POR_PAGINA;
+            $pgs = 1;
+            $j = 0;
+            
+            for($i = 0 ; $i < count($arr_itens); $i++){
 
-            $qtd_paginas = $qtd_itens / ITENS_POR_PAGINA ;
+                if($intervalo == $j){
 
-            if( $qtd_paginas % 2 != 0) {
+                    $pgs++;
+                    $j = 0;
 
-                $qtd_paginas++;
+                } 
+
+                $j++;
 
             }
 
-            return intval($qtd_paginas);
+            return $pgs;
 
         }
 
