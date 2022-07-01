@@ -10,15 +10,15 @@
 
  ?>
 
-<div id = "detalhes_produto" class = "row d-flex justify-content-center border border-dark" > <!-- bg-secondary -->
+<div id = "detalhes_produto" class = "row d-flex justify-content-center border border-dark" > 
 
     <div id = "fotos-categorias" class = "row mt-2 w-75 me-5 ms-3" >
 
-        <div id = "geral-categorias-conta" class = "col-xl-8 ms-4 h-100 border border-dark " > <!-- bg-primary -->
+        <div id = "geral-categorias-conta" class = "col-xl-8 ms-4 h-100 border border-dark " > 
 
-            <div id = "geral-bot-conta" class = "row h-100 border border-dark justify-content-start "> <!-- bg-danger -->
+            <div id = "geral-bot-conta" class = "row h-100 border border-dark justify-content-start "> 
 
-                <div id = "categoria" class = "col-sm-12 col-lg-1 col-xl-1 mb-2 mt-3  ms-3 bg-light"> <!-- bg-warning -->
+                <div id = "categoria" class = "col-sm-12 col-lg-1 col-xl-1 mb-2 mt-3  ms-3 bg-light"> 
 
                     <div class="row h-25 bg-primary border border-dark" >
 
@@ -30,25 +30,25 @@
 
                         <div class = "col-12 col-lg-12 col-xl-12 center-flx justify-content-start border border-dark bg-light" >
 
-                            <a href = "listagem.php?=1" class = "conta" > Pedidos </a>
+                            <a href = "pedidos.php?=1" class = "conta" > Pedidos </a>
 
                         </div>
 
                         <div class = "col-12 col-lg-12 col-xl-12 center-flx justify-content-start border border-dark bg-light" >
 
-                            <a href = "listagem_produtos.php?=1" class = "conta" > Produtos </a>
+                            <a href = "cadastro_produtos.php?=1" class = "conta" > Produtos </a>
 
                         </div>
 
                         <div class = "col-12 col-lg-12 col-xl-12 center-flx justify-content-start border border-dark bg-light">
 
-                            <a href = "listagem_fornecedor.php?=1" class = "conta" > Fornecedores </a>
+                            <a href = "cadastro_fornecedores.php?=1" class = "conta" > Fornecedores </a>
 
                         </div>
 
                         <div class = "col-12 col-lg-12 col-xl-12 center-flx justify-content-start border border-dark bg-light" >
 
-                            <a href = "listagem_usuarios.php?=1" class = "conta"> Usuários </a>
+                            <a href = "cadastro_usuarios.php?=1" class = "conta"> Usuários </a>
 
                         </div> 
 
@@ -57,12 +57,8 @@
                 </div>
     
                 <div id = "menu-fotos-conta" class = "col-xl-10 border border-dark mt-3 ms-3 me-3 " ><!-- bg-secondary -->
-
-                    <!-- Fim Mauricio -->
             
                     <div id = "foto" class = "row  mt-1 ">
-
-                        <!-- Inicio Rodrigo -->
 
                         <div class="container py-3 ">
 	
@@ -133,9 +129,9 @@
 
                                                             <div class = "col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mt-1 mb-1 d-flex justify-content-center" > 
 
-                                                                <a href='mostra_fornecedor.php?id=<?= 1 ?>' 
+                                                                <a href='#' 
                                                                     class='btn btn-pedido justify-content-center d-flex align-items-center fw-bold h-75 w-75 mt-1' 
-                                                                    title="Visualizar"
+                                                                    title="Pagar"
                                                                 >
 
                                                                     Pagar
@@ -185,9 +181,9 @@
 
                                                             <div class = "col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mt-1 mb-1 d-flex justify-content-center" > 
 
-                                                                <a href='mostra_fornecedor.php?id=<?= 1 ?>' 
+                                                                <a href='#' 
                                                                     class='btn btn-pedido justify-content-center d-flex align-items-center fw-bold h-75 w-75 mt-1' 
-                                                                    title="Visualizar"
+                                                                    title="Pagar"
                                                                 >
 
                                                                     Pagar
@@ -236,9 +232,9 @@
 
                                                             <div class = "col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 mt-1 mb-1 d-flex justify-content-center" > 
 
-                                                                <a href='mostra_fornecedor.php?id=<?= 1 ?>' 
+                                                                <a href='#' 
                                                                     class='btn btn-pedido justify-content-center d-flex align-items-center fw-bold h-75 w-75 mt-1' 
-                                                                    title="Visualizar"
+                                                                    title="Pagar"
                                                                 >
 
                                                                     Pagar
@@ -261,7 +257,7 @@
 
                                             ?>
 
-                                            <a href='listagem.php' class='btn btn btn-success left-margin mt-3'> Voltar </a>
+                                            <a href='pedidos.php' class='btn btn btn-success left-margin mt-3'> Voltar </a>
                                     
                                         </section>
 
