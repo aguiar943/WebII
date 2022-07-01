@@ -428,3 +428,10 @@ input[type='file'] {
     
     height: 220%;
 }
+
+.btn-pedido{
+
+    background-color: #fa7020 !important;
+    color: white !important;
+
+}
