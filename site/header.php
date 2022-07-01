@@ -185,7 +185,7 @@
 											echo'<div class = "mt-1" > <a href="cadastro_produtos.php?=1">Produtos </a> </div>';
 											echo '</li>';
 											echo'<li class = "w-25 rounded" >';
-											echo'<div class = "mt-1" > <a href="cadastro_fornecedores.php">Fornecedores </a> </div>';
+											echo'<div class = "mt-1" > <a href="cadastro_fornecedores.php?=1">Fornecedores </a> </div>';
 											echo '</li>';
 											echo'<li class = "w-25 rounded" >';
 											echo'<div class = "mt-1" > <a href="cadastro_usuarios.php">Usuarios </a> </div>';
