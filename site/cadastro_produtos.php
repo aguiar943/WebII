@@ -23,12 +23,8 @@
             </div>
     
                 <div id = "menu-fotos-conta" class = "col-xl-10  mt-3 ms-3 me-3" ><!-- bg-secondary -->
-
-                    <!-- Fim Mauricio -->
             
                     <div id = "foto" class = "row  mt-1 ">
-
-                        <!-- Inicio Rodrigo -->
 
                         <div class="container py-3 ">
 	
@@ -127,59 +123,61 @@
                                                 }
 						    
 						$prev = ( Paginacao::obterPaginaAnterior(intval($numero_pg - 1 )) );
-                                                $next = (Paginacao::obterProximaPagina($numero_pg, $arr_produtos) + 1);
-						$last_pg = Paginacao::obterQtdPaginas($count_produtos);
+						$last_pg = Paginacao::obterQtdPaginas($arr_produtos);
+                                                $next = (Paginacao::obterProximaPagina($numero_pg, $arr_produtos, $last_pg));
 						    
+						   if($last_pg > 1){ 
 						?>
 						
-						<div class = "row border border-dark ">
+							<div class = "row border border-dark ">
 
-                                                    <div class = "col-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center mt-3">
+							    <div class = "col-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center mt-3">
 
-                                                        <nav aria-label="Page navigation example">
+								<nav aria-label="Page navigation example">
 
-                                                            <ul class="pagination">
+								    <ul class="pagination">
 
-                                                                <li class="page-item">
+									<li class="page-item">
 
-                                                                    <a class="page-link" href="cadastro_produtos.php?=<?= $prev ; ?>" aria-label="Previous" title="Anterior">
+									    <a class="page-link" href="cadastro_produtos.php?=<?= $prev ; ?>" aria-label="Previous" title="Anterior">
 
-                                                                        <span aria-hidden="true">&laquo;</span>
+										<span aria-hidden="true">&laquo;</span>
 
-                                                                    </a>
+									    </a>
 
-                                                                </li>
+									</li>
 
-                                                                <li class="page-item"><a class="page-link" href="cadastro_produtos.php?=1" title="Primeiro">1</a></li>
+									<li class="page-item"><a class="page-link" href="cadastro_produtos.php?=1" title="Primeiro">1</a></li>
 
-                                                                <li class="page-item"><a class="page-link" href="#"> - </a></li>
+									<li class="page-item"><a class="page-link" href="#"> - </a></li>
 
-                                                                <li class="page-item">
-									
-									<a class="page-link" href="cadastro_produtos.php?=<?= $last_pg ;?>">
-										<?= $last_pg; ?>
-									</a>
-									
-								</li>
+									<li class="page-item">
 
-                                                                <li class="page-item">
+										<a class="page-link" href="cadastro_produtos.php?=<?= $last_pg ;?>">
+											<?= $last_pg; ?>
+										</a>
 
-                                                                    <a class="page-link" href="cadastro_produtos.php?=<?= $next ; ?>" 
-                                                                        aria-label="Next" title="Próximo" >
+									</li>
 
-                                                                        <span aria-hidden="true">&raquo;</span>
+									<li class="page-item">
 
-                                                                    </a>
+									    <a class="page-link" href="cadastro_produtos.php?=<?= $next ; ?>" 
+										aria-label="Next" title="Próximo" >
 
-                                                                </li>
+										<span aria-hidden="true">&raquo;</span>
 
-                                                            </ul>
+									    </a>
 
-                                                        </nav>
-                                                    
-                                                    </div>
+									</li>
 
-                                                </div> <?php	    
+								    </ul>
+
+								</nav>
+
+							    </div>
+
+							</div> <?php
+						    }
                                             } ?>
 						
                                             <a href='novo_produto.php' class='btn btn btn-success left-margin mt-3'> Novo </a>
