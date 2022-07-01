@@ -2,24 +2,28 @@
 
     include 'fachada.php'; 
 
+    $numero_pg = explode("=", $_SERVER['REQUEST_URI'])[1];
+
     $dao = $factory->getProdutoDao();
+
+    $fornecedores = $dao->buscaTodos();
+
+    $arr_fornecedores = array();
+	
+    $count_fornecedores = 0;
 
  ?>
 
-<div id = "detalhes_produto" class = "row d-flex justify-content-center " > <!-- bg-secondary -->
+<div id = "detalhes_produto" class = "row d-flex justify-content-center " >
 
-            <div id = "geral-bot-conta" class = "row h-100  justify-content-start "> <!-- bg-danger -->
+            <div id = "geral-bot-conta" class = "row h-100  justify-content-start ">
 
-                <div id = "categoria" class = "col-sm-12 col-lg-1 col-xl-1 mb-2 mt-3  ms-3 bg-light"> <!-- bg-warning -->
+                <div id = "categoria" class = "col-sm-12 col-lg-1 col-xl-1 mb-2 mt-3  ms-3 bg-light">
                 </div>
     
-                <div id = "menu-fotos-conta" class = "col-xl-10  mt-3 ms-3 me-3" ><!-- bg-secondary -->
-
-                    <!-- Fim Mauricio -->
+                <div id = "menu-fotos-conta" class = "col-xl-10  mt-3 ms-3 me-3" >
             
                     <div id = "foto" class = "row  mt-1 ">
-
-                        <!-- Inicio Rodrigo -->
 
                         <div class="container">
 	
@@ -84,9 +88,6 @@
                                     
                                             <?php
 
-                                            $dao = $factory->getFornecedorDao();
-                                            $fornecedores = $dao->buscaTodos();
-
                                             if($fornecedores) { ?>
 
                                                 <div class = "row  ">
@@ -104,53 +105,125 @@
                                                 <?php
 
                                                 foreach ($fornecedores as $fornecedor) {
+							
+						    extract($fornecedor); 
+							
+						    $arr_fornecedores[] =  new Fornecedor(
 
-                                                    extract($fornecedor); ?>
+                                                        $fo_social, $fo_fantasia, $fo_cnpj,
+                                                        $fo_ie, $fo_telefone, $fo_email
 
-                                                    <div class = "row  ">
+                                                    );
+						
+						   if(Paginacao::itemPertencePaginaAtual($numero_pg, $count_fornecedores)){ ?>
 
-                                                        <div class = "col-12 col-md-4 col-lg-2 col-xl-2 "> <?= $fo_fantasia; ?> </div>
-                                                        <div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-warning" > <?= $fo_cnpj; ?> </div>
-                                                        <div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-danger"> <?= $fo_telefone; ?> </div>
+							    <div class = "row  ">
 
-                                                        <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
+								<div class = "col-12 col-md-4 col-lg-2 col-xl-2 "> <?= $fo_fantasia; ?> </div>
+								<div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-warning" > <?= $fo_cnpj; ?> </div>
+								<div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-danger"> <?= $fo_telefone; ?> </div>
 
-                                                            <a href='mostra_fornecedor.php?cnpj=<?= $fo_cnpj ?>' class='btn btn-primary justify-content-center' title="Visualizar">
+								<div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
 
-                                                                <i class="fa-solid fa-eye"></i>
+								    <a href='mostra_fornecedor.php?cnpj=<?= $fo_cnpj ?>' class='btn btn-primary justify-content-center' title="Visualizar">
 
-                                                            </a>
-                                                        
-                                                        </div>
+									<i class="fa-solid fa-eye"></i>
 
-                                                        <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
+								    </a>
 
-                                                            <a href='modifica_fornecedor.php?cnpj=<?= $fo_cnpj; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
+								</div>
 
-                                                                <i class="fa-solid fa-pencil"></i>
+								<div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
 
-                                                            </a>
+								    <a href='modifica_fornecedor.php?cnpj=<?= $fo_cnpj; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
 
-                                                        </div>
+									<i class="fa-solid fa-pencil"></i>
 
-                                                        <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
+								    </a>
 
-                                                            <a href='remove_fornecedor.php?cnpj=<?= $fo_cnpj ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
-                                                                onclick = "return confirm('Confirma exclusão do fornecedor?')" title="Excluir"   
-                                                            >
+								</div>
 
-                                                                <i class="fa-solid fa-trash-can"></i>
+								<div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
 
-                                                            </a>
+								    <a href='remove_fornecedor.php?cnpj=<?= $fo_cnpj ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
+									onclick = "return confirm('Confirma exclusão do fornecedor?')" title="Excluir"   
+								    >
 
-                                                        </div>
+									<i class="fa-solid fa-trash-can"></i>
 
-                                                    </div>
+								    </a>
+
+								</div>
+
+							    </div>
                                                      <?php
+						  }
+							
+						  $count_fornecedores++;
 
-                                                } ?>
-                                                <?php
-                                            } ?>
+                                                }
+						    
+						$prev = ( Paginacao::obterPaginaAnterior(intval($numero_pg - 1 )) );
+                                                $last_pg = Paginacao::obterQtdPaginas($arr_fornecedores);
+                                                $next = (Paginacao::obterProximaPagina($numero_pg, $arr_fornecedores, $last_pg));
+						
+					    	?>
+						
+					    	<div class = "row border border-dark ">
+
+                                                    <div class = "col-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center mt-3">
+
+                                                        <nav aria-label="Page navigation example">
+
+                                                            <ul class="pagination">
+
+                                                                <li class="page-item">
+
+                                                                    <a class="page-link" href="cadastro_fornecedores.php?=<?= $prev ; ?>" 
+                                                                        aria-label="Previous" title="Anterior"
+                                                                    >
+
+                                                                        <span aria-hidden="true">&laquo;</span>
+
+                                                                    </a>
+
+                                                                </li>
+
+                                                                <li class="page-item"><a class="page-link" href="cadastro_fornecedores.php?=1" title="Primeiro">1</a></li>
+
+                                                                <li class="page-item"><a class="page-link" href="#"> - </a></li>
+
+                                                                <li class="page-item">
+
+                                                                    <a class="page-link" href="cadastro_fornecedores.php?=<?= $last_pg ;?>" title="Último">
+
+                                                                        <?= $last_pg; ?>
+
+                                                                    </a>
+                                                                </li>
+
+                                                                <li class="page-item">
+
+                                                                    <a class="page-link" href="cadastro_fornecedores.php?=<?= $next ; ?>" 
+                                                                        aria-label="Next" title="Próximo"
+                                                                    >
+
+                                                                        <span aria-hidden="true">&raquo;</span>
+
+                                                                    </a>
+
+                                                                </li>
+
+                                                            </ul>
+
+                                                        </nav>
+                                                    
+                                                    </div>
+
+                                                </div>
+						
+						<?php
+					     } ?>
                                             <a href='novo_fornecedor.php' class='btn btn btn-success left-margin mt-3'> Novo </a>
                                     
                                         </section>
