@@ -3,6 +3,7 @@
 include_once('PostgresDao.php');
 include_once('ProdutosDao.php');
 include_once('validacoes/ProdutosForm.php');
+include_once('validacoes/Paginacao.php');
 
 class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
 
