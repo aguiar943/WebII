@@ -129,7 +129,7 @@
 						   if($last_pg > 1){ 
 						?>
 						
-							<div class = "row border border-dark ">
+							<div class = "row">
 
 							    <div class = "col-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center mt-3">
 

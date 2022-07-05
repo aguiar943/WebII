@@ -4,7 +4,7 @@
 
     $numero_pg = explode("=", $_SERVER['REQUEST_URI'])[1];
 
-    $dao = $factory->getProdutoDao();
+    $dao = $factory->getFornecedorDao();
 
     $fornecedores = $dao->buscaTodos();
 
@@ -169,7 +169,7 @@
 						
 					    	?>
 						
-					    	<div class = "row border border-dark ">
+					    	<div class = "row">
 
                                                     <div class = "col-12 col-md-12 col-lg-12 col-xl-12 d-flex justify-content-center mt-3">
 
