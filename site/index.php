@@ -158,7 +158,7 @@ include_once "fachada.php";
 								</h5>
 
 								<h2 class="card-title pricing-card-title"> <?= "R$ " . $produto->getPrecoVenda(); ?> </h2>
-
+								<button type="button" class="btn btn-warning">Adicionar ao Carrinho</button>
 							</div>
 
 						</div>
