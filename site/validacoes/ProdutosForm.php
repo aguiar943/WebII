@@ -87,8 +87,14 @@
                 intval($_POST['marca'])
             
             );
+            
+            if(isset($_POST['cor'])){
+				
+				$produto->setCores($_POST['cor']);
+				
+			}
 
-            $produto->setCores($_POST['cor']);
+
             $produto->setSubcategoria($subcategoria);
             $produto->setMarca($marca);
 
