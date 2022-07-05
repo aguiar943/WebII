@@ -81,16 +81,6 @@
 								<div class = "col-12 col-md-2 col-lg-2 col-xl-2 text-danger"> <?= $marca; ?> </div>
 								<div class = "col-12 col-md-3 col-lg-2 col-xl-2 text-danger"> <?= $modelo; ?> </div>
 
-								<div class = "col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
-
-								    <a href='mostra_produto.php?id=<?= $id ?>' class='btn btn-primary justify-content-center' title="Visualizar">
-
-									<i class="fa-solid fa-eye"></i>
-
-								    </a>
-
-								</div>
-
 								<div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
 
 								    <a href='altera_produto.php?produto=<?= $id; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
