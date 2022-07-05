@@ -1,5 +1,5 @@
-<?php ob_start(); ?>
-<!DOCTYPE HTML>
+
+
 
 <html lang=pt-br>
 
@@ -48,7 +48,7 @@
                         </div>
                         <div class = "col-xl-1 d-flex justify-content-center mt-1 mb-1"> <!-- border border-dark -->
 							<div class = "d-flex justify-content-start h-100 search-mg" >
-								<a href="#" class="d-flex align-items-center conta mt-2 ">
+								<a href="carrinho.php" class="d-flex align-items-center conta mt-2 ">
 									<img src="imagens/carrinho.png" class="align-middle  h-100 mb-3 mt-2" >      
 								</a>
 							</div>
