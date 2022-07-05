@@ -1,7 +1,6 @@
 <?php
 
-    define("ITENS_POR_PAGINA", "4", true);
-    define("ITENS_POR_PAGINA", "8", true);
+    define("ITENS_POR_PAGINA", "8");
 
     class Paginacao{
 
@@ -65,7 +64,7 @@
 
         }
         
-        public static function obterQtdPaginas($qtd_itens){
+        public static function obterQtdPaginas($arr_itens){
             
             $intervalo = ITENS_POR_PAGINA;
             $pgs = 1;
