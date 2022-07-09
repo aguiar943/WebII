@@ -10,15 +10,15 @@
 
  ?>
 
-<div id = "detalhes_produto" class = "row d-flex justify-content-center border border-dark" > <!-- bg-secondary -->
+<div id = "detalhes_produto" class = "row d-flex justify-content-center border border-dark" > ->
 
     <div id = "fotos-categorias" class = "row mt-2 w-75 me-5 ms-3" >
 
-        <div id = "geral-categorias-conta" class = "col-xl-8 ms-4 h-100 border border-dark " > <!-- bg-primary -->
+        <div id = "geral-categorias-conta" class = "col-xl-8 ms-4 h-100 border border-dark " > 
 
-            <div id = "geral-bot-conta" class = "row h-100 border border-dark justify-content-start "> <!-- bg-danger -->
+            <div id = "geral-bot-conta" class = "row h-100 border border-dark justify-content-start "> 
 
-                <div id = "categoria" class = "col-sm-12 col-lg-1 col-xl-1 mb-2 mt-3  ms-3 bg-light"> <!-- bg-warning -->
+                <div id = "categoria" class = "col-sm-12 col-lg-1 col-xl-1 mb-2 mt-3  ms-3 bg-light">
 
                     <div class="row h-25 bg-primary border border-dark" >
 
@@ -56,13 +56,9 @@
 
                 </div>
     
-                <div id = "menu-fotos-conta" class = "col-xl-10 border border-dark mt-3 ms-3 me-3 " ><!-- bg-secondary -->
-
-                    <!-- Fim Mauricio -->
+                <div id = "menu-fotos-conta" class = "col-xl-10 border border-dark mt-3 ms-3 me-3 " >
             
                     <div id = "foto" class = "row  mt-1 ">
-
-                        <!-- Inicio Rodrigo -->
 
                         <div class="container py-3 ">
 	
