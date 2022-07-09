@@ -435,3 +435,67 @@ input[type='file'] {
     color: white !important;
 
 }
+
+.geral_produtos{
+
+height: 170vh !important;
+/*border: 1px solid red !important; */
+
+}
+
+/* alterar aqui conforme adiciona mais colunas */
+
+.photo {
+
+    height: 59% !important;
+    border: 1px solid rgb(170, 17, 162) !important;
+
+}
+
+.linha_foto{
+
+    height: 60% !important;
+    border: 1px solid rgb(17, 32, 170) !important;
+
+}
+
+.linha_detalhe{
+
+    height: 6% !important;
+
+}
+
+.row_border{
+
+    border-bottom: 1px solid rgb(216, 216, 216) !important ;
+
+}
+
+.row_border_all{
+
+    border: 1px solid rgb(216, 216, 216) !important ;
+
+}
+
+.galeria{
+
+    height: 4.5rem !important;
+    border: 1px solid rgb(17, 32, 170) !important;
+ 
+    margin: 0 !important;
+    margin-bottom: 100rem !important;
+        
+}
+
+.card_galeria{
+
+    height: 2.9rem !important;
+
+
+}
+
+#area_cards{
+
+    height: 3.3rem !important;
+
+}
