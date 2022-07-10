@@ -2,6 +2,21 @@
 
 include_once "fachada.php";
 
+$dao = $factory->getSubCategoriaDao();
+$subcategorias = $dao->buscaTodos();
+
+$dao = $factory->getMarcaDao();
+$marcas = $dao->buscaTodos();
+
+$dao = $factory->getCorDao();
+$cores = $dao->buscaTodos();
+
+$dao = $factory->getProdutoDao();
+$produto = $dao->buscaPorId($id_produto);
+
+$valor_parcelado = ($produto->getPrecoVenda() / 6);
+$valor_parcelado = number_format((float)$valor_parcelado, 2, ',', '');
+
 
 ?>
 
@@ -21,7 +36,7 @@ include_once "fachada.php";
 
                 <div class=" col-12 col-md-12 col-xl-12" >
 
-                    <div class="mt-1 mb-1" >Placa de Vídeo NVIDIA GeForce GTX 1050</div>
+                    <div class="mt-1 mb-1" ><?= $produto->getSubcategoria() . " " . $produto->getMarca() . " " . $produto->getModelo(); ?></div>
 
                 </div>
 
@@ -31,7 +46,7 @@ include_once "fachada.php";
 
                 <div class=" col-12 col-md-12 col-xl-12" >
                     
-                    <div class="mt-1 mb-1" >R$ 900,00 - R$ 6 x R$ 150</div>
+                    <div class="mt-1 mb-1" >R$ <?= $produto->getPrecoVenda(); ?> - R$ 6 x R$ <?= $valor_parcelado; ?></div>
 
                 </div>
                 
@@ -43,21 +58,27 @@ include_once "fachada.php";
 
                     <div class="row row_border">
                         
-                        <div class="col-3 col-md-3 col-lg-3 col-xl-2 row_border_all m-1 ">
+                        <div class="col-3 col-md-3 col-lg-3 col-xl-2 row_border_all m-1 "
+                             style="background-color: <?= $dao->checkQtdCores(0, $produto) ; ?>;"
+                        >
 
-                            <div class="mt-3 mb-3" >Cor</div>
-
-                        </div>
-
-                        <div class="col-3 col-md-3 col-lg-3 col-xl-2 row_border_all m-1">
-
-                            <div class="mt-3 mb-3" >Cor</div>
+                            <div class="mt-3 mb-3" >&nbsp&nbsp</div>
 
                         </div>
 
-                        <div class="col-3 col-md-3 col-lg-3 col-xl-2 row_border_all m-1">
+                        <div class="col-3 col-md-3 col-lg-3 col-xl-2 row_border_all m-1"
+                             style="background-color: <?= $dao->checkQtdCores(1, $produto) ; ?>;"
+                        >
 
-                            <div class="mt-3 mb-3" >Cor</div>
+                            <div class="mt-3 mb-3" >&nbsp&nbsp</div>
+
+                        </div>
+
+                        <div class="col-3 col-md-3 col-lg-3 col-xl-2 row_border_all m-1"
+                            style="background-color: <?= $dao->checkQtdCores(2, $produto) ; ?>;"     
+                        >
+
+                            <div class="mt-3 mb-3" >&nbsp&nbsp</div>
 
                         </div>
 
