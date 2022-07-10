@@ -436,6 +436,14 @@ input[type='file'] {
 
 }
 
+.btn-compra{
+
+    background-color: #bdbaba !important;
+    border-radius: 8px !important;
+    color: white !important;
+
+}
+
 .geral_produtos{
 
 height: 170vh !important;
