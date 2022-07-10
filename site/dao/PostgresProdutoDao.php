@@ -518,6 +518,29 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
         return $stmt;
     }
 	
+    public function checkQtdCores($index, $produto){
+
+        $cor = "";
+
+        if($index < count($produto->getCores())){
+
+            $cor = $produto->getCores()[$index]->getHex();
+
+            if(strpos($cor, ' ') !== false ){
+
+                return strstr($cor, ' ', true);
+
+            } else {
+
+                return $cor;
+
+            }
+
+        }
+
+        return "#FFFFFF";
+
+    }
 	
 }
 ?>
