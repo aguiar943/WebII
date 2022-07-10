@@ -2,6 +2,11 @@
 
 include_once "fachada.php";
 
+$dao = $factory->getProdutoDao();
+$produtos = $dao->buscaTodos();
+$prods = array();
+$first = true;
+
 ?>
 
 <!-- 
@@ -19,14 +24,6 @@ include_once "fachada.php";
 			<div id="myCarousel" class="carousel slide " data-bs-ride="carousel">
 
 				<?php
-
-					$dao = $factory->getProdutoDao();
-
-					$produtos = $dao->buscaTodos();
-
-					$prods = array();
-
-					$first = true;
 
 					if($produtos) { ?>
 
@@ -127,43 +124,46 @@ include_once "fachada.php";
 					$img = $produto->getImgsVitrine()[0]->getPath($produto);
 					
 					?>
+				
+					<a href="produto_detalhes.php?produto=<?= $produto->getId(); ?>" >
+						<div class="col">
 
-					<div class="col">
+							<div class="card mb-4 rounded-3 shadow-sm">
 
-						<div class="card mb-4 rounded-3 shadow-sm">
+								<div class="card-body">
 
-							<div class="card-body">
+									<ul class="list-unstyled mt-3 mb-4">
 
-								<ul class="list-unstyled mt-3 mb-4">
+										<div class="col-md-5">
 
-									<div class="col-md-5">
+											<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"  
+												width="500" height="500" src="<?= $img ; ?>" role="img" aria-label="Placeholder: 500x500" 
+												preserveAspectRatio="xMidYMid slice" focusable="false"
+											>
 
-										<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"  
-											width="500" height="500" src="<?= $img ; ?>" role="img" aria-label="Placeholder: 500x500" 
-											preserveAspectRatio="xMidYMid slice" focusable="false"
-										>
-											
-										<rect width="100%" height="100%" fill="#eee"/>
-										
-										<text x="50%" y="50%" fill="#aaa" dy=".3em"> </text>
-									
-									</div>
+											<rect width="100%" height="100%" fill="#eee"/>
 
-								</ul>
+											<text x="50%" y="50%" fill="#aaa" dy=".3em"> </text>
 
-								<h5 class="card-title pricing-card-title"> 
+										</div>
 
-									<?= $produto->getSubcategoria() . " " . $produto->getMarca() . " " . $produto->getModelo() ; ?> 
+									</ul>
 
-								</h5>
+									<h5 class="card-title pricing-card-title"> 
 
-								<h2 class="card-title pricing-card-title"> <?= "R$ " . $produto->getPrecoVenda(); ?> </h2>
-								<button type="button" class="btn btn-warning">Adicionar ao Carrinho</button>
+										<?= $produto->getSubcategoria() . " " . $produto->getMarca() . " " . $produto->getModelo() ; ?> 
+
+									</h5>
+
+									<h2 class="card-title pricing-card-title"> <?= "R$ " . $produto->getPrecoVenda(); ?> </h2>
+									<button type="button" class="btn btn-warning">Adicionar ao Carrinho</button>
+								</div>
+
 							</div>
 
 						</div>
-
-					</div><?php
+					</a>
+					<?php
 					
 				} ?>
 
