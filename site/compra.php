@@ -353,20 +353,17 @@
 
                                                             <div class = "col-12 col-md-8 col-lg-8 col-xl-9 fw-bold">Pagamento Pendente</div>
 
-                                                            <div class = "col-12 col-md-4 col-lg-4 col-xl-3 fw-bold d-flex justify-content-center "> Total: RS 761,20 </div>
-
-
                                                         </div>
-
-                                                        <div class = "row border border-dark h-100">
+						
+							<div class = "row h-100">
 
                                                             <div class = "col-12 col-md-2 col-lg-2 col-xl-2 d-flex align-items-center justify-content-center ">
-                                                                
-                                                                
+
+                                                                <img src="imagens/placa.jpg" class="mb-3 mt-3"  >
 
                                                             </div>
 
-                                                            <div class = "col-12 col-md-4 col-lg-5 col-xl-6" > 
+                                                            <div class = "col-12 col-md-4 col-lg-4 col-xl-4 " > 
 
                                                                 <div class="row ">
 
@@ -383,11 +380,66 @@
 
                                                             </div>
 
-                                                            <div class = "col-12 col-sm-12 col-md-6 col-lg-5 col-xl-4 mt-1 mb-1 d-flex justify-content-center" > 
+                                                            <div class = "col-12 col-sm-12 col-md-6 col-lg-6 col-xl-2 mt-1 mb-1 d-flex justify-content-center" > 
+
+                                                                <a ref='#' 
+                                                                    class='btn btn-compra justify-content-center d-flex align-items-center fw-bold h-75 mt-1' 
+                                                                    title="Visualizar"
+                                                                >
+
+                                                                    -
+
+                                                                </a>
+
+                                                                <div class='justify-content-center d-flex align-items-center fw-bold h-75 mt-1 ms-2'>
+
+                                                                    1
+
+                                                                </div>
 
                                                                 <a href='#' 
-                                                                    class='btn btn-pedido justify-content-center d-flex align-items-center fw-bold h-75 w-75 mt-1' 
+                                                                    class='btn btn-compra justify-content-center d-flex align-items-center fw-bold h-75  mt-1 ms-2' 
                                                                     title="Visualizar"
+                                                                >
+
+                                                                    +
+
+                                                                </a>
+                                                            
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class = "row border border-dark h-100">
+
+                                                            <div class = "col-12 col-md-2 col-lg-2 col-xl-2 d-flex align-items-center justify-content-center ">
+                                                                
+                                                                
+
+                                                            </div>
+
+                                                            <div class = "col-12 col-md-4 col-lg-4 col-xl-3" > 
+
+                                                                <div class="row ">
+
+                                                                    <span class="mt-1 mb-1" >Total: RS 761,20<</span>
+
+
+                                                                </div>
+
+                                                                <div class="row">
+
+                                                                    <span class="mt-1 mb-1"></span>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class = "col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 mt-1 mb-1 d-flex justify-content-center" > 
+
+                                                                <a href='#' 
+                                                                    class='btn btn-compra justify-content-center d-flex align-items-center fw-bold h-75 mt-1' 
+                                                                    title="Fazer Pedido"
                                                                 >
 
                                                                     Fazer Pedido
