@@ -9,5 +9,7 @@ interface ProdutosDao {
     public function buscaTodos();
     public function buscaTodosProdutos();
     public function buscaImagensProduto($id, $categoria_img);
+    public function checkQtdCores($index, $produto);
+
 }
 ?>
