@@ -392,14 +392,14 @@
 
                                                                 <div class="row ">
 
-                                                                    <span class="mt-1 mb-1" >Envio: R$: 10,00</span>
+                                                                    <span class="mt-1 mb-1" >RS 761,20</span>
 
 
                                                                 </div>
 
                                                                 <div class="row">
 
-                                                                    <span class="mt-1 mb-1"></span>
+                                                                    <span class="mt-1 mb-1">Envio: R$: 10,00</span>
 
                                                                 </div>
 
@@ -447,7 +447,7 @@
 
                                                                 <div class="row ">
 
-                                                                    <span class="mt-1 mb-1" >Total: RS 761,20<</span>
+                                                                    <span class="mt-1 mb-1" >Total: RS 771,20<</span>
 
 
                                                                 </div>
