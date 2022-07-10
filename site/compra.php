@@ -351,7 +351,7 @@
 
                                                         <div class = "row border border-dark ">
 
-                                                            <div class = "col-12 col-md-8 col-lg-8 col-xl-9 fw-bold">Pagamento Pendente</div>
+                                                            <div class = "col-12 col-md-8 col-lg-8 col-xl-9 fw-bold">Revisão do pedido</div>
 
                                                         </div>
 						
@@ -360,6 +360,31 @@
                                                             <div class = "col-12 col-md-2 col-lg-2 col-xl-2 d-flex align-items-center justify-content-center ">
 
                                                                 <img src="imagens/placa.jpg" class="mb-3 mt-3"  >
+
+                                                            </div>
+
+                                                            <div class = "col-12 col-md-10 col-lg-10 col-xl-10 " > 
+
+                                                                <div class="row ">
+
+                                                                    <span class="mt-1 mb-1" >Placa de Vídeo NVIDIA GTX 1050 GEFORCE</span>
+
+
+                                                                </div>
+
+                                                                <div class="row">
+
+                                                                    <span class="mt-1 mb-1"></span>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+						
+							<div class = "row h-100">
+
+                                                            <div class = "col-12 col-md-2 col-lg-2 col-xl-2 d-flex align-items-center justify-content-center ">
 
                                                             </div>
 
