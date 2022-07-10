@@ -91,7 +91,7 @@
 
 									<li class = " w-25 rounded" > <!-- border border-dark -->
 
-										<div class = "mt-1" > Início </div>
+										<div class = "mt-1" ><a href="index.php"> Início </a></div>
 
 									</li>
 
