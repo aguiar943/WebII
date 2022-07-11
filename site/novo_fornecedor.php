@@ -87,7 +87,7 @@
 
                                                             $arr_provedores = array(
 
-                                                                "@gmail.com", "@yahoo.com.br", "@outlook.com.br", "@outlook.com.br", "@hotmail.com", "@protonmail.com"
+                                                                "@gmail.com", "@yahoo.com.br", "@outlook.com.br", "@hotmail.com", "@protonmail.com"
                                                             
                                                             );
 
