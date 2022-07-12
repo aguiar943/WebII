@@ -215,7 +215,7 @@
                                                 }
 
                                             } ?>
-                                            <a href='novo_usuario.php' class='btn btn btn-success left-margin mt-3'> Novo </a>
+                                            <a href='cadastro.php' class='btn btn btn-success left-margin mt-3'> Novo </a>
                                     
                                         </section>
 

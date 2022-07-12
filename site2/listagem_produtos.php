@@ -137,7 +137,7 @@
 
                                                             <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
 
-                                                                <a href='altera_produto.php?fornecedor=<?= $id; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
+                                                                <a href='altera_produto.php?id=<?= $id; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
 
                                                                     <i class="fa-solid fa-pencil"></i>
 
@@ -148,7 +148,7 @@
                                                             <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
 
                                                                 <a href='remove_produto.php?id=<?= $id ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
-                                                                    onclick = "return confirm('Confirma exclusão do fornecedor?')" title="Excluir"   
+                                                                    onclick = "return confirm('Confirma exclusão do produto?')" title="Excluir"   
                                                                 >
 
                                                                     <i class="fa-solid fa-trash-can"></i>
