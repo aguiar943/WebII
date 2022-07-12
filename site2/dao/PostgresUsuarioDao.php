@@ -183,5 +183,22 @@ class PostgresUsuarioDao extends PostgresDao implements UsuariosDao {
         return $this->usuario;
 
     }
+
+    public function removePorCPFSelecionado($cpf) {
+        $query = "DELETE FROM " . $this->table_name . 
+        " WHERE cpf = :cpf";
+
+        $stmt = $this->conn->prepare($query);
+
+        // bind parameters
+        $stmt->bindParam(':cpf', $cpf);
+
+        // execute the query
+        if($stmt->execute()){
+            return true;
+        }    
+
+        return false;
+    }
 }
 ?>

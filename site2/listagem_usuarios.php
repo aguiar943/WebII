@@ -128,16 +128,6 @@
                                                             <div class = "col-12 col-md-2 col-lg-2 col-xl-2 text-danger"> <?= $celular2; ?> </div>
                                                             <div class = "col-12 col-md-3 col-lg-2 col-xl-2 text-danger"> <?= $cpf; ?> </div>
 
-                                                            <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
-
-                                                                <a href='altera_usuario.php?cpf=<?= $cpf; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
-
-                                                                    <i class="fa-solid fa-pencil"></i>
-
-                                                                </a>
-
-                                                            </div>
-
                                                             <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
 
                                                                 <a href='remove_usuario.php?cpf=<?= $cpf ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
