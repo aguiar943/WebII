@@ -66,7 +66,7 @@
 
          $_POST['cpf'], $_POST['email'], $_POST['nome'],
          $_POST['rg'], $_POST['celular'], $_POST['telefone'], $_POST['senha'], 
-         $_POST['cartao'],$_POST['provedor']
+         $_POST['cartao']
 
       );
 

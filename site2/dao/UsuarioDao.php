@@ -8,6 +8,5 @@ interface UsuarioDao {
     public function buscaPorId($id);
     public function buscaTodos();
     public function getUsuarioLogado();
-    public function removePorCPF($us_cpf);
 }
 ?>
