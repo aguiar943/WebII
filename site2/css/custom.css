@@ -1,0 +1,550 @@
+table, th, td {
+    
+}
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+    }
+}
+
+/* ESTILIZAÇÃO DO MENU SUPERIOR */
+
+.banner-h{
+
+    height: 6vh;
+
+}
+
+.menu-h{
+
+    height: 5.2vh ;
+    
+}
+
+.search{
+    height: 100% ;
+}
+
+.search-mg{
+    
+    margin-top: 0.1vh;
+    margin-bottom: 0.3vh;
+
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+
+    color: #a3a0a0;
+    font-size: small;
+    outline: none !important;
+
+}
+
+.lupa-mg{
+
+    margin-top: 0.1vh;
+    margin-bottom: 0.4vh;
+
+    border-bottom-left-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+
+}
+
+ .conta, .conta a{
+
+    text-decoration: none  !important;
+    align-items: center !important;
+    color: black !important;
+}
+
+.conta, .conta a:visited{
+
+    color: black !important;
+}
+
+
+
+.submenu ul{ /* lista ( ul ) do submenu vai para a direita */
+
+    margin-left: 18.4vh;
+    
+}
+
+.submenu-conta ul{ /* lista ( ul ) do submenu vai para a direita */
+
+    margin-left: 8.4vh;
+    
+}
+
+.menu ul, .submenu ul, .submenu-conta ul{
+
+    list-style: none;
+    float: left ;
+    padding-left: 0 ;
+   
+
+}
+
+.menu li, .submenu li, .submenu-conta li{ 
+
+    position: relative;
+    width: 20% ;
+    height: 230% ;
+    
+}
+
+.menu li ul{
+
+    display: none;
+    position: absolute ;
+    list-style: none ;    
+    
+}
+
+.submenu ul li, .submenu-conta ul li{
+
+    display: none;
+
+    /* position... none */
+    list-style: none ; 
+
+    /* Os itens da lista ( li ) do submenu ficam um abaixo do outro alinhados pela esquerda */
+    float: left;
+
+    margin-left: 3vh !important;
+
+    /* itens da lista ( li ) do submenu vão para a direita */
+    right: 3vh;
+   
+
+    /* itens da lista ( li ) do submenu vão mais para cima */
+
+
+    /* background-color: red; */
+  
+}
+
+.menu li:hover ul{
+
+    display: block !important;
+    z-index: 1 ;
+    
+    background-color: rgb(241, 241, 241);
+    
+
+}
+
+.submenu:hover ul li, .submenu-conta:hover ul li{
+
+    display: inline !important;
+    z-index: 2 ;
+    background-color: rgb(241, 241, 241);
+    
+   
+}
+
+.submenu:hover ul, .submenu-conta:hover ul, .products-list{
+
+    border: 1px solid rgb(216, 216, 216) !important;
+    
+    
+}
+
+.area-top{
+
+    background-color: rgb(245, 245, 245);
+    
+}
+
+.area-menu{
+    background-color: rgb(240, 240, 240);
+}
+
+.user-icon{
+
+    height: 100% !important;
+    width: 3vh !important;
+
+}
+
+/* ESTILIZAÇÃO DA PÁGINA DE DETALHES DO PRODUTO */
+
+#detalhes_produto{
+
+    height: 67.5vh;
+    
+}
+
+#detalhes_produto_info{
+
+    height: 57.5vh;
+    
+}
+
+#produto-info-h{
+
+    height: 4vh;
+    justify-content: start;
+    border-bottom: 1px solid rgb(216, 216, 216) ;
+    align-items: center;
+    display: flex;
+    font-size: 1.6vh;
+    
+}
+
+.mini-fotos-area{
+
+    height: 13% !important; 
+    width: 25%;
+    font-size: 2vh;
+
+}
+
+
+#foto_main{
+
+    width: 23%;
+
+}
+
+#aumentar, #diminuir{
+
+    border-radius: 1vh;
+    background-color: rgb(230, 230, 230);
+    height: 6vh;
+
+}
+
+#btn-compra, #btn-add{
+
+    background-color: rgb(226, 140, 41);
+    border-radius: 10vh;
+    
+}
+
+
+.btn-sz{
+
+    font-size: 1.6vh;
+    height: 5vh;
+    color: white !important;
+    background-color: rgb(226, 140, 41);
+    border-radius: 10vh;
+    text-decoration: none !important;
+
+}
+
+.btn-sz a:visited{
+    color: white !important;
+    text-decoration: none !important;
+    list-style: none !important;
+}
+
+#fotos-rodape{
+
+    width: 42vh;
+    height: 10vh;
+    background-color: rgb(230, 230, 230);
+    margin-left: 32vh;
+    align-items: center;
+    color: black !important;
+}
+
+/* Estilização das categorias */
+
+#fotos-categorias{
+    
+    background-color: #dadada;
+}
+
+#menu-categorias{
+    width: 15%;
+    height: 40%;
+}
+
+.center-flx{
+
+    font-size: 1.5vh;
+    justify-content: center !important;
+    align-items: center;
+    display: flex;
+
+}
+
+/* bg-warning */
+
+#categoria{
+
+    width: 11vh !important;
+    margin-top: 4vh;
+    background-color: #646060;
+
+}
+
+#categoria-detalhe{
+
+    width: 18vh !important;
+    margin-top: 4vh;
+    background-color: #dddddd;
+
+}
+
+#categoria-detalhe{
+    width: 17%;
+}
+
+#categoria-detalhe{
+
+    width: 17%;
+    margin-top: 4vh;
+    background-color: #646060;
+
+}
+
+.foto-h{
+    height: 23vh;
+}
+
+.bg-cat{
+    background-color: #dfdfdf;
+    border-radius: 5px;
+
+}
+
+#categoria ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100% !important;
+    
+}
+
+/* bg-secondary */
+
+#menu-fotos{
+
+    width: 80%;
+    margin-top: 4vh;
+    background-color: #c9c3c3;
+
+}
+
+/* bg-danger */
+
+#geral-bot{
+    width: 111vh;
+    background-color: #cabfbf;
+    
+}
+
+#categoria{
+    width: 97%;
+    background-color: #edededbb;
+}
+
+
+/* bg-primary */
+
+#geral-categorias{
+
+    width: 113vh;
+    background-color: #c2c2c2;
+
+}
+
+#geral-categorias-conta{
+
+    width: 153vh;
+    background-color: #c2c2c2;
+
+}
+
+#geral-bot-conta{
+    width: 101%;
+    background-color: #f7f7f7;
+    
+}
+
+#menu-fotos-conta{
+
+    width: 80%;
+    margin-top: 4vh;
+    background-color: #ececec;
+
+}
+
+.cadastro-conta-x{
+    height: 79vh;
+}
+
+.cadastro-conta-h{
+    height: 4%;
+}
+
+.cadastro-conta-h input{
+    line-height: 2vh;
+}
+
+.cadastro-conta-h select{
+    line-height: 2vh;
+}
+
+.cadastro-conta-h button{
+    height: 15vh;
+}
+
+input[type='file'] {
+
+    display: none
+
+}
+
+.upload-wrapper label {
+
+    background-color: #afafaf;
+    border-radius: 5px;
+    color: #fff;
+    line-height: 2vh;
+    padding: 6px 20px;
+    width: 14.5vh;
+    font-size: 1vh;
+
+}
+
+.upload-wrapper label:hover {
+
+    background-color: #2980b9 
+
+}
+
+#nome-foto-produto {
+
+    width: 100vh !important;
+    color: #d33a3a;
+    font-size: 1.8vh;
+
+}
+
+#nome-foto-detalhe {
+
+    width: 100vh !important;
+    color: hsl(29, 25%, 38%);;
+    font-size: 1.8vh;
+
+}
+
+.font-listagem{
+
+    font-size: 2.1vh;
+    color: blue;
+
+}
+
+.listg-col-w{
+
+    width: 7%;    
+
+}
+
+.list-opts-w{
+
+    width: 90%;
+
+}
+
+.content-area{
+    
+    height: 220%;
+}
+
+.btn-pedido{
+
+    background-color: #fa7020 !important;
+    color: white !important;
+
+}
+
+.btn-compra{
+
+    background-color: #bdbaba !important;
+    border-radius: 8px !important;
+    color: white !important;
+
+}
+
+.geral_produtos{
+
+height: 170vh !important;
+/*border: 1px solid red !important; */
+
+}
+
+/* alterar aqui conforme adiciona mais colunas */
+
+.photo {
+
+    height: 59% !important;
+    border: 1px solid rgb(170, 17, 162) !important;
+
+}
+
+.linha_foto{
+
+    height: 60% !important;
+    border: 1px solid rgb(17, 32, 170) !important;
+
+}
+
+.linha_detalhe{
+
+    height: 6% !important;
+
+}
+
+.row_border{
+
+    border-bottom: 1px solid rgb(216, 216, 216) !important ;
+
+}
+
+.row_border_all{
+
+    border: 1px solid rgb(216, 216, 216) !important ;
+
+}
+
+.galeria{
+
+    height: 4.5rem !important;
+    border: 1px solid rgb(17, 32, 170) !important;
+ 
+    margin: 0 !important;
+    margin-bottom: 100rem !important;
+        
+}
+
+.card_galeria{
+
+    height: 2.9rem !important;
+
+
+}
+
+#area_cards{
+
+    height: 3.3rem !important;
+
+}
+
