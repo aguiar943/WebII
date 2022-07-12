@@ -93,9 +93,11 @@
 
                                                 <div class = "row border border-dark ">
 
-                                                    <div class = "col-12 col-md-5 col-lg-3 col-xl-6 " > Nome </div>
-                                                    <div class = "col-8 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-start" > CPF</div>
-                                                    
+                                                    <div class = "col-4 col-md-3 col-lg-2 col-xl-2 d-flex justify-content-start" > Nome </div>
+                                                    <div class = "col-8 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-start">Email</div>
+                                                    <div class = "col-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-start"> Telefone </div>
+                                                    <div class = "col-3 col-md-3 col-lg-2 col-xl-2 d-flex justify-content-start"> RG </div>
+
                                                     <div class = "col-1 col-md-2 col-lg-1 col-xl-1"></div>
                                                     <div class = "col-1 col-md-2 col-lg-1 col-xl-1 ms-5"></div>
                                                     <div class = "col-1 col-md-2 col-lg-1 col-xl-1 ms-4"></div>
@@ -121,13 +123,24 @@
 
                                                         <div class = "row border border-dark ">
 
-                                                            <div class = "col-12 col-md-5 col-lg-3 col-xl-6 "> <?= $nome; ?> </div>
-                                                            <div class = "col-12 col-md-3 col-lg-3 col-xl-3 text-warning" > <?= $cpf; ?> </div>
+                                                            <div class = "col-12 col-md-3 col-lg-2 col-xl-2 "> <?= $nome; ?> </div>
+                                                            <div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-warning" > <?= $email; ?> </div>
+                                                            <div class = "col-12 col-md-2 col-lg-2 col-xl-2 text-danger"> <?= $celular2; ?> </div>
+                                                            <div class = "col-12 col-md-3 col-lg-2 col-xl-2 text-danger"> <?= $rg; ?> </div>
 
-                                                    
+                                                            <div class = "col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
+
+                                                                <a href='mostra_usuario.php?id=<?= $id ?>' class='btn btn-primary justify-content-center' title="Visualizar">
+
+                                                                    <i class="fa-solid fa-eye"></i>
+
+                                                                </a>
+                                                            
+                                                            </div>
+
                                                             <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
 
-                                                                <a href='altera_usuario.php?cpf=<?= $cpf; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
+                                                                <a href='altera_usuario.php?usuario=<?= $fo_cnpj; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
 
                                                                     <i class="fa-solid fa-pencil"></i>
 
@@ -137,7 +150,7 @@
 
                                                             <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
 
-                                                                <a href='remove_usuario.php?cpf=<?= $cpf ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
+                                                                <a href='remove_usuario.php?id=<?= $fo_cnpj ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
                                                                     onclick = "return confirm('Confirma exclusão do usuario?')" title="Excluir"   
                                                                 >
 
