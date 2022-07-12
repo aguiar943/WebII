@@ -125,7 +125,7 @@
 
                                                             $arr_provedores = array(
 
-                                                                "@gmail.com", "@yahoo.com.br", "@outlook.com.br", "@hotmail.com", "@protonmail.com"
+                                                                "@gmail.com", "@yahoo.com.br", "@outlook.com.br", "@outlook.com.br", "@hotmail.com", "@protonmail.com"
                                                             
                                                             );
 
@@ -186,17 +186,9 @@
                                                             if(isset($_POST['enviar'])){
 
                                                                 echo $dao->altera($fornecedor);
-																
-																if ($dao->altera($fornecedor) == "Fornecedor alterado com sucesso !") {	
-																echo "<script>alert('Fornecedor alterado com sucesso');</script>"; 
-																echo "<meta http-equiv='refresh' content='0, url=listagem_fornecedor.php?=1'>";  
-																}
+
                                                             }
-															
-															
-															 
                                                         ?>
-														
 
                                                     </span>
 
