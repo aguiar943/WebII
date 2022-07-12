@@ -45,10 +45,9 @@ echo Auth::iniciarSessao();
 
                     <div class = "col-xl-2  d-flex justify-content-center mt-1 mb-1 ms-2"> <!-- border border-dark -->
 
-                        <div class = "col-xl-12" > 
-
-                            <img src = "imagens/logo.png" class = " w-100 h-100 mb-4 rounded" >
-                            
+                    <div class = "col-xl-12" > 
+							<a href="index.php" class="d-flex align-items-center text-dark text-decoration-none"> 
+								<img src = "imagens/logo.png" class = " w-100 h-100 mb-4 rounded" ></a>
                         </div>
 
                     </div>
@@ -74,11 +73,9 @@ echo Auth::iniciarSessao();
 
                         <div class = "d-flex justify-content-start h-100  w-75 search-mg" >
 
-                            <a href="#" class="d-flex align-items-center conta mt-2 ">
-
-                                <img src="imagens/carrinho.png" class="align-middle  h-100 mb-3 mt-2" >
-                            
-                            </a>
+                        <a href="#" class="d-flex align-items-center conta mt-2 ">
+									<img src="imagens/carrinho.png" class="align-middle  h-100 mb-3 mt-2" >      
+						</a>
                             
                         </div>
 
