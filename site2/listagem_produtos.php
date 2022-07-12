@@ -91,6 +91,7 @@
                                                 <div class = "row border border-dark ">
 
                                                     <div class = "col-4 col-md-3 col-lg-2 col-xl-2 d-flex justify-content-start" >CD</div>
+                                                    <div class = "col-4 col-md-3 col-lg-2 col-xl-2 d-flex justify-content-start" >Descrição</div>
                                                     <div class = "col-8 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-start "> Categoria</div>
                                                     <div class = "col-4 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-start">Marca</div>
                                                     <div class = "col-3 col-md-3 col-lg-2 col-xl-2 d-flex justify-content-start">Modelo</div>
@@ -119,11 +120,12 @@
                                                         <div class = "row border border-dark ">
 
                                                             <div class = "col-12 col-md-3 col-lg-2 col-xl-2 "> <?= $cd_barras; ?> </div>
+                                                            <div class = "col-12 col-md-3 col-lg-3 col-xl-3 "> <?= $descricao; ?> </div>
                                                             <div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-warning" > <?= $subcategoria; ?> </div>
                                                             <div class = "col-12 col-md-2 col-lg-2 col-xl-2 text-danger"> <?= $marca; ?> </div>
                                                             <div class = "col-12 col-md-3 col-lg-2 col-xl-2 text-danger"> <?= $modelo; ?> </div>
 
-                                                            <div class = "col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
+                                                            <!-- <div class = "col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
 
                                                                 <a href='mostra_produto.php?id=<?= $id ?>' class='btn btn-primary justify-content-center' title="Visualizar">
 
@@ -131,7 +133,7 @@
 
                                                                 </a>
                                                             
-                                                            </div>
+                                                            </div> -->
 
                                                             <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
 

@@ -121,7 +121,7 @@ $first = true;
 					
 					$produto = $prods[$i];
 
-					$img = $produto->getImgsVitrine()[0]->getPath($produto);
+					// $img = $produto->getImgsVitrine()[0]->getPath($produto);
 					
 					?>
 
@@ -137,10 +137,10 @@ $first = true;
 
 										<div class="col-md-5">
 
-											<img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"  
+											<!-- <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"  
 												width="500" height="500" src="<?= $img ; ?>" role="img" aria-label="Placeholder: 500x500" 
 												preserveAspectRatio="xMidYMid slice" focusable="false"
-											>
+											> -->
 												
 											<rect width="100%" height="100%" fill="#eee"/>
 											
