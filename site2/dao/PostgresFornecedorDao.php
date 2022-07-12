@@ -180,5 +180,21 @@ class PostgresFornecedorDao extends PostgresDao implements FornecedorDao {
      
         return $stmt;
     }
+    
+    public function RemoveFornecedorPorCNPJ($fo_cnpj) {
+        $query = "DELETE FROM " . $this->table_name . 
+        " WHERE fo_cnpj = :fo_cnpj";
+
+        $stmt = $this->conn->prepare($query);
+        // bind parameters
+        $stmt->bindParam(':fo_cnpj', $fo_cnpj);
+
+        // execute the query
+        if($stmt->execute()){
+            return true;
+        }    
+        return false;
+    }
+   
 }
 ?>

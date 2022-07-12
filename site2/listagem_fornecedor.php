@@ -87,9 +87,9 @@
 
                                                 <div class = "row border border-dark ">
 
-                                                    <div class = "col-5 col-md-4 col-lg-2 col-xl-2 d-flex justify-content-start" > Nome </div>
-                                                    <div class = "col-4 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-start">CNPJ</div>
-                                                    <div class = "col-3 col-md-4 col-lg-2 col-xl-2 d-flex justify-content-start"> Tel </div>
+                                                    <div class = "col-5 col-md-4 col-lg-2 col-xl-2 d-flex justify-content-start" > Razão Social </div>
+                                                    <div class = "col-4 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-start" > CNPJ</div>
+                                                    <div class = "col-3 col-md-4 col-lg-2 col-xl-2 d-flex justify-content-start" > Tel </div>
 
                                                     <div class = "col-1 col-md-2 col-lg-1 col-xl-1"></div>
                                                     <div class = "col-1 col-md-2 col-lg-1 col-xl-1 ms-5"></div>
@@ -120,19 +120,9 @@
                                                             <div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-warning" > <?= $fo_cnpj; ?> </div>
                                                             <div class = "col-12 col-md-4 col-lg-3 col-xl-3 text-danger"> <?= $fo_telefone; ?> </div>
 
-                                                            <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center " > 
+                                                         <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
 
-                                                                <a href='mostra_fornecedor.php?id=<?= $id ?>' class='btn btn-primary justify-content-center' title="Visualizar">
-
-                                                                    <i class="fa-solid fa-eye"></i>
-
-                                                                </a>
-                                                            
-                                                            </div>
-
-                                                            <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center"  > 
-
-                                                                <a href='altera_fornecedor.php?fornecedor=<?= $fo_cnpj; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
+                                                                <a href='altera_fornecedor.php?fo_cnpj=<?= $fo_cnpj; ?>' class='btn btn-info left-margin ms-1 justify-content-center' title="Alterar">
 
                                                                     <i class="fa-solid fa-pencil"></i>
 
@@ -142,7 +132,7 @@
 
                                                             <div class = "col-4 col-sm-4 col-md-4 col-lg-1 col-xl-1 mt-1 mb-1 d-flex justify-content-center" > 
 
-                                                                <a href='remove_produto.php?id=<?= $fo_cnpj ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
+                                                                <a href='remove_fornecedor.php?cnpj=<?=$fo_cnpj ?>' class='btn btn-danger left-margin ms-1 justify-content-center'
                                                                     onclick = "return confirm('Confirma exclusão do fornecedor?')" title="Excluir"   
                                                                 >
 
