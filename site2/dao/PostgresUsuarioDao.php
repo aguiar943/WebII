@@ -200,5 +200,6 @@ class PostgresUsuarioDao extends PostgresDao implements UsuariosDao {
 
         return false;
     }
+
 }
 ?>

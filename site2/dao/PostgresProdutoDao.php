@@ -515,5 +515,20 @@ class PostgresProdutoDao extends PostgresDao implements ProdutosDao {
         return "#FFFFFF";
 
     }
+
+    public function RemoveProdutoPoBarras($cd_barras) {
+        $query = "DELETE FROM " . $this->table_name . 
+        " WHERE cd_barras = :cd_barras";
+
+        $stmt = $this->conn->prepare($query);
+        // bind parameters
+        $stmt->bindParam(':cd_barras', $cd_barras);
+
+        // execute the query
+        if($stmt->execute()){
+            return true;
+        }    
+        return false;
+    }
 }
 ?>

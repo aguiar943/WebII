@@ -5,6 +5,7 @@ interface ProdutosDao {
     public function remove($veiculo);
     public function altera($produto, $factory);
     public function alteraFoto($imagens_prod, $path);
+    public function RemoveProdutoPoBarras($cd_barras);
     public function buscaPorId($id);
     public function buscaPorNome($login);
     public function buscaTodos();
